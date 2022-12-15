@@ -8,6 +8,7 @@ using UnityEngine;
 public enum WallsState
 {
     //Bit mask, Powers of 2
+    //Will have to use Bitwise operators         OR: =| (Adds another property to flags)   NOT: &= ~ (deleted/unsets property)   XOR: ^=
     LEFT = 1,   //0001
     RIGHT = 2,  //0010
     TOP = 4,    //0100
@@ -63,9 +64,10 @@ public class MazeGenerator : MonoBehaviour
         System.Random randomNum = new System.Random((int)System.DateTime.Now.Ticks); //Use date and time for seed so maze is always random
 
         Stack<Position> positionStack = new Stack<Position>();
+        //Starting position
         Position position = new Position { X = randomNum.Next(0, mazeWidth), Y = randomNum.Next(0, mazeHeight) };
 
-        maze[position.X, position.Y] |= WallsState.VISITED; //1000 1111
+        maze[position.X, position.Y] |= WallsState.VISITED; //Add visited state to this position
         positionStack.Push(position);
 
         while(positionStack.Count > 0)
@@ -77,14 +79,15 @@ public class MazeGenerator : MonoBehaviour
             {
                 positionStack.Push(current);
 
-                int randIndex = randomNum.Next(0, neighbours.Count);
+                int randIndex = randomNum.Next(0, neighbours.Count); //randomise the next neighbour chosen
                 Neighbour randomNeighbour = neighbours[randIndex];
 
                 Position nPosition = randomNeighbour.Position;
-                maze[current.X, current.Y] &= ~randomNeighbour.SharedWall;
+                //Remove the wall of a random neighbour and the wall that current cell shares with it
+                maze[current.X, current.Y] &= ~randomNeighbour.SharedWall; 
                 maze[nPosition.X, nPosition.Y] &= ~GetOppositeWall(randomNeighbour.SharedWall);
 
-                maze[nPosition.X, nPosition.Y] |= WallsState.VISITED;
+                maze[nPosition.X, nPosition.Y] |= WallsState.VISITED; //Add visited state
 
                 positionStack.Push(nPosition);
             }
@@ -135,7 +138,7 @@ public class MazeGenerator : MonoBehaviour
     public static WallsState[,] GenerateMaze(int mazeWidth, int mazeHeight)
     {
         WallsState[,] maze = new WallsState[mazeWidth, mazeHeight];
-        WallsState premade = WallsState.RIGHT | WallsState.LEFT | WallsState.TOP | WallsState.BOTTOM; 
+        WallsState premade = WallsState.RIGHT | WallsState.LEFT | WallsState.TOP | WallsState.BOTTOM; //Add all states to create a room with all walls
 
         for (int x = 0; x < mazeWidth; ++x)
         {
