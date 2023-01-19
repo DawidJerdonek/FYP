@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,7 +9,11 @@ public class DialogueEditor : MonoBehaviour
     public GameObject dialogueEditor;
     public GameObject observerCharacter;
     public GameObject missionControlCharacter;
-  
+
+
+    public List<String> observerDialogue;
+    public List<String> greetingBotDialogue;
+    public List<String> MissionDialogue;
 
     public TextMeshProUGUI editable;
     public TextMeshProUGUI greetingBotText;
@@ -23,6 +28,6 @@ public class DialogueEditor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+     //for(int i = 0; i < observerDialogue.Count; i++)   
     }
 }
