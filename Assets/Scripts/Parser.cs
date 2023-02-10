@@ -40,7 +40,7 @@ public class Parser : MonoBehaviour
 
     public void splitData()
     {
-        int stopIndex = importedDialogueFile.Length;
+ 
         Dialogue dialogue = new Dialogue();
         dialogue.replies = new List<string>();
         bool continueSearch = false;
