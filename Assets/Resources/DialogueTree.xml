@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ObserverConversation>
+
+<stage>0</stage>
+<dialogue>
+<text> Hello! Where are you from? </text>
+<answers>
+<ans1>
+<reply>Why do you care?</reply>
+<nextStage>1</nextStage>
+</ans1>
+<ans2>
+<reply>Hello I am from Earth</reply>
+<nextStage>2</nextStage>
+</ans2>
+</answers>
+</dialogue>
+
+<stage>1</stage>
+<dialogue> 
+<text>I see, in that case goodbye...</text>
+<answers>
+</answers>
+</dialogue>
+
+<stage>2</stage>
+<dialogue> 
+<text>In that case I welcome you, I observe you to learn<text>
+</dialogue>
+
+</ObserverConversation>

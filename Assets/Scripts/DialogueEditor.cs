@@ -28,6 +28,6 @@ public class DialogueEditor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     //for(int i = 0; i < observerDialogue.Count; i++)   
+     
     }
 }

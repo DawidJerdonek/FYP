@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
 
     public GameObject dialogueCanvas;
-    public DialogueEditor dialogueSystem;
+    public DialogueEditor dialogueEditor;
     public TextMeshProUGUI textToDisplay;
 
     // Start is called before the first frame update
@@ -32,22 +32,22 @@ public class PlayerController : MonoBehaviour
     {
         if(other.tag == "Observer")
         {
-            dialogueSystem.characterName.text = "The Observer";
+            dialogueEditor.characterName.text = "The Observer";
             dialogueCanvas.SetActive(true);
            
         }
 
         if (other.tag == "MissionControl")
         {
-            dialogueSystem.characterName.text = "Mission Control";
+            dialogueEditor.characterName.text = "Mission Control";
             dialogueCanvas.SetActive(true);
         }
 
         if (other.tag == "GreetingBot")
         {
-            dialogueSystem.characterName.text = "Greeting Bot";
-            dialogueSystem.greetingBotText.text = dialogueSystem.editable.text;
-            textToDisplay.text = dialogueSystem.greetingBotText.text;
+            dialogueEditor.characterName.text = "Greeting Bot";
+            dialogueEditor.greetingBotText.text = dialogueEditor.editable.text;
+            textToDisplay.text = dialogueEditor.greetingBotText.text;
             dialogueCanvas.SetActive(true);
             Debug.Log("Bot");
         }
