@@ -33,8 +33,16 @@ public class PlayerController : MonoBehaviour
     {
         if(other.tag == "Observer")
         {
-            dialogueEditor.characterName.text = "The Observer";
-            DialogueSystem.instance.displayText.text = DialogueSystem.instance.parsedDialogue[0].dialogue;
+            //dialogueEditor.characterName.text = "The Observer";
+            //for(int i = 0; i < DialogueSystem.instance.parsedDialogue.Count;)
+            //{
+                DialogueSystem.instance.displayText.text = DialogueSystem.instance.parsedDialogue[0].dialogue;
+            //    if(Input.GetKey(KeyCode.V))
+            //    {
+            //        i++;
+            //    }
+            //}
+            
             dialogueCanvas.SetActive(true);
            
         }
@@ -42,6 +50,19 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "MissionControl")
         {
             dialogueEditor.characterName.text = "Mission Control";
+            //for (int i = 0; i < DialogueSystem.instance.parsedDialogue.Count;)
+            //{
+                //if (DialogueSystem.instance.parsedDialogue[i].character == "MissionControl")
+                //{
+                    DialogueSystem.instance.displayText.text = DialogueSystem.instance.parsedDialogue[0].dialogue;
+                //}
+                //else { i++; }
+
+            //    if (Input.GetKey(KeyCode.V))
+            //    {
+            //        i++;
+            //    }
+            //}
             dialogueCanvas.SetActive(true);
         }
 
