@@ -7,6 +7,7 @@ using Valve.VR.InteractionSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
     public SteamVR_Action_Vector2 input;
     private float speed = 2;
     private CharacterController characterController;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         if(other.tag == "Observer")
         {
             dialogueEditor.characterName.text = "The Observer";
+            DialogueSystem.instance.displayText.text = DialogueSystem.instance.parsedDialogue[0].dialogue;
             dialogueCanvas.SetActive(true);
            
         }

@@ -8,8 +8,9 @@ using UnityEngine;
 [System.Serializable]
 public struct Dialogue
 {
+    public string character;
     public int stage;
-    public string converstaion;
+    public string dialogue;
     public List<string> replies;
 }
 
@@ -44,9 +45,21 @@ public class Parser : MonoBehaviour
         Dialogue dialogue = new Dialogue();
         dialogue.replies = new List<string>();
         bool continueSearch = false;
+        string nameString = "";
 
         for (int i = 0; i < importedDialogueFile.Length; i++)
         {
+           
+            if (importedDialogueFile[i].Contains("<conversation>"))
+            {
+                nameString = importedDialogueFile[i];
+
+                //Remove XML syntax to help with sorting data
+                nameString = nameString.Replace("<conversation>", "");
+
+                //Convert string to int
+                dialogue.character = nameString;
+            }
             if (importedDialogueFile[i].Contains("<dialogue>"))
             {
                 continueSearch = true; //Seperate search for multiple Dialogues with one character
@@ -64,6 +77,7 @@ public class Parser : MonoBehaviour
 
                 //Convert string to int
                 dialogue.stage = int.Parse(modifiedString);
+                dialogue.character = nameString;
             }
 
             if (continueSearch)
@@ -77,7 +91,7 @@ public class Parser : MonoBehaviour
                     modifiedString = modifiedString.Replace("</text>", "");
                     modifiedString = modifiedString.Replace("<text>", "");
 
-                    dialogue.converstaion = modifiedString;
+                    dialogue.dialogue = modifiedString;
                 }
                 else if(importedDialogueFile[i].Contains("<reply>"))
                 {
@@ -96,7 +110,7 @@ public class Parser : MonoBehaviour
                 {
                     continueSearch = false;
                     dialogueList.Add(dialogue);
-                    dialogue = new Dialogue { replies = new List<string>(), converstaion = "", stage = 0 };
+                    dialogue = new Dialogue { replies = new List<string>(), dialogue = "", stage = 0 };
 
                    
                 }
