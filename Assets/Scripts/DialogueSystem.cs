@@ -15,17 +15,9 @@ public class DialogueSystem : MonoBehaviour
 
     public string[] loadedDialogueFile;
 
-    public GameObject observerCharacter;
-    public GameObject greetingBotCharacter;   
-    public GameObject missionControlCharacter;
-
-    //public List<String> greetingBotDialogue;
-    //public List<String> MissionDialogue;
-
-    //public List<string> conversation;
-    // public List<string> replies;
-    // public int numOfResponses = 0;
-    //public int nextStage = 0;
+    public int observerStage;
+    public int greetingBotStage;   
+    public int missionControlStage;
 
     public List<Dialogue> observerDialogue;
     public List<Dialogue> greetingBotDialogue;
@@ -52,41 +44,38 @@ public class DialogueSystem : MonoBehaviour
         parsedDialogue = parser.returnDialogue();
         Debug.Log(parsedDialogue[0].character);
 
-        //Dialogue tempDialogue = new Dialogue();
-        //for (int i = 0; i < parsedDialogue.Count; i++)
-        //{
+        for (int i = 0; i < parsedDialogue.Count; i++)
+        {
+            if (parsedDialogue[i].character == "Observer")
+            {
+                //observerDialogue[j].character = parsedDialogue[i].character;
+                observerDialogue.Add(parsedDialogue[i]);
+            }
+            if (parsedDialogue[i].character == "GreetingBot")
+            {
+                //observerDialogue[j].character = parsedDialogue[i].character;
+                greetingBotDialogue.Add(parsedDialogue[i]);
+            }
+            if (parsedDialogue[i].character == "MissionControl")
+            {
+                //observerDialogue[j].character = parsedDialogue[i].character;
+                missionControlDialogue.Add(parsedDialogue[i]);
+            }
 
-        //    if (parsedDialogue[i].character == "Observer")
-        //    {
-        //        observerDialogue.AddRange(parsedDialogue);
-        //        observerDialogue[i] = parsedDialogue[i];
+        }
 
-        //        //String character = parsedDialogue[i].character;
-        //        //String dialogue = parsedDialogue[i].dialogue;
-        //        //observerDialogue.Add(tempDialogue);
-        //        //dialogue = new Dialogue { replies = new List<string>(), dialogue = "", stage = 0 };
-        //    }
-
-        //    if (parsedDialogue[i].character == "GreetingBot")
-        //    {
-        //        greetingBotDialogue.AddRange(parsedDialogue);
-        //        greetingBotDialogue[i] = parsedDialogue[i];
-        //    }
-
-        //    if (parsedDialogue[i].character == "MissionControl")
-        //    {
-        //        missionControlDialogue.AddRange(parsedDialogue);
-        //        missionControlDialogue[i] = parsedDialogue[i];
-        //    }
-        //}
-        //Debug.Log(observerDialogue[2].dialogue);
-        //Debug.Log(greetingBotDialogue[1].dialogue);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        displayText.text = observerDialogue[observerStage].dialogue;
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("P");
+            observerStage++;
+ 
+        }
     }
 
     string[] readTextFile(string filePath)

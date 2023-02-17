@@ -10,11 +10,6 @@ public class DialogueEditor : MonoBehaviour
     public GameObject observerCharacter;
     public GameObject missionControlCharacter;
 
-
-    public List<String> observerDialogue;
-    public List<String> greetingBotDialogue;
-    public List<String> MissionDialogue;
-
     public TextMeshProUGUI editable;
     public TextMeshProUGUI greetingBotText;
     public TextMeshProUGUI characterName;

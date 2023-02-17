@@ -33,16 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         if(other.tag == "Observer")
         {
-            //dialogueEditor.characterName.text = "The Observer";
-            //for(int i = 0; i < DialogueSystem.instance.parsedDialogue.Count;)
-            //{
-                DialogueSystem.instance.displayText.text = DialogueSystem.instance.parsedDialogue[0].dialogue;
-            //    if(Input.GetKey(KeyCode.V))
-            //    {
-            //        i++;
-            //    }
-            //}
-            
+            dialogueEditor.characterName.text = "The Observer";
             dialogueCanvas.SetActive(true);
            
         }
@@ -50,40 +41,18 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "MissionControl")
         {
             dialogueEditor.characterName.text = "Mission Control";
-            //for (int i = 0; i < DialogueSystem.instance.parsedDialogue.Count;)
-            //{
-                //if (DialogueSystem.instance.parsedDialogue[i].character == "MissionControl")
-                //{
-                    DialogueSystem.instance.displayText.text = DialogueSystem.instance.parsedDialogue[0].dialogue;
-                //}
-                //else { i++; }
-
-            //    if (Input.GetKey(KeyCode.V))
-            //    {
-            //        i++;
-            //    }
-            //}
+            DialogueSystem.instance.displayText.text = DialogueSystem.instance.missionControlDialogue[0].dialogue;
             dialogueCanvas.SetActive(true);
         }
 
         if (other.tag == "GreetingBot")
         {
             dialogueEditor.characterName.text = "Greeting Bot";
-            dialogueEditor.greetingBotText.text = dialogueEditor.editable.text;
-            textToDisplay.text = dialogueEditor.greetingBotText.text;
+            DialogueSystem.instance.displayText.text = DialogueSystem.instance.greetingBotDialogue[0].dialogue;
+           // textToDisplay.text = dialogueEditor.greetingBotText.text;
             dialogueCanvas.SetActive(true);
-            Debug.Log("Bot");
         }
     }
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.tag == "Observer")
-    //    {
-    //        dialogueCanvas.enabled = true;
-    //        Debug.Log("collision stay");
-    //    }
-    //}
 
     private void OnTriggerExit(Collider other)
     {
