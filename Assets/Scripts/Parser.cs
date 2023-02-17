@@ -12,6 +12,7 @@ public struct Dialogue
     public int stage;
     public string dialogue;
     public List<string> replies;
+    public List<int> nextStage;
 }
 
 public class Parser : MonoBehaviour
@@ -44,6 +45,7 @@ public class Parser : MonoBehaviour
  
         Dialogue dialogue = new Dialogue();
         dialogue.replies = new List<string>();
+        dialogue.nextStage = new List<int>();   
         bool continueSearch = false;
         string nameString = "";
 
@@ -105,12 +107,24 @@ public class Parser : MonoBehaviour
                     //Add replies to the list of replies
                     dialogue.replies.Add(modifiedString);
                 }
+                else if (importedDialogueFile[i].Contains("<nextStage>"))
+                {
+                    //Store each line of XML as in array
+                    string modifiedString = importedDialogueFile[i];
+
+                    //Remove XML syntax to help with sorting data
+                    modifiedString = modifiedString.Replace("</nextStage>", "");
+                    modifiedString = modifiedString.Replace("<nextStage>", "");
+
+                    //Convert string to int
+                    dialogue.nextStage.Add(int.Parse(modifiedString));
+                }
 
                 if (importedDialogueFile[i].Contains("</dialogue>"))
                 {
                     continueSearch = false;
                     dialogueList.Add(dialogue);
-                    dialogue = new Dialogue { replies = new List<string>(), dialogue = "", stage = 0 };
+                    dialogue = new Dialogue { replies = new List<string>(), dialogue = "", stage = 0, nextStage = new List<int>(), character = "" };
 
                    
                 }

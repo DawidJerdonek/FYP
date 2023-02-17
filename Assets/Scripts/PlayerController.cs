@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public GameObject dialogueCanvas;
     public DialogueEditor dialogueEditor;
     public TextMeshProUGUI textToDisplay;
+
+    public String currentCharacter = "";
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +37,15 @@ public class PlayerController : MonoBehaviour
         if(other.tag == "Observer")
         {
             dialogueEditor.characterName.text = "The Observer";
+            currentCharacter = "Observer";
             dialogueCanvas.SetActive(true);
-           
+            
         }
 
         if (other.tag == "MissionControl")
         {
             dialogueEditor.characterName.text = "Mission Control";
+            currentCharacter = "MissionControl";
             DialogueSystem.instance.displayText.text = DialogueSystem.instance.missionControlDialogue[0].dialogue;
             dialogueCanvas.SetActive(true);
         }
@@ -48,6 +53,7 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "GreetingBot")
         {
             dialogueEditor.characterName.text = "Greeting Bot";
+            currentCharacter = "GreetingBot";
             DialogueSystem.instance.displayText.text = DialogueSystem.instance.greetingBotDialogue[0].dialogue;
            // textToDisplay.text = dialogueEditor.greetingBotText.text;
             dialogueCanvas.SetActive(true);

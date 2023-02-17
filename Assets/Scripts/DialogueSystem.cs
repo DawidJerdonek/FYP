@@ -8,6 +8,7 @@ using System;
 
 public class DialogueSystem : MonoBehaviour
 {
+    public PlayerController player;
     public Parser parser;
     public static DialogueSystem instance;
 
@@ -18,6 +19,9 @@ public class DialogueSystem : MonoBehaviour
     public int observerStage;
     public int greetingBotStage;   
     public int missionControlStage;
+
+    public List<string> replyOptions;
+    public List<int> replyStage;
 
     public List<Dialogue> observerDialogue;
     public List<Dialogue> greetingBotDialogue;
@@ -48,17 +52,14 @@ public class DialogueSystem : MonoBehaviour
         {
             if (parsedDialogue[i].character == "Observer")
             {
-                //observerDialogue[j].character = parsedDialogue[i].character;
                 observerDialogue.Add(parsedDialogue[i]);
             }
             if (parsedDialogue[i].character == "GreetingBot")
             {
-                //observerDialogue[j].character = parsedDialogue[i].character;
                 greetingBotDialogue.Add(parsedDialogue[i]);
             }
             if (parsedDialogue[i].character == "MissionControl")
             {
-                //observerDialogue[j].character = parsedDialogue[i].character;
                 missionControlDialogue.Add(parsedDialogue[i]);
             }
 
@@ -69,12 +70,96 @@ public class DialogueSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        displayText.text = observerDialogue[observerStage].dialogue;
-        if (Input.GetKeyDown(KeyCode.P))
+        //COmment out for presentation
+        if (player.currentCharacter == "Observer")
         {
-            Debug.Log("P");
-            observerStage++;
- 
+            displayText.text = observerDialogue[observerStage].dialogue;
+            if (observerDialogue[observerStage].replies.Count > 0)
+            {
+
+                DialogueChoice();
+
+            }
+        }
+        else if (player.currentCharacter == "GreetingBot")
+        {
+            displayText.text = greetingBotDialogue[greetingBotStage].dialogue;
+            if (greetingBotDialogue[greetingBotStage].replies.Count > 0)
+            {
+
+                DialogueChoice();
+
+            }
+        }
+        else if (player.currentCharacter == "MissionControl")
+        {
+            displayText.text = greetingBotDialogue[greetingBotStage].dialogue;
+            if (greetingBotDialogue[greetingBotStage].replies.Count > 0)
+            {
+
+                DialogueChoice();
+
+            }
+        }
+
+
+    }
+
+    void DialogueChoice()
+    {
+        if (player.currentCharacter == "Observer")
+        {
+
+            for (int i = 0; i < observerDialogue[observerStage].replies.Count - 1; i++)
+            {
+                replyOptions.Add(observerDialogue[observerStage].replies[i]);
+                replyStage.Add(observerDialogue[observerStage].nextStage[i]);
+            }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                observerStage = observerDialogue[observerStage].nextStage[0];
+            }
+            else if (Input.GetKeyDown(KeyCode.L))
+            {
+                observerStage = observerDialogue[observerStage].nextStage[1];
+            }
+        }
+        else if (player.currentCharacter == "GreetingBot")
+        {
+            displayText.text = greetingBotDialogue[greetingBotStage].dialogue;
+            for (int i = 0; i < greetingBotDialogue[greetingBotStage].replies.Count - 1; i++)
+            {
+                replyOptions.Add(greetingBotDialogue[greetingBotStage].replies[i]);
+                replyStage.Add(greetingBotDialogue[greetingBotStage].nextStage[i]);
+            }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                greetingBotStage = greetingBotDialogue[greetingBotStage].nextStage[0];
+            }
+            else if (Input.GetKeyDown(KeyCode.L))
+            {
+                greetingBotStage = greetingBotDialogue[greetingBotStage].nextStage[1];
+            }
+        }
+        else if (player.currentCharacter == "MissionControl")
+        {
+            displayText.text = missionControlDialogue[missionControlStage].dialogue;
+            for (int i = 0; i < missionControlDialogue[missionControlStage].replies.Count - 1; i++)
+            {
+                replyOptions.Add(missionControlDialogue[missionControlStage].replies[i]);
+                replyStage.Add(missionControlDialogue[missionControlStage].nextStage[i]);
+            }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                missionControlStage = missionControlDialogue[missionControlStage].nextStage[0];
+            }
+            else if (Input.GetKeyDown(KeyCode.L))
+            {
+                missionControlStage = missionControlDialogue[missionControlStage].nextStage[1];
+            }
         }
     }
 

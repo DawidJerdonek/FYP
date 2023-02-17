@@ -1260,12 +1260,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd3bb68f639dcc4eaad03a24c2e0dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 951922198}
   parser: {fileID: 655378123}
   displayText: {fileID: 824983317}
   loadedDialogueFile: []
-  observerCharacter: {fileID: 1145223272}
-  greetingBotCharacter: {fileID: 1349281005}
-  missionControlCharacter: {fileID: 498041691}
+  observerStage: 0
+  greetingBotStage: 0
+  missionControlStage: 0
+  replyOptions: []
+  replyStage: 
   observerDialogue: []
   greetingBotDialogue: []
   missionControlDialogue: []
@@ -1845,6 +1848,7 @@ MonoBehaviour:
   dialogueCanvas: {fileID: 543136755}
   dialogueEditor: {fileID: 655378121}
   textToDisplay: {fileID: 824983317}
+  currentCharacter: 
 --- !u!143 &951922201
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2049,7 +2053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40.396
+      value: 40.69
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalRotation.w
