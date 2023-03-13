@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3152414134327642301}
   - component: {fileID: 3152414134327642302}
+  - component: {fileID: 655378123}
+  - component: {fileID: 655378124}
   m_Layer: 0
   m_Name: Dialogue System
   m_TagString: Untagged
@@ -24,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3152414134327642303}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.563183, y: 4.484589, z: 43.677483}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47,9 +49,45 @@ MonoBehaviour:
   dialogueEditor: {fileID: 0}
   observerCharacter: {fileID: 0}
   missionControlCharacter: {fileID: 0}
-  observerDialogue: []
-  greetingBotDialogue: []
-  MissionDialogue: []
   editable: {fileID: 0}
   greetingBotText: {fileID: 0}
   characterName: {fileID: 0}
+--- !u!114 &655378123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3152414134327642303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cac8ce80f55ae74ea4d493abd1c9f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isChecking: 0
+  dialogueList: []
+--- !u!114 &655378124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3152414134327642303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd3bb68f639dcc4eaad03a24c2e0dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  parser: {fileID: 655378123}
+  displayText: {fileID: 0}
+  loadedDialogueFile: []
+  observerStage: 0
+  greetingBotStage: 0
+  missionControlStage: 0
+  replyOptions: []
+  replyStage: 
+  observerDialogue: []
+  greetingBotDialogue: []
+  missionControlDialogue: []
+  parsedDialogue: []

@@ -356,12 +356,6 @@ MonoBehaviour:
   highlightOnHover: 1
   hideHighlight: []
   hoverPriority: 0
---- !u!1 &330853303 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3152414134327642303, guid: 5430136754f61994c87bcaf08b5ad20c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3152414133741506167}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &369503124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,51 +1222,12 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3152414133741506167}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330853303}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce39167a219ecf14f91efbca607eebf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &655378123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330853303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cac8ce80f55ae74ea4d493abd1c9f75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isChecking: 0
-  dialogueList: []
---- !u!114 &655378124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330853303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dd3bb68f639dcc4eaad03a24c2e0dd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 951922198}
-  parser: {fileID: 655378123}
-  displayText: {fileID: 824983317}
-  loadedDialogueFile: []
-  observerStage: 0
-  greetingBotStage: 0
-  missionControlStage: 0
-  replyOptions: []
-  replyStage: 
-  observerDialogue: []
-  greetingBotDialogue: []
-  missionControlDialogue: []
-  parsedDialogue: []
 --- !u!850595691 &666845148
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -3411,6 +3366,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 655378124, guid: 5430136754f61994c87bcaf08b5ad20c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 951922198}
+    - target: {fileID: 655378124, guid: 5430136754f61994c87bcaf08b5ad20c, type: 3}
+      propertyPath: displayText
+      value: 
+      objectReference: {fileID: 824983317}
     - target: {fileID: 3152414134327642301, guid: 5430136754f61994c87bcaf08b5ad20c,
         type: 3}
       propertyPath: m_RootOrder
