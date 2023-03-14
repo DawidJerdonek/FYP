@@ -12,7 +12,11 @@ public class DialogueSystem : MonoBehaviour
     public Parser parser;
     public static DialogueSystem instance;
 
+    public TextMeshProUGUI characterName;
     public TextMeshProUGUI displayText;
+
+    public TextMeshProUGUI choice1Text;
+    public TextMeshProUGUI choice2Text;
 
     public string[] loadedDialogueFile;
 
@@ -73,6 +77,7 @@ public class DialogueSystem : MonoBehaviour
         //COmment out for presentation
         if (player.currentCharacter == "Observer")
         {
+            characterName.text = player.currentCharacter;
             displayText.text = observerDialogue[observerStage].dialogue;
             if (observerDialogue[observerStage].replies.Count > 0)
             {
@@ -83,6 +88,7 @@ public class DialogueSystem : MonoBehaviour
         }
         else if (player.currentCharacter == "GreetingBot")
         {
+            characterName.text = player.currentCharacter;
             displayText.text = greetingBotDialogue[greetingBotStage].dialogue;
             if (greetingBotDialogue[greetingBotStage].replies.Count > 0)
             {
@@ -93,6 +99,7 @@ public class DialogueSystem : MonoBehaviour
         }
         else if (player.currentCharacter == "MissionControl")
         {
+            characterName.text = player.currentCharacter;
             displayText.text = greetingBotDialogue[greetingBotStage].dialogue;
             if (greetingBotDialogue[greetingBotStage].replies.Count > 0)
             {
@@ -163,7 +170,36 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    string[] readTextFile(string filePath)
+
+    public void loadNewDialogue()
+    {
+        parsedDialogue.Clear();
+        observerDialogue.Clear();
+        greetingBotDialogue.Clear();
+        missionControlDialogue.Clear();
+
+        parser.loadData(loadedDialogueFile);
+        parsedDialogue = parser.returnDialogue();
+
+        for (int i = 0; i < parsedDialogue.Count; i++)
+        {
+            if (parsedDialogue[i].character == "Observer")
+            {
+                observerDialogue.Add(parsedDialogue[i]);
+            }
+            if (parsedDialogue[i].character == "GreetingBot")
+            {
+                greetingBotDialogue.Add(parsedDialogue[i]);
+            }
+            if (parsedDialogue[i].character == "MissionControl")
+            {
+                missionControlDialogue.Add(parsedDialogue[i]);
+            }
+
+        }
+    }
+
+    public string[] readTextFile(string filePath)
     {
         int length = 0;
         List<string> lines = new List<string>();
@@ -176,4 +212,5 @@ public class DialogueSystem : MonoBehaviour
 
         return lines.ToArray();
     }
+
 }
