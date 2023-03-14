@@ -19,6 +19,7 @@ public class DialogueSystem : MonoBehaviour
     public TextMeshProUGUI choice2Text;
 
     public string[] loadedDialogueFile;
+    
 
     public int observerStage;
     public int greetingBotStage;   
@@ -32,11 +33,12 @@ public class DialogueSystem : MonoBehaviour
     public List<Dialogue> missionControlDialogue;
 
     public List<Dialogue> parsedDialogue;
+    public List<Dialogue> previewedparsedDialogueFile;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (instance != null && instance != this)
+        if (instance != null && instance != this)   
         {
             Destroy(this.gameObject);
         }

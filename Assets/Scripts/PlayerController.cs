@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        characterController = GetComponent<CharacterController>();  
+        characterController = GetComponent<CharacterController>();
+        dialogueCanvas.SetActive(false);
     }
 
     // Update is called once per frame
