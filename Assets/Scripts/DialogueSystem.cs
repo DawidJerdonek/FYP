@@ -119,11 +119,6 @@ public class DialogueSystem : MonoBehaviour
         if (player.currentCharacter == "Observer")
         {
 
-            //for (int i = 0; i < observerDialogue[observerStage].replies.Count - 1; i++)
-            //{
-            //    replyOptions.Add(observerDialogue[observerStage].replies[i]);
-            //    replyStage.Add(observerDialogue[observerStage].nextStage[i]);
-            //}
             choice1Text.text = observerDialogue[observerStage].replies[0];
             choice2Text.text = observerDialogue[observerStage].replies[1];
 
@@ -139,11 +134,11 @@ public class DialogueSystem : MonoBehaviour
         else if (player.currentCharacter == "GreetingBot")
         {
             displayText.text = greetingBotDialogue[greetingBotStage].dialogue;
-            for (int i = 0; i < greetingBotDialogue[greetingBotStage].replies.Count - 1; i++)
-            {
-                replyOptions.Add(greetingBotDialogue[greetingBotStage].replies[i]);
-                replyStage.Add(greetingBotDialogue[greetingBotStage].nextStage[i]);
-            }
+            //for (int i = 0; i < greetingBotDialogue[greetingBotStage].replies.Count - 1; i++)
+            //{
+            //    replyOptions.Add(greetingBotDialogue[greetingBotStage].replies[i]);
+            //    replyStage.Add(greetingBotDialogue[greetingBotStage].nextStage[i]);
+            //}
             choice1Text.text = replyOptions[0];
             choice2Text.text = replyOptions[1];
 
