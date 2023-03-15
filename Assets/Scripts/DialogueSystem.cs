@@ -119,11 +119,13 @@ public class DialogueSystem : MonoBehaviour
         if (player.currentCharacter == "Observer")
         {
 
-            for (int i = 0; i < observerDialogue[observerStage].replies.Count - 1; i++)
-            {
-                replyOptions.Add(observerDialogue[observerStage].replies[i]);
-                replyStage.Add(observerDialogue[observerStage].nextStage[i]);
-            }
+            //for (int i = 0; i < observerDialogue[observerStage].replies.Count - 1; i++)
+            //{
+            //    replyOptions.Add(observerDialogue[observerStage].replies[i]);
+            //    replyStage.Add(observerDialogue[observerStage].nextStage[i]);
+            //}
+            choice1Text.text = observerDialogue[observerStage].replies[0];
+            choice2Text.text = observerDialogue[observerStage].replies[1];
 
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -142,6 +144,8 @@ public class DialogueSystem : MonoBehaviour
                 replyOptions.Add(greetingBotDialogue[greetingBotStage].replies[i]);
                 replyStage.Add(greetingBotDialogue[greetingBotStage].nextStage[i]);
             }
+            choice1Text.text = replyOptions[0];
+            choice2Text.text = replyOptions[1];
 
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -160,6 +164,8 @@ public class DialogueSystem : MonoBehaviour
                 replyOptions.Add(missionControlDialogue[missionControlStage].replies[i]);
                 replyStage.Add(missionControlDialogue[missionControlStage].nextStage[i]);
             }
+            choice1Text.text = replyOptions[0];
+            choice2Text.text = replyOptions[1];
 
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -171,7 +177,6 @@ public class DialogueSystem : MonoBehaviour
             }
         }
     }
-
 
     public void loadNewDialogue()
     {
