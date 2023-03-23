@@ -4,7 +4,7 @@
 
 <stage>0</stage>
 <dialogue>
-<text> Hi! What do you seek? </text>
+<text> Hello! Where are you from? </text>
 <answers>
 <ans1>
 <reply>Why do you care?</reply>
@@ -26,7 +26,7 @@
 
 <stage>2</stage>
 <dialogue> 
-<text>Thats great and all but no<text>
+<text>In that case I welcome you, I observe you to learn<text>
 </dialogue>
 
 </conversation>
