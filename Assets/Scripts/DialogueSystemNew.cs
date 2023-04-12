@@ -6,11 +6,11 @@ using TMPro;
 using System.Linq;
 using System;
 
-public class DialogueSystem : MonoBehaviour
+public class DialogueSystemNew : MonoBehaviour
 {
     public PlayerController player;
     public Parser parser;
-    public static DialogueSystem instance;
+    public static DialogueSystemNew instance;
 
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI displayText;
@@ -21,7 +21,7 @@ public class DialogueSystem : MonoBehaviour
     public string[] loadedDialogueFile;
 
     public int observerStage;
-    public int greetingBotStage;   
+    public int greetingBotStage;
     public int missionControlStage;
 
     public List<int> characterStage;
@@ -30,6 +30,8 @@ public class DialogueSystem : MonoBehaviour
     public List<int> replyStage;
 
     public List<string> characterIdentity;
+
+    public List<List<Dialogue>> characterDialogues;
 
     public List<Dialogue> observerDialogue;
     public List<Dialogue> greetingBotDialogue;
@@ -41,7 +43,7 @@ public class DialogueSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (instance != null && instance != this)   
+        if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
         }
@@ -51,28 +53,54 @@ public class DialogueSystem : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
 
+        characterDialogues = new List<List<Dialogue>>();
+
         loadedDialogueFile = readTextFile("Assets/Resources/DialogueTree.xml");
 
         parser.loadData(loadedDialogueFile);
         parsedDialogue = parser.returnDialogue();
+        Debug.Log(parsedDialogue[0].character);
 
-        //get rid
+        for (int i = 0; i < parsedDialogue.Count; i++)
+        {
+            characterStage.Add(parsedDialogue[i].stage);
+        }
+
         for (int i = 0; i < parsedDialogue.Count; i++)
         {
             if (parsedDialogue[i].character == characterIdentity[0])
             {
-                observerDialogue.Add(parsedDialogue[i]);
+                characterDialogues[0].Add(parsedDialogue[i]);
             }
             if (parsedDialogue[i].character == characterIdentity[1])
             {
-                greetingBotDialogue.Add(parsedDialogue[i]);
+                characterDialogues[1].Add(parsedDialogue[i]);
             }
             if (parsedDialogue[i].character == characterIdentity[2])
             {
-                missionControlDialogue.Add(parsedDialogue[i]);
+                characterDialogues[2].Add(parsedDialogue[i]);
             }
 
         }
+        //for (int i = 0; i < parsedDialogue.Count; i++)
+        //{
+        //    for (int j = 0; j < characterIdentity.Count; j++)
+        //    {
+        //        if (parsedDialogue[i].character == characterIdentity[j])
+        //        {
+        //            observerDialogue.Add(parsedDialogue[i]);
+        //        }
+        //        if (parsedDialogue[i].character == characterIdentity[j])
+        //        {
+        //            greetingBotDialogue.Add(parsedDialogue[i]);
+        //        }
+        //        if (parsedDialogue[i].character == characterIdentity[j])
+        //        {
+        //            missionControlDialogue.Add(parsedDialogue[i]);
+        //        }
+        //    }
+
+        //}
 
     }
 
@@ -80,40 +108,41 @@ public class DialogueSystem : MonoBehaviour
     void Update()
     {
 
-        //if (player.currentCharacter == characterIdentity[0])
-        //{
-        //    characterName.text = player.currentCharacter;
-        //    displayText.text = observerDialogue[observerStage].dialogue;
-        //    displayText.text = parsedDialogue[parsedDialogue[0].stage].dialogue;
-        //    if (observerDialogue[observerStage].replies.Count > 0)
-        //    {
+        if (player.currentCharacter == characterIdentity[0])
+        {
+            characterName.text = player.currentCharacter;
+            displayText.text = observerDialogue[observerStage].dialogue;
+            //displayText.text = parsedDialogue[parsedDialogue[0].stage].dialogue;
+            //displayText.text = characterDialogues[0][2].dialogue;
+            if (observerDialogue[observerStage].replies.Count > 0)
+            {
 
-        //        DialogueChoice(characterIdentity[0]);
+                DialogueChoice(characterIdentity[0]);
 
-        //    }
-        //}
-        //else if (player.currentCharacter == characterIdentity[1])
-        //{
-        //    characterName.text = player.currentCharacter;
-        //    displayText.text = greetingBotDialogue[greetingBotStage].dialogue;
-        //    if (greetingBotDialogue[greetingBotStage].replies.Count > 0)
-        //    {
+            }
+        }
+        else if (player.currentCharacter == characterIdentity[1])
+        {
+            characterName.text = player.currentCharacter;
+            displayText.text = greetingBotDialogue[greetingBotStage].dialogue;
+            if (greetingBotDialogue[greetingBotStage].replies.Count > 0)
+            {
 
-        //        DialogueChoice(characterIdentity[1]);
+                DialogueChoice(characterIdentity[1]);
 
-        //    }
-        //}
-        //else if (player.currentCharacter == characterIdentity[2])
-        //{
-        //    characterName.text = player.currentCharacter;
-        //    displayText.text = missionControlDialogue[missionControlStage].dialogue;
-        //    if (missionControlDialogue[missionControlStage].replies.Count > 0)
-        //    {
+            }
+        }
+        else if (player.currentCharacter == characterIdentity[2])
+        {
+            characterName.text = player.currentCharacter;
+            displayText.text = missionControlDialogue[missionControlStage].dialogue;
+            if (missionControlDialogue[missionControlStage].replies.Count > 0)
+            {
 
-        //        DialogueChoice(characterIdentity[2]);
+                DialogueChoice(characterIdentity[2]);
 
-        //    }
-        //}
+            }
+        }
 
 
     }
@@ -152,7 +181,7 @@ public class DialogueSystem : MonoBehaviour
         else if (player.currentCharacter == character)
         {
             displayText.text = missionControlDialogue[missionControlStage].dialogue;
- 
+
             //choice1Text.text = replyOptions[0];
             //choice2Text.text = replyOptions[1];
 
@@ -181,15 +210,15 @@ public class DialogueSystem : MonoBehaviour
         {
             if (parsedDialogue[i].character == characterIdentity[0])
             {
-                observerDialogue.Add(parsedDialogue[i]);
+                characterDialogues[0].Add(parsedDialogue[i]);
             }
             if (parsedDialogue[i].character == characterIdentity[1])
             {
-                greetingBotDialogue.Add(parsedDialogue[i]);
+                characterDialogues[1].Add(parsedDialogue[i]);
             }
             if (parsedDialogue[i].character == characterIdentity[2])
             {
-                missionControlDialogue.Add(parsedDialogue[i]);
+                characterDialogues[2].Add(parsedDialogue[i]);
             }
 
         }
