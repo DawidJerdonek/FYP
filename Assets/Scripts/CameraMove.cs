@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
-    public int moveSpeed = 500;
-    public int zoomSpeed = 1000;
+    public int moveSpeed = 1000;
+    public int zoomSpeed = 2000;
 
     // Start is called before the first frame update
     void Start()
@@ -45,31 +45,31 @@ public class CameraMove : MonoBehaviour
         //Limit X Axis
         if (gameObject.transform.position.x <= -1200)
         {
-            gameObject.transform.position = new Vector3(-1195, gameObject.transform.position.y, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(-1197, gameObject.transform.position.y, gameObject.transform.position.z);
         }
         if (gameObject.transform.position.x >= 1200)
         {
-            gameObject.transform.position = new Vector3(1195, gameObject.transform.position.y, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(1197, gameObject.transform.position.y, gameObject.transform.position.z);
         }
 
         //Limit Y Axis
         if (gameObject.transform.position.y <= -1400)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, -1395, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, -1397, gameObject.transform.position.z);
         }
         if (gameObject.transform.position.y >= 1400)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1395, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1397, gameObject.transform.position.z);
         }
 
         //Limit Z Axis
         if (gameObject.transform.position.z <= -1999)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1996.0f);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1997.0f);
         }
         if (gameObject.transform.position.z >= -500)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -506.0f);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -497.0f);
         }
     }
 }

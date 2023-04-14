@@ -18,7 +18,7 @@ public struct Dialogue
 public class Parser : MonoBehaviour
 {
     public bool isChecking;
-    private string[] importedDialogueFile;
+    private List<string> importedDialogueFile;
     public List<Dialogue> dialogueList;
 
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class Parser : MonoBehaviour
         
     }
 
-    public void loadData(string[] dataToLoad)
+    public void loadData(List<string> dataToLoad)
     {
         importedDialogueFile = dataToLoad;
         splitData();
@@ -49,7 +49,7 @@ public class Parser : MonoBehaviour
         bool continueSearch = false;
         string nameString = "";
 
-        for (int i = 0; i < importedDialogueFile.Length; i++)
+        for (int i = 0; i < importedDialogueFile.Count; i++)
         {
            
             if (importedDialogueFile[i].Contains("<conversation>"))

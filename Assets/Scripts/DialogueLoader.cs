@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DialogueLoader : MonoBehaviour
 {
-    public DialogueSystem dialogueSystem;
+    public DialogueSystemNew dialogueSystem;
     public GameObject previewBackground;
     public GameObject returnButton;
     public TextMeshProUGUI previewText;

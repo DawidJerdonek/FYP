@@ -12,31 +12,65 @@ public class DialogueEditor : MonoBehaviour
 
     public TMP_InputField editable;
     //public TextMeshProUGUI characterName;
-    public string[] dialogueFile;
+    public List<string> dialogueFile;
 
     public List<string> characterIdentity;
 
     public Transform buttonStartPosition;
     public GameObject characterButtonPrefab;
 
+    public TMP_InputField characterNameInput;
+    public GameObject addCharacterButton;
+    public GameObject abortButton;
+
     // Start is called before the first frame update
     void Start()
     {
         dialogueFile = readTextFile("Assets/Resources/DialogueTree.xml");
-        for (int i = 0; i < dialogueFile.Length; i++)
+        for (int i = 0; i < dialogueFile.Count; i++)
         {
             editable.text += dialogueFile[i];
             editable.text += "\n";
         }
 
-        characterIdentity = FindObjectOfType<DialogueSystem>().characterIdentity;
+        characterNameInput.gameObject.SetActive(false);
+        addCharacterButton.SetActive(false);
+        abortButton.SetActive(false);
+
+        characterIdentity = FindObjectOfType<DialogueSystemNew>().characterIdentity;
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        FindObjectOfType<DialogueSystemNew>().characterIdentity = characterIdentity;
+    }
 
+    public void CreateCharacterButton()
+    {
+        characterNameInput.gameObject.SetActive(true);
+        addCharacterButton.SetActive(true);
+        abortButton.SetActive(true);
+    }
+
+    public void AddCharacter()
+    {
+        characterIdentity.Add(characterNameInput.text);
+        //FindObjectOfType<DialogueSystemNew>().loadedDialogueFile
+        characterNameInput.text = "";
+        characterNameInput.gameObject.SetActive(false);
+        addCharacterButton.SetActive(false);
+        abortButton.SetActive(false);
+    }
+
+    public void CancelNewCharacter()
+    {
+        DestroyCharacterButtons();
+        characterNameInput.gameObject.SetActive(false);
+        addCharacterButton.SetActive(false);
+        abortButton.SetActive(false);
     }
 
     public void InstantiateCharacterButtons()
@@ -93,7 +127,7 @@ public class DialogueEditor : MonoBehaviour
         
     }
 
-    string[] readTextFile(string filePath)
+    List<string> readTextFile(string filePath)
     {
         int length = 0;
         List<string> lines = new List<string>();
@@ -104,7 +138,7 @@ public class DialogueEditor : MonoBehaviour
             length++;
         }
 
-        return lines.ToArray();
+        return lines;
     }
 
     public void ToSaveFileOne()

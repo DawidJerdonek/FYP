@@ -53,7 +53,7 @@ public class DialogueSystem : MonoBehaviour
 
         loadedDialogueFile = readTextFile("Assets/Resources/DialogueTree.xml");
 
-        parser.loadData(loadedDialogueFile);
+        //parser.loadData(loadedDialogueFile);
         parsedDialogue = parser.returnDialogue();
 
         //get rid
@@ -174,7 +174,7 @@ public class DialogueSystem : MonoBehaviour
         greetingBotDialogue.Clear();
         missionControlDialogue.Clear();
 
-        parser.loadData(loadedDialogueFile);
+       //parser.loadData(loadedDialogueFile);
         parsedDialogue = parser.returnDialogue();
 
         for (int i = 0; i < parsedDialogue.Count; i++)
