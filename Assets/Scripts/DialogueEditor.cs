@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
+//using UnityEngine.UIElements;
 
 public class DialogueEditor : MonoBehaviour
 {
@@ -12,40 +12,40 @@ public class DialogueEditor : MonoBehaviour
 
     public TMP_InputField editable;
     //public TextMeshProUGUI characterName;
-    public List<string> dialogueFile;
+    //public List<string> dialogueFile;
 
     public List<string> characterIdentity;
 
     public Transform buttonStartPosition;
-    public GameObject characterButtonPrefab;
 
     public TMP_InputField characterNameInput;
+
+    public GameObject characterButtonPrefab;
+    public GameObject dialogueNodePrefab;
     public GameObject addCharacterButton;
     public GameObject abortButton;
 
+
+    private DialogueSystemNew dialogueSystem;
     // Start is called before the first frame update
     void Start()
     {
-        dialogueFile = readTextFile("Assets/Resources/DialogueTree.xml");
-        for (int i = 0; i < dialogueFile.Count; i++)
-        {
-            editable.text += dialogueFile[i];
-            editable.text += "\n";
-        }
+        dialogueSystem = FindObjectOfType<DialogueSystemNew>();
+        dialogueSystem.loadedDialogueFile = readTextFile("Assets/Resources/DialogueTree.xml");
 
         characterNameInput.gameObject.SetActive(false);
         addCharacterButton.SetActive(false);
         abortButton.SetActive(false);
 
-        characterIdentity = FindObjectOfType<DialogueSystemNew>().characterIdentity;
-
+        characterIdentity = dialogueSystem.characterIdentity;
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        FindObjectOfType<DialogueSystemNew>().characterIdentity = characterIdentity;
+        dialogueSystem.characterIdentity = characterIdentity;
     }
 
     public void CreateCharacterButton()
@@ -58,7 +58,14 @@ public class DialogueEditor : MonoBehaviour
     public void AddCharacter()
     {
         characterIdentity.Add(characterNameInput.text);
-        //FindObjectOfType<DialogueSystemNew>().loadedDialogueFile
+
+        dialogueSystem.loadedDialogueFile.Add("<conversation>" + characterNameInput.text);
+        for (int i = 0; i < dialogueSystem.loadedDialogueFile.Count; i++)
+        {
+            Debug.Log(dialogueSystem.loadedDialogueFile[i]);
+        }
+
+
         characterNameInput.text = "";
         characterNameInput.gameObject.SetActive(false);
         addCharacterButton.SetActive(false);
@@ -81,6 +88,12 @@ public class DialogueEditor : MonoBehaviour
             GameObject characterButton = Instantiate(characterButtonPrefab) as GameObject;
             characterButton.gameObject.transform.parent = gameObject.transform;
             characterButton.GetComponentInChildren<TextMeshProUGUI>().text = characterIdentity[i];
+
+            //characterButton.GetComponent<Button>().onClick.AddListener(showCharacterTree);
+            // Button button = characterButton.gameObject.GetComponent<Button>();
+            // button.onClick.AddListener(showCharacterTree);
+
+
             if (i < 6)
             {
                 characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 500), buttonStartPosition.position.y, buttonStartPosition.position.z);
@@ -112,8 +125,34 @@ public class DialogueEditor : MonoBehaviour
             {
                 j = 0;
             }
+
         }
 
+    }
+
+    public void showCharacterTree()
+    {
+        //Evaluate !!!
+        int nodeCount = 0;
+        for (int i = 0; i < GetComponent<DialogueEditor>().characterIdentity.Count; i++)
+        {
+            if (characterIdentity[i] == GetComponentInChildren<TextMeshProUGUI>().text)
+            {
+                for (int j = 0; j < dialogueSystem.parsedDialogue.Count; j++)
+                {
+                    if (characterIdentity[i] == dialogueSystem.parsedDialogue[j].character)
+                    {
+                        //Display the text
+                        GameObject dialogueNode = Instantiate(dialogueNodePrefab) as GameObject;
+                        dialogueNode.gameObject.transform.parent = gameObject.transform;
+                        dialogueNode.GetComponentInChildren<TextMeshProUGUI>().text = dialogueSystem.parsedDialogue[j].dialogue;
+                        dialogueNode.transform.position = new Vector3(0 , 800 * nodeCount, 0);
+
+                        nodeCount++;
+                    }
+                }
+            }    
+        }
     }
 
     public void DestroyCharacterButtons()
@@ -143,14 +182,35 @@ public class DialogueEditor : MonoBehaviour
 
     public void ToSaveFileOne()
     {
+        for (int i = 0; i < dialogueSystem.loadedDialogueFile.Count; i++)
+        {
+            editable.text += dialogueSystem.loadedDialogueFile[i];
+            editable.text += "\n";
+        }
         System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom1.xml", editable.text);
+
+        FindObjectOfType<DialogueLoader>().LoadSaveOne();
     }
     public void ToSaveFileTwo()
     {
+        for (int i = 0; i < dialogueSystem.loadedDialogueFile.Count; i++)
+        {
+            editable.text += dialogueSystem.loadedDialogueFile[i];
+            editable.text += "\n";
+        }
         System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom2.xml", editable.text);
+
+        FindObjectOfType<DialogueLoader>().LoadSaveTwo();
     }
     public void ToSaveFileThree()
     {
+        for (int i = 0; i < dialogueSystem.loadedDialogueFile.Count; i++)
+        {
+            editable.text += dialogueSystem.loadedDialogueFile[i];
+            editable.text += "\n";
+        }
         System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom3.xml", editable.text);
+
+        FindObjectOfType<DialogueLoader>().LoadSaveThree();
     }
 }
