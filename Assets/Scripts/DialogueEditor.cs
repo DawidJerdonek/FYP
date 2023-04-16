@@ -156,6 +156,9 @@ public class DialogueEditor : MonoBehaviour
                 }
             }    
         }
+
+        DestroyCharacterButtons();
+
     }
 
     public void DestroyCharacterButtons()
