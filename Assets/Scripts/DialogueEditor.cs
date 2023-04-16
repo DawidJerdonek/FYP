@@ -38,8 +38,11 @@ public class DialogueEditor : MonoBehaviour
         abortButton.SetActive(false);
 
         characterIdentity = dialogueSystem.characterIdentity;
-        
 
+        GameObject dialogueNode = Instantiate(dialogueNodePrefab) as GameObject;
+        dialogueNode.GetComponentInChildren<TextMeshProUGUI>().text = dialogueSystem.parsedDialogue[0].dialogue;
+        dialogueNode.transform.position = new Vector3(0, 1700 - (0 * 100), 0);
+        dialogueNode.gameObject.transform.parent = gameObject.transform;
     }
 
     // Update is called once per frame
@@ -89,7 +92,7 @@ public class DialogueEditor : MonoBehaviour
             characterButton.gameObject.transform.parent = gameObject.transform;
             characterButton.GetComponentInChildren<TextMeshProUGUI>().text = characterIdentity[i];
 
-            //characterButton.GetComponent<Button>().onClick.AddListener(showCharacterTree);
+            characterButton.GetComponent<Button>().onClick.AddListener(showCharacterTree);
             // Button button = characterButton.gameObject.GetComponent<Button>();
             // button.onClick.AddListener(showCharacterTree);
 
@@ -146,7 +149,7 @@ public class DialogueEditor : MonoBehaviour
                         GameObject dialogueNode = Instantiate(dialogueNodePrefab) as GameObject;
                         dialogueNode.gameObject.transform.parent = gameObject.transform;
                         dialogueNode.GetComponentInChildren<TextMeshProUGUI>().text = dialogueSystem.parsedDialogue[j].dialogue;
-                        dialogueNode.transform.position = new Vector3(0 , 800 * nodeCount, 0);
+                        dialogueNode.transform.position = new Vector3(0 , 1700 - (nodeCount*100), 0);
 
                         nodeCount++;
                     }

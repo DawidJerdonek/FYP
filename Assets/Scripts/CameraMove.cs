@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     public int moveSpeed = 1000;
-    public int zoomSpeed = 2000;
+    public int zoomSpeed = 10000;
 
     // Start is called before the first frame update
     void Start()
@@ -53,13 +53,13 @@ public class CameraMove : MonoBehaviour
         }
 
         //Limit Y Axis
-        if (gameObject.transform.position.y <= -1400)
+        if (gameObject.transform.position.y <= -2000)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, -1397, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, -1997, gameObject.transform.position.z);
         }
-        if (gameObject.transform.position.y >= 1400)
+        if (gameObject.transform.position.y >= 2000)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1397, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1997, gameObject.transform.position.z);
         }
 
         //Limit Z Axis
