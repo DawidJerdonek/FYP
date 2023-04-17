@@ -14,6 +14,7 @@ public class DialogueEditor : MonoBehaviour
     //public List<string> dialogueFile;
 
     public List<string> characterIdentity;
+    public List<int> editableDialogues = new List<int>();
 
     public Transform buttonStartPosition;
 

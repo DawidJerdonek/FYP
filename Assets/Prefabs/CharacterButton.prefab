@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.8235294, g: 1, b: 0.98039216, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -285,4 +285,6 @@ MonoBehaviour:
   dialogueNodePrefab: {fileID: 6590469506592069610, guid: 4e052de3e5402474298407b3c61d154c,
     type: 3}
   editCancelButtonPrefab: {fileID: 4042050248057440913, guid: 30491e818c926684ca443848cf1465f3,
+    type: 3}
+  saveChangesButtonPrefab: {fileID: 6617310506825733721, guid: f8a4c87ae0c72624dbdd9ee404666e43,
     type: 3}

@@ -19,6 +19,7 @@ public class CancelEditHandler : MonoBehaviour
     public void DestroyDialogueNodes()
     {
         GameObject[] toDestroy = GameObject.FindGameObjectsWithTag("DialogueNode");
+        FindObjectOfType<DialogueEditor>().characterNameText.enabled = false;
 
         for (int i = 0; i < toDestroy.Length; i++)
         {
@@ -26,7 +27,7 @@ public class CancelEditHandler : MonoBehaviour
         }
         Destroy(this.gameObject);
 
-        FindObjectOfType<CharacterButtonHandler>().enabled = false;
+        
     }
 
 }

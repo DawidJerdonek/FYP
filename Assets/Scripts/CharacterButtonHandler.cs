@@ -9,6 +9,9 @@ public class CharacterButtonHandler : MonoBehaviour
 {
     public GameObject dialogueNodePrefab;
     public GameObject editCancelButtonPrefab;
+    public GameObject saveChangesButtonPrefab;
+
+
     private TextMeshProUGUI characterNameText;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,14 @@ public class CharacterButtonHandler : MonoBehaviour
         Debug.Log(GetComponentInChildren<TextMeshProUGUI>().text);
         characterNameText.enabled = true;
 
+        GameObject editCancelButton = Instantiate(editCancelButtonPrefab) as GameObject;
+        editCancelButton.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
+        editCancelButton.transform.position = new Vector3(200, 1700 , 0);
+
+        GameObject saveChangesButton = Instantiate(saveChangesButtonPrefab) as GameObject;
+        saveChangesButton.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
+        saveChangesButton.transform.position = new Vector3(-200, 1700, 0);
+
         //Evaluate !!!
         int nodeCount = 0;
         for (int i = 0; i < identities.Count; i++)
@@ -49,16 +60,13 @@ public class CharacterButtonHandler : MonoBehaviour
                         TMP_InputField dialogueNode = Instantiate(dialogueNodePrefab).GetComponent<TMP_InputField>();
                         dialogueNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
                         dialogueNode.text = dialogueSystem.parsedDialogue[j].dialogue;
-                        dialogueNode.transform.position = new Vector3(0, 1700 - (nodeCount * 100), 0);
-
+                        FindObjectOfType<DialogueEditor>().editableDialogues.Add(j);
+                        dialogueNode.transform.position = new Vector3(0, 1500 - (nodeCount * 100), 0);
                         nodeCount++;
                     }
                 }
             }
         }
-        GameObject editCancelButton = Instantiate(editCancelButtonPrefab) as GameObject;
-        editCancelButton.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
-        editCancelButton.transform.position = new Vector3(0, 1700 - (nodeCount * 100), 0);
 
 
         FindObjectOfType<DialogueEditor>().DestroyCharacterButtons();
