@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class CharacterButtonHandler : MonoBehaviour
 {
     public GameObject dialogueNodePrefab;
+    public GameObject replyNodePrefab;
     public GameObject editCancelButtonPrefab;
     public GameObject saveChangesButtonPrefab;
 
@@ -32,9 +33,7 @@ public class CharacterButtonHandler : MonoBehaviour
         DialogueSystemNew dialogueSystem = FindObjectOfType<DialogueSystemNew>();
         List<string> identities = dialogueSystem.characterIdentity;
 
-        Debug.Log("ShowCharacterTree");
         characterNameText.text = GetComponentInChildren<TextMeshProUGUI>().text;
-        Debug.Log(GetComponentInChildren<TextMeshProUGUI>().text);
         characterNameText.enabled = true;
 
         GameObject editCancelButton = Instantiate(editCancelButtonPrefab) as GameObject;
@@ -49,7 +48,6 @@ public class CharacterButtonHandler : MonoBehaviour
         int nodeCount = 0;
         for (int i = 0; i < identities.Count; i++)
         {
-            Debug.Log(GetComponentInChildren<TextMeshProUGUI>().text);
             if (identities[i] == GetComponentInChildren<TextMeshProUGUI>().text)
             {
                 for (int j = 0; j < dialogueSystem.parsedDialogue.Count; j++)
@@ -61,8 +59,17 @@ public class CharacterButtonHandler : MonoBehaviour
                         dialogueNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
                         dialogueNode.text = dialogueSystem.parsedDialogue[j].dialogue;
                         FindObjectOfType<DialogueEditor>().editableDialogues.Add(j);
-                        dialogueNode.transform.position = new Vector3(0, 1500 - (nodeCount * 100), 0);
+                        dialogueNode.transform.position = new Vector3(0, 1500 - (nodeCount * 300), 0);
                         nodeCount++;
+
+                        for(int replyCount = 0; replyCount < dialogueSystem.parsedDialogue[j].replies.Count; replyCount++)
+                        {
+                            TMP_InputField replyNode = Instantiate(replyNodePrefab).GetComponent<TMP_InputField>();
+                            replyNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
+                            replyNode.text = dialogueSystem.parsedDialogue[j].replies[replyCount];
+                            FindObjectOfType<DialogueEditor>().editableReplies.Add(replyCount);
+                            replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 150 +( (300*replyCount)), dialogueNode.transform.position.y - 100, 0);
+                        }
                     }
                 }
             }

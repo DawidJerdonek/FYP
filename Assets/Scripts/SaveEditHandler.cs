@@ -7,12 +7,13 @@ using System.Linq;
 
 public class SaveEditHandler : MonoBehaviour
 {
-    private List<TMP_InputField> inputFields = new List<TMP_InputField>();
+    //private List<TMP_InputField> inputFields = new List<TMP_InputField>();
+
     // Start is called before the first frame update
     void Start()
     {
-        inputFields = FindObjectsOfType<TMP_InputField>().ToList();
-        inputFields.Reverse();
+        //inputFields = FindObjectsOfType<TMP_InputField>().ToList();
+        //inputFields.Reverse();
         
     }
 
@@ -24,25 +25,39 @@ public class SaveEditHandler : MonoBehaviour
 
     public void SaveAndDestroyDialogueNodes()
     {
-
-        GameObject[] toDestroy = GameObject.FindGameObjectsWithTag("DialogueNode");
-        FindObjectOfType<DialogueEditor>().characterNameText.enabled = false;
         Dialogue dialogue = new Dialogue();
+        FindObjectOfType<DialogueEditor>().characterNameText.enabled = false;
 
-        for (int i = 0; i < inputFields.Count; i++)
+        GameObject[] nodesOfDialogue = GameObject.FindGameObjectsWithTag("DialogueNode");
+        GameObject[] nodesOfReplies = GameObject.FindGameObjectsWithTag("ReplyNode");
+
+
+        //for (int i = 0; i < inputFields.Count; i++)
+        //{
+        //    int index = FindObjectOfType<DialogueEditor>().editableDialogues[i];
+        //    dialogue = FindObjectOfType<DialogueSystemNew>().parsedDialogue[index];
+        //    dialogue.dialogue = inputFields[i].text;
+        //    FindObjectOfType<DialogueSystemNew>().parsedDialogue[index] = dialogue;
+        //}
+
+        for (int i = 0; i < nodesOfDialogue.Length; i++)
         {
             int index = FindObjectOfType<DialogueEditor>().editableDialogues[i];
             dialogue = FindObjectOfType<DialogueSystemNew>().parsedDialogue[index];
-            dialogue.dialogue = inputFields[i].text;
+            dialogue.dialogue = nodesOfDialogue[i].GetComponent<TMP_InputField>().text;
             FindObjectOfType<DialogueSystemNew>().parsedDialogue[index] = dialogue;
-
-
+            Destroy(nodesOfDialogue[i]);
         }
 
-        for (int i = 0; i < toDestroy.Length; i++)
+        for (int i = 0; i < nodesOfReplies.Length; i++)
         {
-            Destroy(toDestroy[i]);
+            int index = FindObjectOfType<DialogueEditor>().editableReplies[i];
+            dialogue = FindObjectOfType<DialogueSystemNew>().parsedDialogue[index];
+            dialogue.replies[i] = nodesOfReplies[i].GetComponent<TMP_InputField>().text;
+            FindObjectOfType<DialogueSystemNew>().parsedDialogue[index] = dialogue;
+            Destroy(nodesOfReplies[i]);
         }
+
         Destroy(gameObject);
 
        

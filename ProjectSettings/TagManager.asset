@@ -9,6 +9,7 @@ TagManager:
   - GreetingBot
   - CharacterButton
   - DialogueNode
+  - ReplyNode
   layers:
   - Default
   - TransparentFX

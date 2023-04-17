@@ -284,6 +284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueNodePrefab: {fileID: 6590469506592069610, guid: 4e052de3e5402474298407b3c61d154c,
     type: 3}
+  replyNodePrefab: {fileID: 9147203283737815297, guid: 9a8dc8f415ea1a0418840fe25c687e67,
+    type: 3}
   editCancelButtonPrefab: {fileID: 4042050248057440913, guid: 30491e818c926684ca443848cf1465f3,
     type: 3}
   saveChangesButtonPrefab: {fileID: 6617310506825733721, guid: f8a4c87ae0c72624dbdd9ee404666e43,
