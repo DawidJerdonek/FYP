@@ -49,8 +49,6 @@ public class DialogueSystemNew : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
 
-        //characterDialogues = new List<List<Dialogue>>();
-
         loadedDialogueFile = readTextFile("Assets/Resources/DialogueTree.xml");
 
         parser.loadData(loadedDialogueFile);

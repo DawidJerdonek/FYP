@@ -448,6 +448,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1489791084}
+        m_TargetAssemblyTypeName: HUDUIManager, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &338571724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,6 +823,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1489791084}
+        m_TargetAssemblyTypeName: HUDUIManager, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &416341115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,6 +939,18 @@ MonoBehaviour:
       - m_Target: {fileID: 900221074}
         m_TargetAssemblyTypeName: DialogueLoader, Assembly-CSharp
         m_MethodName: LoadSaveThree
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1489791084}
+        m_TargetAssemblyTypeName: HUDUIManager, Assembly-CSharp
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1663,18 +1699,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1461928368}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &900221071 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1492616857, guid: 5430136754f61994c87bcaf08b5ad20c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1461928368}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900221070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6808310cdb7b39e4b84c7cc587048f19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &900221074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1687,10 +1711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18398e27904e8b4395c850bef581364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueSystem: {fileID: 900221071}
-  previewBackground: {fileID: 0}
-  returnButton: {fileID: 0}
-  previewText: {fileID: 0}
 --- !u!1 &917125999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,6 +1942,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1489791084}
+        m_TargetAssemblyTypeName: HUDUIManager, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1063299910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2095,6 +2127,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104493748}
   m_CullTransparentMesh: 1
+--- !u!114 &1263747315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1263747315, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 5683333849383496968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1461928368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2352,6 +2396,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1595237201}
         m_TargetAssemblyTypeName: DialogueEditor, Assembly-CSharp
         m_MethodName: ToSaveFileTwo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1489791084}
+        m_TargetAssemblyTypeName: HUDUIManager, Assembly-CSharp
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3291,6 +3347,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1489791084}
+        m_TargetAssemblyTypeName: HUDUIManager, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2097245171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3357,10 +3425,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5683333848375912783, guid: 84d895b66ffb44a498d39c4b3960a5f5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1600
+    - target: {fileID: 1263747313, guid: 84d895b66ffb44a498d39c4b3960a5f5, type: 3}
+      propertyPath: m_Name
+      value: CharacterNameText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263747315, guid: 84d895b66ffb44a498d39c4b3960a5f5, type: 3}
+      propertyPath: m_text
+      value: New
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263747315, guid: 84d895b66ffb44a498d39c4b3960a5f5, type: 3}
+      propertyPath: m_fontSize
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263747315, guid: 84d895b66ffb44a498d39c4b3960a5f5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5683333848661218910, guid: 84d895b66ffb44a498d39c4b3960a5f5,
         type: 3}
@@ -3482,5 +3561,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5683333848828579417, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: characterNameText
+      value: 
+      objectReference: {fileID: 1263747315}
+    - target: {fileID: 5683333848828579417, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: dialogueNodePrefab
+      value: 
+      objectReference: {fileID: 6590469506592069610, guid: 4e052de3e5402474298407b3c61d154c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84d895b66ffb44a498d39c4b3960a5f5, type: 3}

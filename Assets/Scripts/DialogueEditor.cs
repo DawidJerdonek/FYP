@@ -11,7 +11,6 @@ public class DialogueEditor : MonoBehaviour
     public GameObject dialogueEditor;
 
     public TMP_InputField editable;
-    //public TextMeshProUGUI characterName;
     //public List<string> dialogueFile;
 
     public List<string> characterIdentity;
@@ -19,6 +18,7 @@ public class DialogueEditor : MonoBehaviour
     public Transform buttonStartPosition;
 
     public TMP_InputField characterNameInput;
+    public TextMeshProUGUI characterNameText;
 
     public GameObject characterButtonPrefab;
     public GameObject dialogueNodePrefab;
@@ -36,6 +36,7 @@ public class DialogueEditor : MonoBehaviour
         characterNameInput.gameObject.SetActive(false);
         addCharacterButton.SetActive(false);
         abortButton.SetActive(false);
+        
 
         characterIdentity = dialogueSystem.characterIdentity;
     }
@@ -129,35 +130,6 @@ public class DialogueEditor : MonoBehaviour
 
     }
 
-    public void ShowCharacterTree()
-    {
-        //Evaluate !!!
-        int nodeCount = 0;
-        for (int i = 0; i < characterIdentity.Count; i++)
-        {
-            Debug.Log(GetComponentInChildren<TextMeshProUGUI>().text);
-            if (characterIdentity[i] == GetComponentInChildren<TextMeshProUGUI>().text)
-            {
-                for (int j = 0; j < dialogueSystem.parsedDialogue.Count; j++)
-                {
-                    if (characterIdentity[i] == dialogueSystem.parsedDialogue[j].character)
-                    {
-                        //Display the text
-                        GameObject dialogueNode = Instantiate(dialogueNodePrefab) as GameObject;
-                        dialogueNode.gameObject.transform.parent = gameObject.transform;
-                        dialogueNode.GetComponentInChildren<TextMeshProUGUI>().text = dialogueSystem.parsedDialogue[j].dialogue;
-                        dialogueNode.transform.position = new Vector3(0 , 1700 - (nodeCount*100), 0);
-
-                        nodeCount++;
-                    }
-                }
-            }    
-        }
-
-        DestroyCharacterButtons();
-
-    }
-
     public void DestroyCharacterButtons()
     {
         GameObject[] toDestroy = GameObject.FindGameObjectsWithTag("CharacterButton");
@@ -166,7 +138,7 @@ public class DialogueEditor : MonoBehaviour
         {
             Destroy(toDestroy[i]);
         }
-        
+        //characterNameText.enabled = false;
     }
 
     List<string> readTextFile(string filePath)

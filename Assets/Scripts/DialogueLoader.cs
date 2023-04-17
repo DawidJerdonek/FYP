@@ -6,17 +6,18 @@ using UnityEngine;
 
 public class DialogueLoader : MonoBehaviour
 {
-    public DialogueSystemNew dialogueSystem;
-    public GameObject previewBackground;
-    public GameObject returnButton;
-    public TextMeshProUGUI previewText;
+   // public GameObject previewBackground;
+    //public GameObject returnButton;
+    //Move commented content to Dialogue Previewer if necessary
+    //public TextMeshProUGUI previewText;
 
+    private DialogueSystemNew dialogueSystem;
     // Start is called before the first frame update
     void Start()
     {
-        previewText.enabled = false;
-        returnButton.SetActive(false);
-        previewBackground.SetActive(false);
+        //returnButton.SetActive(false);
+        //previewBackground.SetActive(false);
+        dialogueSystem = FindObjectOfType<DialogueSystemNew>();
     }
 
     // Update is called once per frame
@@ -35,6 +36,7 @@ public class DialogueLoader : MonoBehaviour
 
     public void LoadSaveOne()
     {
+        Debug.Log("LoadedFile");
         dialogueSystem.loadedDialogueFile = dialogueSystem.readTextFile("Assets/Resources/DialogueTreeCustom1.xml");
         dialogueSystem.loadNewDialogue();
     }
@@ -52,51 +54,51 @@ public class DialogueLoader : MonoBehaviour
     }
 
 
-    public void PreviewSaveOne()
-    {
-        dialogueSystem.loadedDialogueFile = dialogueSystem.readTextFile("Assets/Resources/DialogueTreeCustom1.xml");
-        PopulatePreview();
-        previewBackground.SetActive(true);
-        previewText.enabled = true;
-        returnButton.SetActive(true);
-    }
+    //public void PreviewSaveOne()
+    //{
+    //    dialogueSystem.loadedDialogueFile = dialogueSystem.readTextFile("Assets/Resources/DialogueTreeCustom1.xml");
+    //    PopulatePreview();
+    //    previewBackground.SetActive(true);
+    //    previewText.enabled = true;
+    //    returnButton.SetActive(true);
+    //}
 
-    public void PreviewSaveTwo()
-    {
-        dialogueSystem.loadedDialogueFile = dialogueSystem.readTextFile("Assets/Resources/DialogueTreeCustom2.xml");
-        PopulatePreview();
-        previewBackground.SetActive(true);
-        previewText.enabled = true;
-        returnButton.SetActive(true);
-    }
+    //public void PreviewSaveTwo()
+    //{
+    //    dialogueSystem.loadedDialogueFile = dialogueSystem.readTextFile("Assets/Resources/DialogueTreeCustom2.xml");
+    //    PopulatePreview();
+    //    previewBackground.SetActive(true);
+    //    previewText.enabled = true;
+    //    returnButton.SetActive(true);
+    //}
 
-    public void PreviewSaveThree()
-    {
-        dialogueSystem.loadedDialogueFile = dialogueSystem.readTextFile("Assets/Resources/DialogueTreeCustom3.xml");
-        PopulatePreview();
-        previewBackground.SetActive(true);
-        previewText.enabled = true;
-        returnButton.SetActive(true);
-    }
+    //public void PreviewSaveThree()
+    //{
+    //    dialogueSystem.loadedDialogueFile = dialogueSystem.readTextFile("Assets/Resources/DialogueTreeCustom3.xml");
+    //    PopulatePreview();
+    //    previewBackground.SetActive(true);
+    //    previewText.enabled = true;
+    //    returnButton.SetActive(true);
+    //}
 
-    public void ExitPreview()
-    {
-        previewBackground.SetActive(false);
-        previewText.enabled = false;
-        returnButton.SetActive(false);
-    }
+    //public void ExitPreview()
+    //{
+    //    previewBackground.SetActive(false);
+    //    previewText.enabled = false;
+    //    returnButton.SetActive(false);
+    //}
 
-    private void PopulatePreview()
-    {
-        previewText.text = "";
-        dialogueSystem.previewedparsedDialogueFile.Clear();
-        dialogueSystem.parser.loadData(dialogueSystem.loadedDialogueFile);
-        dialogueSystem.previewedparsedDialogueFile = dialogueSystem.parser.returnDialogue();
-        for (int i = 0; i < dialogueSystem.previewedparsedDialogueFile.Count; i++)
-        {
-            previewText.text += dialogueSystem.previewedparsedDialogueFile[i].dialogue;
-            previewText.text += "\n";
-        }
+    //private void PopulatePreview()
+    //{
+    //    previewText.text = "";
+    //    dialogueSystem.previewedparsedDialogueFile.Clear();
+    //    dialogueSystem.parser.loadData(dialogueSystem.loadedDialogueFile);
+    //    dialogueSystem.previewedparsedDialogueFile = dialogueSystem.parser.returnDialogue();
+    //    for (int i = 0; i < dialogueSystem.previewedparsedDialogueFile.Count; i++)
+    //    {
+    //        previewText.text += dialogueSystem.previewedparsedDialogueFile[i].dialogue;
+    //        previewText.text += "\n";
+    //    }
 
-    }
+    //}
 }

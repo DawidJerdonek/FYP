@@ -9,10 +9,12 @@ public class CharacterButtonHandler : MonoBehaviour
 {
     public GameObject dialogueNodePrefab;
     public GameObject editCancelButtonPrefab;
+    private TextMeshProUGUI characterNameText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        characterNameText = FindObjectOfType<DialogueEditor>().characterNameText;
+        characterNameText.enabled = false;
     }
 
     // Update is called once per frame
@@ -26,6 +28,11 @@ public class CharacterButtonHandler : MonoBehaviour
     {
         DialogueSystemNew dialogueSystem = FindObjectOfType<DialogueSystemNew>();
         List<string> identities = dialogueSystem.characterIdentity;
+
+        Debug.Log("ShowCharacterTree");
+        characterNameText.text = GetComponentInChildren<TextMeshProUGUI>().text;
+        Debug.Log(GetComponentInChildren<TextMeshProUGUI>().text);
+        characterNameText.enabled = true;
 
         //Evaluate !!!
         int nodeCount = 0;
@@ -52,21 +59,9 @@ public class CharacterButtonHandler : MonoBehaviour
         GameObject editCancelButton = Instantiate(editCancelButtonPrefab) as GameObject;
         editCancelButton.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
         editCancelButton.transform.position = new Vector3(0, 1700 - (nodeCount * 100), 0);
-        editCancelButton.GetComponent<Button>().onClick.AddListener(DestroyDialogueNodes);
 
 
         FindObjectOfType<DialogueEditor>().DestroyCharacterButtons();
         
-    }
-
-    public void DestroyDialogueNodes()
-    {
-        GameObject[] toDestroy = GameObject.FindGameObjectsWithTag("DialogueNode");
-
-        for (int i = 0; i < toDestroy.Length; i++)
-        {
-            Destroy(toDestroy[i]);
-        }
-        Destroy(this.gameObject);
     }
 }
