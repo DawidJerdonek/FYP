@@ -258,10 +258,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5683333848828579417, guid: 84d895b66ffb44a498d39c4b3960a5f5,
-          type: 3}
-        m_TargetAssemblyTypeName: DialogueEditor, Assembly-CSharp
-        m_MethodName: showCharacterTree
+      - m_Target: {fileID: 2754915422773999659}
+        m_TargetAssemblyTypeName: CharacterButtonHandler, Assembly-CSharp
+        m_MethodName: ShowCharacterTree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -283,3 +282,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e955de2701f796a409f1fcc7a9dd7414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueNodePrefab: {fileID: 6590469506592069610, guid: 4e052de3e5402474298407b3c61d154c,
+    type: 3}

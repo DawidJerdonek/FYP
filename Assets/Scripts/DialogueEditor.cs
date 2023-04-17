@@ -38,11 +38,6 @@ public class DialogueEditor : MonoBehaviour
         abortButton.SetActive(false);
 
         characterIdentity = dialogueSystem.characterIdentity;
-
-        GameObject dialogueNode = Instantiate(dialogueNodePrefab) as GameObject;
-        dialogueNode.GetComponentInChildren<TextMeshProUGUI>().text = dialogueSystem.parsedDialogue[0].dialogue;
-        dialogueNode.transform.position = new Vector3(0, 1700 - (0 * 100), 0);
-        dialogueNode.gameObject.transform.parent = gameObject.transform;
     }
 
     // Update is called once per frame
@@ -92,7 +87,8 @@ public class DialogueEditor : MonoBehaviour
             characterButton.gameObject.transform.parent = gameObject.transform;
             characterButton.GetComponentInChildren<TextMeshProUGUI>().text = characterIdentity[i];
 
-            characterButton.GetComponent<Button>().onClick.AddListener(showCharacterTree);
+            //characterButton.GetComponent<Button>().onClick.AddListener(ShowCharacterTree);
+
             // Button button = characterButton.gameObject.GetComponent<Button>();
             // button.onClick.AddListener(showCharacterTree);
 
@@ -133,12 +129,13 @@ public class DialogueEditor : MonoBehaviour
 
     }
 
-    public void showCharacterTree()
+    public void ShowCharacterTree()
     {
         //Evaluate !!!
         int nodeCount = 0;
-        for (int i = 0; i < GetComponent<DialogueEditor>().characterIdentity.Count; i++)
+        for (int i = 0; i < characterIdentity.Count; i++)
         {
+            Debug.Log(GetComponentInChildren<TextMeshProUGUI>().text);
             if (characterIdentity[i] == GetComponentInChildren<TextMeshProUGUI>().text)
             {
                 for (int j = 0; j < dialogueSystem.parsedDialogue.Count; j++)
