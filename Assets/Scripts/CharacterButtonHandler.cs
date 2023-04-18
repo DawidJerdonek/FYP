@@ -64,7 +64,7 @@ public class CharacterButtonHandler : MonoBehaviour
                             = "Stage: " + dialogueSystem.parsedDialogue[j].stage.ToString();
 
                         dialogueNode.GetComponent<StageGrabber>().stageValue = dialogueSystem.parsedDialogue[j].stage;
-
+                        FindObjectOfType<DialogueTreeShapeSetter>().SetShape();
                         nodeCount++;
 
                         //Spawn in all reply nodes
@@ -74,7 +74,14 @@ public class CharacterButtonHandler : MonoBehaviour
                             replyNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
                             replyNode.text = dialogueSystem.parsedDialogue[j].replies[replyCount];
                             FindObjectOfType<DialogueEditor>().editableReplies.Add(replyCount);
-                            replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 150 + ((300 * replyCount)), dialogueNode.transform.position.y - 100, 0);
+                            if (nodeCount == 1)
+                            {
+                                replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 600 + ((1200 * replyCount)), dialogueNode.transform.position.y - 100, 0);
+                            }
+                            else
+                            {
+                                replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 300 + ((600 * replyCount)), dialogueNode.transform.position.y - 100, 0);
+                            }
                             replyNode.GetComponentInChildren<TextMeshProUGUI>().text
                                 = "Next Stage: " + dialogueSystem.parsedDialogue[j].nextStage[replyCount].ToString();
 
