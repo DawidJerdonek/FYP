@@ -60,6 +60,9 @@ public class CharacterButtonHandler : MonoBehaviour
                         dialogueNode.text = dialogueSystem.parsedDialogue[j].dialogue;
                         FindObjectOfType<DialogueEditor>().editableDialogues.Add(j);
                         dialogueNode.transform.position = new Vector3(0, 1500 - (nodeCount * 300), 0);
+                        dialogueNode.GetComponentInChildren<TextMeshProUGUI>().text 
+                            = "Stage: " + dialogueSystem.parsedDialogue[j].stage.ToString();
+
                         nodeCount++;
 
                         for(int replyCount = 0; replyCount < dialogueSystem.parsedDialogue[j].replies.Count; replyCount++)
@@ -69,6 +72,8 @@ public class CharacterButtonHandler : MonoBehaviour
                             replyNode.text = dialogueSystem.parsedDialogue[j].replies[replyCount];
                             FindObjectOfType<DialogueEditor>().editableReplies.Add(replyCount);
                             replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 150 +( (300*replyCount)), dialogueNode.transform.position.y - 100, 0);
+                            replyNode.GetComponentInChildren<TextMeshProUGUI>().text
+                                = "Next Stage: " + dialogueSystem.parsedDialogue[j].nextStage[replyCount].ToString();
                         }
                     }
                 }
