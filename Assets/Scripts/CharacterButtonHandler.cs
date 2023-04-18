@@ -54,7 +54,7 @@ public class CharacterButtonHandler : MonoBehaviour
                 {
                     if (identities[i] == dialogueSystem.parsedDialogue[j].character)
                     {
-                        //Display the text
+                        //Spawn in all dialogue nodes
                         TMP_InputField dialogueNode = Instantiate(dialogueNodePrefab).GetComponent<TMP_InputField>();
                         dialogueNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
                         dialogueNode.text = dialogueSystem.parsedDialogue[j].dialogue;
@@ -63,19 +63,29 @@ public class CharacterButtonHandler : MonoBehaviour
                         dialogueNode.GetComponentInChildren<TextMeshProUGUI>().text 
                             = "Stage: " + dialogueSystem.parsedDialogue[j].stage.ToString();
 
+                        dialogueNode.GetComponent<StageGrabber>().stageValue = dialogueSystem.parsedDialogue[j].stage;
+
                         nodeCount++;
 
-                        for(int replyCount = 0; replyCount < dialogueSystem.parsedDialogue[j].replies.Count; replyCount++)
+                        //Spawn in all reply nodes
+                        for (int replyCount = 0; replyCount < dialogueSystem.parsedDialogue[j].replies.Count; replyCount++)
                         {
                             TMP_InputField replyNode = Instantiate(replyNodePrefab).GetComponent<TMP_InputField>();
                             replyNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
                             replyNode.text = dialogueSystem.parsedDialogue[j].replies[replyCount];
                             FindObjectOfType<DialogueEditor>().editableReplies.Add(replyCount);
-                            replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 150 +( (300*replyCount)), dialogueNode.transform.position.y - 100, 0);
+                            replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 150 + ((300 * replyCount)), dialogueNode.transform.position.y - 100, 0);
                             replyNode.GetComponentInChildren<TextMeshProUGUI>().text
                                 = "Next Stage: " + dialogueSystem.parsedDialogue[j].nextStage[replyCount].ToString();
+
+                            replyNode.GetComponent<StageGrabber>().stageValue = dialogueSystem.parsedDialogue[j].nextStage[replyCount];
+
+
+
                         }
+
                     }
+                    
                 }
             }
         }

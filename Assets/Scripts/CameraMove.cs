@@ -43,29 +43,29 @@ public class CameraMove : MonoBehaviour
         }
 
         //Limit X Axis
-        if (gameObject.transform.position.x <= -1200)
+        if (gameObject.transform.position.x <= -4200)
         {
-            gameObject.transform.position = new Vector3(-1197, gameObject.transform.position.y, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(-4197, gameObject.transform.position.y, gameObject.transform.position.z);
         }
-        if (gameObject.transform.position.x >= 1200)
+        if (gameObject.transform.position.x >= 4200)
         {
-            gameObject.transform.position = new Vector3(1197, gameObject.transform.position.y, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(4197, gameObject.transform.position.y, gameObject.transform.position.z);
         }
 
         //Limit Y Axis
-        if (gameObject.transform.position.y <= -2000)
+        if (gameObject.transform.position.y <= -3000)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, -1997, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, -2997, gameObject.transform.position.z);
         }
-        if (gameObject.transform.position.y >= 2000)
+        if (gameObject.transform.position.y >= 3000)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1997, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, 2997, gameObject.transform.position.z);
         }
 
         //Limit Z Axis
-        if (gameObject.transform.position.z <= -1999)
+        if (gameObject.transform.position.z <= -3999)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1997.0f);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -3997.0f);
         }
         if (gameObject.transform.position.z >= -500)
         {

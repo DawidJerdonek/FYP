@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 1091209935056309806}
   - component: {fileID: 319441765656730229}
   - component: {fileID: 4711986935415154907}
+  - component: {fileID: 446819069620592899}
   m_Layer: 5
   m_Name: DialogueNode
   m_TagString: DialogueNode
@@ -389,6 +390,18 @@ MonoBehaviour:
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   m_InputValidator: {fileID: 0}
+--- !u!114 &446819069620592899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590469506592069610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6e2427005f6984b81126cc5d29fceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7370682871514101108
 GameObject:
   m_ObjectHideFlags: 0
