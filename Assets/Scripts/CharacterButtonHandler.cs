@@ -11,7 +11,7 @@ public class CharacterButtonHandler : MonoBehaviour
     public GameObject replyNodePrefab;
     public GameObject editCancelButtonPrefab;
     public GameObject saveChangesButtonPrefab;
-
+    public LineRenderer lineRendererPrefab;
 
     private TextMeshProUGUI characterNameText;
     // Start is called before the first frame update
@@ -70,6 +70,7 @@ public class CharacterButtonHandler : MonoBehaviour
                         //Spawn in all reply nodes
                         for (int replyCount = 0; replyCount < dialogueSystem.parsedDialogue[j].replies.Count; replyCount++)
                         {
+                            LineRenderer line = Instantiate(lineRendererPrefab);
                             TMP_InputField replyNode = Instantiate(replyNodePrefab).GetComponent<TMP_InputField>();
                             replyNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
                             replyNode.text = dialogueSystem.parsedDialogue[j].replies[replyCount];
@@ -77,10 +78,16 @@ public class CharacterButtonHandler : MonoBehaviour
                             if (nodeCount == 1)
                             {
                                 replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 600 + ((1200 * replyCount)), dialogueNode.transform.position.y - 100, 0);
+                                line.positionCount = 2;
+                                line.SetPosition(0, replyNode.transform.position);
+                                line.SetPosition(1, dialogueNode.transform.position);
                             }
                             else
                             {
                                 replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 300 + ((600 * replyCount)), dialogueNode.transform.position.y - 100, 0);
+                                line.positionCount = 2;
+                                line.SetPosition(0, replyNode.transform.position);
+                                line.SetPosition(1, dialogueNode.transform.position);
                             }
                             replyNode.GetComponentInChildren<TextMeshProUGUI>().text
                                 = "Next Stage: " + dialogueSystem.parsedDialogue[j].nextStage[replyCount].ToString();

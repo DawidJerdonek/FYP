@@ -290,3 +290,5 @@ MonoBehaviour:
     type: 3}
   saveChangesButtonPrefab: {fileID: 6617310506825733721, guid: f8a4c87ae0c72624dbdd9ee404666e43,
     type: 3}
+  lineRendererPrefab: {fileID: 7689715807363362161, guid: da3526527b75f534594794f6f1e9fb95,
+    type: 3}
