@@ -4,7 +4,6 @@
 <title>Dialogue Tale Showcase</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,9 +32,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <i class="fa fa-television w3-xxlarge"></i>
     <p>PROJECT</p>
   </a>
-  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+  <a href="#media" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-eye w3-xxlarge"></i>
-    <p>PHOTOS</p>
+    <p>IMAGES</p>
   </a>
   <a href="#info" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-info-circle w3-xxlarge"></i>
@@ -48,7 +47,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
     <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
     <a href="#project" class="w3-bar-item w3-button" style="width:25% !important">PROJECT</a>
-    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+    <a href="#media" class="w3-bar-item w3-button" style="width:25% !important">IMAGES</a>
     <a href="#info" class="w3-bar-item w3-button" style="width:25% !important">INFO</a>
   </div>
 </div>
@@ -57,7 +56,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">Tale Create</span></h1>
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Dialogue Tale</span></h1>
     <h2>A Runtime Dialogue Editor</h2>
     <p>by Dawid Jerdonek</p>
     <img src="./Resources/Images/DialogueEditorTreeScreenshot.png" alt="backgroundimage" class="w3-image" width="1800" >
@@ -76,45 +75,123 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 	The system matches up the character name with the character in the scene and automatically assigns the dialogue to that character.
 
     </p>
-    <h3 class="w3-padding-16 w3-text-light-grey">Template</h3>
+    <h3 class="w3-padding-16 w3-text-light-grey">Template Scene</h3>
     <p>To showcase how the dialogue system works, 
 	I have created a Template Scene which can load in any of the files that were previously created in the Dialogue Editor.
-The user can preview, test and try out dialogue they have created in this scene.
+The user can preview, test and try out dialogues they have created in this scene.
 I have built this scene for Virtual Reality as I believe that VR has been slowly gaining more and more traction in recent years, hence
-I wanted to give it some recognition and try create this template scene for VR. However the scene can still be easily player through Unity without
+I wanted to give it some recognition and try create this template scene for VR. However the scene can still be easily played through Unity without
 a VR headset, for quick testing.	</p>
+
+	<h3 class="w3-padding-16 w3-text-light-grey">Project Milestones</h3>
+<p style="text-align:center">	<b>15th of December 2022: Code and Progress Demonstration, Feedback and Discussion of Future of Project.</b> </p>
+	<p>
+	The Project Supervisors have gathered for a demonstration, the main goal being an inspection of current project direction and assistance on making any adjustments and improvements which would allow for a better project to be delivered.
 	<br>
+	I delivered a satisfactory amount of progress at this time however the Final direction of the project has not been fully recognised and set in stone. This meeting allowed for a fleshing out of the project goal and setting a clearer direction with the help of supervisor feedback. Incredibly Important information and feedback was shared in this meeting which acted as a foundation for the rest of my project. After this meeting I had obtained a clear and vivid image of what I want to achieve and where I want this project to be on submission day. 
+	<br>
+	I was on schedule with my work however my direction was not clear enough prior to this point and I needed to readjust myself to adhere to a more suitable schedule for myself. I needed to focus more on the importance of the Dialogue editor rather than having so much focus on the other aspects of this project, the Template Scene, and my Maze Generator. Having those two in a very elaborate state was great, however I have not given enough attention to the Dialogue Editor at this point in time.
+	</p>
+	<br><br>
+	
+	<p style="text-align:center"> <b>18th and 19th of January: Created a basic early version of the Dialogue System and begun work on its editing capabilities.</b> </p>
+	<p>
+	This is the day that I completed the creation of the very first basic version of my Dialogue System. It was not much more than a simple blueprint which would later guide me to create a more functional system. This was the first time where I began working through and noting what I would like to have my future Dialogue Editor do. I have created my first version of the Dialogue Editor also, although both of these were extremely limited in functionality and did not add much it was a crucial step in the development of my project. An interesting detail of note is that this initial Dialogue Editor was a version which was part of the in-game world. Meaning dialogue would be able to be edited in real-time while a game runs. However, this was not the goal of my project, and as I have gone through more and more research it became even more obvious that I should focus on a separate scene for the editor as it would direct focus to what this project is about. It also became clear that Virtual Reality is not a good option when it comes to performing anything which involves editing text.
+	</p>
+	<br><br>
+
+	<p style="text-align:center"> <b>10th of February 2023: The Upload of my Dialogue Parser.</b> </p>
+	<p>
+	How storing of to store a file to then be accessed in Unity efficiently? How can dialogues be stored? What is the best file format to use for storing dialogue data for Unity? How parsers work? How can dialogue be stored and accessed using syntax?
+	<br>
+	Those and many more were the questions which I have asked and undertaken extensive research about. For the weeks prior to this Milestone date, I have gone through many different ideas and “prototypes” in search for an easy and efficient way to save, store, load, edit and access all my dialogue files. After all my research and tests, I have finally decided to settle on the use of XML for my dialogue storing. It was easy to syntax and very malleable to whatever I needed. After I settled my way of storing the dialogue, I needed a way to load it into Unity and apply it to NPC’s so that the characters were able to use all the stored dialogue. This is where a parser needed to be made. So, I have undergone research, and through much trial and error I finally came out on top with a well refined and useable version of my own custom written Parser. I was incredibly happy when I got it to work. This day marks a huge Milestone of my project as the parser is now one of the major components of my project. With the parser created I was able to move to the implementation and improvement of my Dialogue System and further evaluating its editing capabilities.
+	</p>
+	<br><br>
+	
+	<p style="text-align:center"> <b>17th of February 2023: Completed the first functional iteration of my Dialogue System.</b> </p>
+	<p>
+	This day marks the upload of my first fully working Dialogue System, it had many flaws and was very “hard-coded” in a sense that there was not much room for change or customisation. It was only working with my set of characters. However, it was a great foundation for my future modular rework of the system. A lot of the code was good and would prove to be useable in a modular system I would just have to evaluate and rework the way in which I stored and processed dialogue and characters in the future.
+	</p>
+	<br><br>
+	
+	<p style="text-align:center"> <b>15th of March 2023: Major Progress Demonstration to Supervisors.</b> </p>
+	<p>
+	The Project Supervisors have gathered again for in depth demonstrations on project progress and discussions about the final deliverable as well as positive and negative feedback alongside, constructive criticism. Most importantly it was a check on progress allowing for feedback and important advice. 
+	<br>
+	After the last major meeting in December, I re-evaluated my progress so far and thought through the future of my project. Thanks to all the feedback I was given back then, I slowly but surely got back on track towards my final goal. For this demonstration I had created an initial setup for my Dialogue Editor, at this stage I was only able to edit my Dialogue in its raw form as an XML file, that is no good for the final submission as it is exactly what I am trying to get rid of with this project. However, this was a good basis and example to show that I am capable of creating a Dialogue Editor and with enough work put into the project I would be able to achieve my final goal. In retrospect the Dialogue Editor was nothing of note on this day, but my main progress thus far was my Dialogue System which allowed me to save, load, preview and use dialogue files in my “Template Scene” which I had created. I was able to showcase the ideal where I have a conversation with an NPC, but I am capable of editing this dialogue with my very early basic version of the Dialogue Editor, then saving this to my chosen save file. Once saved I was able to load in this custom dialogue and show the change in what the same NPC says depending on how I edited his dialogue.
+	</p>
+	<br><br>
+	
+	<p style="text-align:center"> <b>12th of April 2023: Dialogue System Rework to move to a more modular approach.</b> </p>
+	<p>
+	In this Milestone I have successfully achieved the removal of all my “hard-coded” components from the Dialogue System. I have created a new class called DialogueSystemNew. This new class was an expansion and improvement of my previous Dialogue System. It was a more refined and a much cleaner version which also was capable of handling dialogue in a modular way. This meaning that I no longer needed to name characters in any special way and give them their own names in code. This modular approach has allowed me to create any character of any name and correctly parse all components of their dialogue and store them correctly to allow for use in my Template scene to showcase how the dialogue works exactly. 
+	<br>
+	This Milestone was originally completed around one to two weeks prior of April 12th. However, I have had internet issues at the time of achieving this milestone. Shortly after our Easter break began and I chose to focus my time on researching other Dialogue systems as well as ways of displaying these dialogue “Trees” effectively. As a result, I was unable to upload this to GitHub until April 12th but expanded some more and made some improvements during this time without uploading. 
+	</p>
+	<br><br>
+	
+	<p style="text-align:center"> <b>18th and 19th of April 2023: Important progress milestone prior to the final Submission Day.</b></p>
+	<p>
+	These days were an important milestone for my progress on this project as this day marks the completion of all basic functionalities of the project. On the 18th of April I have created a system for displaying a Dialogue tree, in a set of nodes in a correct and easy to understand shape and manner. On the 19th I finished up the basics of the editor. The Editor was capable of editing each node of a character’s dialogue as well as each answer. It was also capable of creating new characters from scratch on top of that. From this point on I was able to fully direct my focus on more extensive editing as well as all extra functionalities. Another priority from this day was creating a more user-friendly (and customisable) experience alongside adding some more substance to the visuals of the project to create a more pleasing image to the eye while using the Dialogue Editor. On this day I was on track to completing this project on schedule.
+	</p>
+	<br><br>
+	
+	<!--
+	<p style="text-align:center"> <b>24th of April 2023: Final Submission Day</b> </p>
+	<p>
+	Today the final submission day. Today is the day where I must submit all the work I have gathered throughout the year. All the project code, documentation, and other deliverables.
+	<br>
+	After being able to direct all my focus to this project for the recent few days I am incredibly happy with where my project is. I am very proud of my achievements and how the final product turned out. I was able to keep on schedule for this final submission and I have everything ready. My final delivery is on-time.
+	</p>
+	
+	<h3 class="w3-padding-16 w3-text-light-grey">Major Technical Achievements</h3>
+    <p>	Hello.</p>
+	
+	<h3 class="w3-padding-16 w3-text-light-grey">Project Review</h3>
+	<h5 class="w3-padding-16 w3-text-light-grey">What went right and what went wrong? </h5>
+    <p> Hello.</p>
+	<h5 class="w3-padding-16 w3-text-light-grey">If starting again, how would you approach this project differently?</h5>
+	<p> Hello.</p>
+	<h5 class="w3-padding-16 w3-text-light-grey">What were the implications of your technology choices?</h5>
+	<p> Hello.</p> 
+	
+	<h3 class="w3-padding-16 w3-text-light-grey">Conclusions</h3>
+	<p> Hello.</p> 
+	
+	<h3 class="w3-padding-16 w3-text-light-grey">Future Work</h3>
+	<p> Hello.</p>
+	<br>
+	-->
     
     <a style='font-size:24px' href="https://github.com/DawidJerdonek/FYP" target="_blank" class="w3-button w3-light-blue w3-padding-large w3-section"><i class=" fa fa-sitemap"></i> Project Code</a>
 
   <!-- End Project Section -->
   </div>
   
-  <!-- Portfolio Section -->
-  <div class="w3-padding-64 w3-content" id="photos">
-    <h2 class="w3-text-light-grey">Videos and Screenshots</h2>
+  <!-- Media Section -->
+  <div class="w3-padding-64 w3-content" id="media">
+    <h2 class="w3-text-light-grey">Images and Videos</h2>
     <hr style="width:200px" class="w3-opacity">
 
     <!-- Grid for photos -->
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-half">
-        <img src="/w3images/wedding.jpg" style="width:100%">
-        <img src="/w3images/rocks.jpg" style="width:100%">
-        <img src="/w3images/sailboat.jpg" style="width:100%">
+        <img src="./Resources/Images/DialogueEditorTreeScreenshot.png" style="width:100%">
+        <img src="./Resources/Images/DialogueEditorNewCharacter.png" style="width:100%">
+        <img src="./Resources/Images/Maze1.png" style="width:100%">
       </div>
 
       <div class="w3-half">
-        <img src="/w3images/underwater.jpg" style="width:100%">
-        <img src="/w3images/chef.jpg" style="width:100%">
-        <img src="/w3images/wedding.jpg" style="width:100%">
-        <img src="/w3images/p6.jpg" style="width:100%">
+        <img src="./Resources/Images/DialogueEditorHUD.png" style="width:100%">
+		<img src="./Resources/Images/DialogueEditorHUD.png" style="width:100%">
+        <img src="./Resources/Images/Maze2.png" style="width:100%">
       </div>
     <!-- End photo grid -->
     </div>
-  <!-- End Portfolio Section -->
+  <!-- End Media Section -->
   </div>
 
-  <!-- Contact Section -->
+  <!-- Information Section -->
   <div class="w3-padding-64 w3-content w3-text-grey" id="info">
     <h2 class="w3-text-light-grey">Information</h2>
     <hr style="width:200px" class="w3-opacity">
@@ -134,10 +211,10 @@ a VR headset, for quick testing.	</p>
       <p><i class="fa fa-envelope fa-fw w3-text-pink w3-xxlarge w3-margin-right"> </i> dawid.jerdonek@gmail.com</p>
     </div><br>
         <h3 class="w3-padding-16 w3-text-light-grey">Links</h3>
-    <a style='font-size:24px' href="https://dawidjerdonek.wordpress.com/" target="_blank" class="w3-button w3-light-blue w3-padding-large w3-section"><i class="fab fa-jedi-order"></i> Visit My Website</a> <br>
+    <a style='font-size:24px' href="https://dawidjerdonek.wordpress.com/" target="_blank" class="w3-button w3-light-blue w3-padding-large w3-section"><i class="fa fa-vcard"></i> Visit My Website</a> <br>
        <a style='font-size:24px' href="https://github.com/DawidJerdonek" target="_blank" class="w3-button w3-light-blue w3-padding-large w3-section"><i class="fa fa-github"></i> Visit My GitHub</a> <br>
           <a style='font-size:24px' href="https://www.linkedin.com/in/dawid-jerdonek-640426221/" target="_blank" class="w3-button w3-light-blue w3-padding-large w3-section"><i class="fa fa-linkedin"></i> Visit My LinkedIn</a>
-  <!-- End Contact Section -->
+  <!-- End Information Section -->
   </div>
   
     <!-- Footer -->
