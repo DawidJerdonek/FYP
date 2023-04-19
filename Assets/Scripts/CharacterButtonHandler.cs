@@ -74,7 +74,7 @@ public class CharacterButtonHandler : MonoBehaviour
                             TMP_InputField replyNode = Instantiate(replyNodePrefab).GetComponent<TMP_InputField>();
                             replyNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
                             replyNode.text = dialogueSystem.parsedDialogue[j].replies[replyCount];
-                            FindObjectOfType<DialogueEditor>().editableReplies.Add(replyCount);
+                            FindObjectOfType<DialogueEditor>().editableReplies.Add(j);
                             if (nodeCount == 1)
                             {
                                 replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 600 + ((1200 * replyCount)), dialogueNode.transform.position.y - 100, 0);
@@ -93,8 +93,6 @@ public class CharacterButtonHandler : MonoBehaviour
                                 = "Next Stage: " + dialogueSystem.parsedDialogue[j].nextStage[replyCount].ToString();
 
                             replyNode.GetComponent<StageGrabber>().stageValue = dialogueSystem.parsedDialogue[j].nextStage[replyCount];
-
-
 
                         }
 
