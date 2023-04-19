@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Numerics;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -21,6 +22,8 @@ public class Parser : MonoBehaviour
     private List<string> importedDialogueFile;
     public List<Dialogue> dialogueList;
 
+    public List<string> temp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,7 @@ public class Parser : MonoBehaviour
         importedDialogueFile = dataToLoad;
         splitData();
         returnDialogue();
+        ReformatIntoXML();
     }
 
     public void splitData()
@@ -125,15 +129,50 @@ public class Parser : MonoBehaviour
                     continueSearch = false;
                     dialogueList.Add(dialogue);
                     dialogue = new Dialogue { replies = new List<string>(), dialogue = "", stage = 0, nextStage = new List<int>(), character = "" };
-
-                   
                 }
             }
-            
         }
+
     }
 
+    public void ReformatIntoXML()
+    {
+        List<Dialogue> currentParsedDialogue = dialogueList;
+        string previousCharacter = "";
+        temp.Clear();
+        temp.Add("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
 
+        for (int i = 0; i < currentParsedDialogue.Count; i++)
+        {
+            if(i == 0)
+            {
+                previousCharacter = currentParsedDialogue[i].character;
+                temp.Add("<conversation>" + currentParsedDialogue[i].character);
+            }
+            else if(previousCharacter != currentParsedDialogue[i].character)
+            {
+                previousCharacter = currentParsedDialogue[i].character;
+                temp.Add("</conversation>");
+                temp.Add("<conversation>" + currentParsedDialogue[i].character);
+            }
+
+            temp.Add("<stage>" + currentParsedDialogue[i].stage + "</stage>");
+            temp.Add("<dialogue>");
+            temp.Add("<text>"+ currentParsedDialogue[i].dialogue + "</text>");
+            for(int j = 0; j < currentParsedDialogue[i].replies.Count; j++)
+            {
+                temp.Add("<reply>" + currentParsedDialogue[i].replies[j] + "</reply>");
+                temp.Add("<nextStage>" + currentParsedDialogue[i].nextStage[j] + "</nextStage>");
+            }
+            temp.Add("</dialogue>");
+
+            if(previousCharacter != currentParsedDialogue[i].character)
+            {
+
+            }
+        }
+        temp.Add("</conversation>");
+    }
     public List<Dialogue> returnDialogue()
     {
         return dialogueList;

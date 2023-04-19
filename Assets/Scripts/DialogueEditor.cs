@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
@@ -10,7 +11,7 @@ public class DialogueEditor : MonoBehaviour
 {
     public GameObject dialogueEditor;
 
-    public TMP_InputField editable;
+    public string editable;
     //public List<string> dialogueFile;
 
     public List<string> characterIdentity;
@@ -159,34 +160,37 @@ public class DialogueEditor : MonoBehaviour
 
     public void ToSaveFileOne()
     {
-        for (int i = 0; i < dialogueSystem.loadedDialogueFile.Count; i++)
+        dialogueSystem.parser.ReformatIntoXML();
+        for (int i = 0; i < dialogueSystem.parser.temp.Count; i++)
         {
-            editable.text += dialogueSystem.loadedDialogueFile[i];
-            editable.text += "\n";
+            editable += dialogueSystem.parser.temp[i];
+            editable += "\n";
         }
-        System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom1.xml", editable.text);
+        System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom1.xml", editable);
 
         FindObjectOfType<DialogueLoader>().LoadSaveOne();
     }
     public void ToSaveFileTwo()
     {
-        for (int i = 0; i < dialogueSystem.loadedDialogueFile.Count; i++)
+        dialogueSystem.parser.ReformatIntoXML();
+        for (int i = 0; i < dialogueSystem.parser.temp.Count; i++)
         {
-            editable.text += dialogueSystem.loadedDialogueFile[i];
-            editable.text += "\n";
+            editable += dialogueSystem.parser.temp[i];
+            editable += "\n";
         }
-        System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom2.xml", editable.text);
+        System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom2.xml", editable);
 
         FindObjectOfType<DialogueLoader>().LoadSaveTwo();
     }
     public void ToSaveFileThree()
     {
-        for (int i = 0; i < dialogueSystem.loadedDialogueFile.Count; i++)
+        dialogueSystem.parser.ReformatIntoXML();
+        for (int i = 0; i < dialogueSystem.parser.temp.Count; i++)
         {
-            editable.text += dialogueSystem.loadedDialogueFile[i];
-            editable.text += "\n";
+            editable += dialogueSystem.parser.temp[i];
+            editable += "\n";
         }
-        System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom3.xml", editable.text);
+        System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom3.xml", editable);
 
         FindObjectOfType<DialogueLoader>().LoadSaveThree();
     }
