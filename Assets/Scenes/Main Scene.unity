@@ -123,18 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &24946535 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 655378124, guid: 5430136754f61994c87bcaf08b5ad20c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3152414133741506167}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dd3bb68f639dcc4eaad03a24c2e0dd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &28789485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9,
@@ -497,54 +485,6 @@ MonoBehaviour:
   highlightOnHover: 1
   hideHighlight: []
   hoverPriority: 0
---- !u!1 &179634519
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 179634521}
-  - component: {fileID: 179634520}
-  m_Layer: 0
-  m_Name: Dialogue Loader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &179634520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179634519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18398e27904e8b4395c850bef581364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueSystem: {fileID: 24946535}
-  previewBackground: {fileID: 927923610}
-  returnButton: {fileID: 1367547202}
-  previewText: {fileID: 90071212}
---- !u!4 &179634521
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179634519}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.1, y: 3.408286, z: 40.69}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202354772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,6 +1972,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+--- !u!1 &599984007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599984009}
+  - component: {fileID: 599984008}
+  m_Layer: 0
+  m_Name: Dialogue Previewer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &599984008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599984007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa17249912e8e974e9ff989b7a11675d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previewBackground: {fileID: 927923610}
+  returnButton: {fileID: 1367547202}
+  previewText: {fileID: 90071212}
+--- !u!4 &599984009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599984007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &666845148
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -2276,7 +2263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179634520}
+      - m_Target: {fileID: 3152414133741506168}
         m_TargetAssemblyTypeName: DialogueLoader, Assembly-CSharp
         m_MethodName: LoadSaveThree
         m_Mode: 1
@@ -2866,7 +2853,7 @@ GameObject:
   - component: {fileID: 927923613}
   - component: {fileID: 927923612}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Preview Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2952,7 +2939,6 @@ MonoBehaviour:
     actionPath: /actions/default/in/SmoothMovement
     needsReinit: 0
   dialogueCanvas: {fileID: 543136755}
-  dialogueEditor: {fileID: 0}
   textToDisplay: {fileID: 824983317}
   currentCharacter: 
 --- !u!143 &951922201
@@ -3362,7 +3348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.704
+      value: 23.369
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3743,7 +3729,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179634520}
+      - m_Target: {fileID: 3152414133741506168}
         m_TargetAssemblyTypeName: DialogueLoader, Assembly-CSharp
         m_MethodName: LoadSaveTwo
         m_Mode: 1
@@ -4054,8 +4040,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179634520}
-        m_TargetAssemblyTypeName: DialogueLoader, Assembly-CSharp
+      - m_Target: {fileID: 599984008}
+        m_TargetAssemblyTypeName: DialoguePreviewer, Assembly-CSharp
         m_MethodName: PreviewSaveTwo
         m_Mode: 1
         m_Arguments:
@@ -4556,7 +4542,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179634520}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogueLoader, Assembly-CSharp
         m_MethodName: ExitPreview
         m_Mode: 1
@@ -4690,7 +4676,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179634520}
+      - m_Target: {fileID: 3152414133741506168}
         m_TargetAssemblyTypeName: DialogueLoader, Assembly-CSharp
         m_MethodName: LoadSaveDefault
         m_Mode: 1
@@ -5075,8 +5061,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179634520}
-        m_TargetAssemblyTypeName: DialogueLoader, Assembly-CSharp
+      - m_Target: {fileID: 599984008}
+        m_TargetAssemblyTypeName: DialoguePreviewer, Assembly-CSharp
         m_MethodName: PreviewSaveThree
         m_Mode: 1
         m_Arguments:
@@ -5521,7 +5507,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179634520}
+      - m_Target: {fileID: 3152414133741506168}
         m_TargetAssemblyTypeName: DialogueLoader, Assembly-CSharp
         m_MethodName: LoadSaveOne
         m_Mode: 1
@@ -5790,8 +5776,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179634520}
-        m_TargetAssemblyTypeName: DialogueLoader, Assembly-CSharp
+      - m_Target: {fileID: 599984008}
+        m_TargetAssemblyTypeName: DialoguePreviewer, Assembly-CSharp
         m_MethodName: PreviewSaveOne
         m_Mode: 1
         m_Arguments:
@@ -6414,3 +6400,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5430136754f61994c87bcaf08b5ad20c, type: 3}
+--- !u!114 &3152414133741506168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 900221074, guid: 5430136754f61994c87bcaf08b5ad20c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3152414133741506167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18398e27904e8b4395c850bef581364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

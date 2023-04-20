@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
 
     public GameObject dialogueCanvas;
-    public DialogueEditor dialogueEditor;
     public TextMeshProUGUI textToDisplay;
 
     public String currentCharacter = "";
@@ -35,30 +34,32 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Observer")
-        {
-            //dialogueEditor.characterName.text = "The Observer";
-            currentCharacter = "Observer";
-            dialogueCanvas.SetActive(true);
+        //if(other.tag == "Observer")
+        //{
+        //    //dialogueEditor.characterName.text = "The Observer";
+        //    currentCharacter = "Observer";
+        //    dialogueCanvas.SetActive(true);
             
-        }
+        //}
 
-        if (other.tag == "MissionControl")
-        {
-            //dialogueEditor.characterName.text = "Mission Control";
-            currentCharacter = "MissionControl";
-            DialogueSystem.instance.displayText.text = DialogueSystem.instance.missionControlDialogue[0].dialogue;
-            dialogueCanvas.SetActive(true);
-        }
+        //if (other.tag == "MissionControl")
+        //{
+        //    //dialogueEditor.characterName.text = "Mission Control";
+        //    currentCharacter = "MissionControl";
+        //    //DialogueSystemNew.instance.displayText.text = DialogueSystemNew.instance.missionControlDialogue[0].dialogue;
+        //    dialogueCanvas.SetActive(true);
+        //}
 
-        if (other.tag == "GreetingBot")
-        {
-            //dialogueEditor.characterName.text = "Greeting Bot";
-            currentCharacter = "GreetingBot";
-            DialogueSystem.instance.displayText.text = DialogueSystem.instance.greetingBotDialogue[0].dialogue;
-           // textToDisplay.text = dialogueEditor.greetingBotText.text;
-            dialogueCanvas.SetActive(true);
-        }
+        //if (other.tag == "GreetingBot")
+        //{
+        //    //dialogueEditor.characterName.text = "Greeting Bot";
+        //    currentCharacter = "GreetingBot";
+        //    //DialogueSystemNew.instance.displayText.text = DialogueSystemNew.instance.greetingBotDialogue[0].dialogue;
+        //   // textToDisplay.text = dialogueEditor.greetingBotText.text;
+        //    dialogueCanvas.SetActive(true);
+        //}
+
+        currentCharacter = other.tag;
     }
 
     private void OnTriggerExit(Collider other)

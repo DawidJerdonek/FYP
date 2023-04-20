@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3152414134327642301}
   - component: {fileID: 655378123}
-  - component: {fileID: 655378124}
   - component: {fileID: 1492616857}
+  - component: {fileID: 900221074}
   m_Layer: 0
   m_Name: Dialogue System
   m_TagString: Untagged
@@ -48,40 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChecking: 0
   dialogueList: []
---- !u!114 &655378124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3152414134327642303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dd3bb68f639dcc4eaad03a24c2e0dd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  parser: {fileID: 655378123}
-  characterName: {fileID: 0}
-  displayText: {fileID: 0}
-  choice1Text: {fileID: 0}
-  choice2Text: {fileID: 0}
-  loadedDialogueFile: []
-  observerStage: 0
-  greetingBotStage: 0
-  missionControlStage: 0
-  characterStage: 
-  replyOptions: []
-  replyStage: 
-  characterIdentity:
-  - Observer
-  - GreetingBot
-  - MissionControl
-  observerDialogue: []
-  greetingBotDialogue: []
-  missionControlDialogue: []
-  parsedDialogue: []
-  previewedparsedDialogueFile: []
+  temp: []
 --- !u!114 &1492616857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,12 +74,18 @@ MonoBehaviour:
   characterStage: 
   replyOptions: []
   replyStage: 
-  characterIdentity:
-  - Observer
-  - GreetingBot
-  - MissionControl
-  observerDialogue: []
-  greetingBotDialogue: []
-  missionControlDialogue: []
+  characterIdentity: []
   parsedDialogue: []
   previewedparsedDialogueFile: []
+--- !u!114 &900221074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3152414134327642303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18398e27904e8b4395c850bef581364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
