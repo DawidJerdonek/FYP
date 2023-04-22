@@ -1,102 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <conversation>Observer
-
 <stage>0</stage>
 <dialogue>
-<text> Hi Andrew? </text>
-<answers>
-<ans1>
+<text> Hello! Where are you from? </text>
 <reply>Why do you care?</reply>
 <nextStage>1</nextStage>
-</ans1>
-<ans2>
 <reply>Hello I am from Earth</reply>
 <nextStage>2</nextStage>
-</ans2>
-</answers>
 </dialogue>
-
 <stage>1</stage>
-<dialogue> 
+<dialogue>
 <text>I see, in that case goodbye...</text>
-<answers>
-</answers>
 </dialogue>
-
 <stage>2</stage>
-<dialogue> 
-<text>In that case I welcome you, I observe you to learn<text>
+<dialogue>
+<text>In that case I welcome you, I observe you to learn</text>
 </dialogue>
-
 </conversation>
-
 <conversation>GreetingBot
-
 <stage>0</stage>
 <dialogue>
 <text> Hello! My name is Greeting Bot! I greet you here on this planet. I hope you enjoy your stay </text>
-<answers>
-<ans1>
 <reply>Nice to meet you! Thanks!</reply>
 <nextStage>1</nextStage>
-</ans1>
-</answers>
 </dialogue>
-
 <stage>1</stage>
-<dialogue> 
+<dialogue>
 <text>If you need anything feel free to not do so! I only have a set amount of dialogue programmed!</text>
 </dialogue>
-
-
 </conversation>
-
 <conversation>MissionControl
-
 <stage>0</stage>
 <dialogue>
-<text>Pathfinder! Can you hear is this is MissionControl, do you copy? </text>
-<answers>
-<ans1>
+<text>Example1</text>
 <reply>Yes Mission Control I copy!</reply>
 <nextStage>1</nextStage>
-</ans1>
-<ans2>
 <reply>...</reply>
 <nextStage>2</nextStage>
-</ans2>
-</answers>
 </dialogue>
-
 <stage>1</stage>
-<dialogue> 
+<dialogue>
 <text>Copy that! Have you landed on the surface of *Planet*</text>
-<answers>
-<ans1>
 <reply>Yes I am here now, I will return with anything I learn!</reply>
 <nextStage>3</nextStage>
-</ans1>
-<ans2>
-<reply>No I have not...(lie) </reply>
+<reply>Reply</reply>
 <nextStage>4</nextStage>
-</ans2>
-</answers>
 </dialogue>
-
 <stage>2</stage>
-<dialogue> 
+<dialogue>
 <text>*static*</text>
 </dialogue>
-
 <stage>3</stage>
-<dialogue> 
+<dialogue>
 <text>Very Well, best of luck in your exploration, Mission Control Out!</text>
 </dialogue>
-
 <stage>4</stage>
-<dialogue> 
+<dialogue>
 <text>That is worrying, it is taking longer than expected... Contact us at once whenever you land your ship!</text>
 </dialogue>
-
 </conversation>
