@@ -2735,6 +2735,7 @@ MonoBehaviour:
     needsReinit: 0
   dialogueCanvas: {fileID: 543136755}
   textToDisplay: {fileID: 824983317}
+  colliding: 0
   currentCharacter: 
 --- !u!143 &951922201
 CharacterController:
@@ -3981,6 +3982,7 @@ GameObject:
   - component: {fileID: 1349281008}
   - component: {fileID: 1349281007}
   - component: {fileID: 1349281006}
+  - component: {fileID: 1349281010}
   m_Layer: 0
   m_Name: Character W/Dialogue(Greeting Bot)
   m_TagString: Untagged
@@ -4067,6 +4069,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: -24.16, z: 0}
+--- !u!114 &1349281010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349281005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc441ed7290fa794a971e3ff5d0419bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDialogueStage: 0
 --- !u!1 &1367547202
 GameObject:
   m_ObjectHideFlags: 0
