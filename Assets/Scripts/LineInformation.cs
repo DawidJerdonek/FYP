@@ -10,7 +10,14 @@ public class LineInformation : MonoBehaviour
 
     private void Update()
     {
+        if (startObject == null || endObject == null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
         GetComponentInParent<LineRenderer>().SetPosition(0, startObject.transform.position);
         GetComponentInParent<LineRenderer>().SetPosition(1, endObject.transform.position);
+        }
     }
 }

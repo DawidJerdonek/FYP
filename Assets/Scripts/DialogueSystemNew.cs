@@ -73,8 +73,10 @@ public class DialogueSystemNew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        DialogueChoice(player.currentCharacter);
+        if (player != null)
+        {
+            DialogueChoice(player.currentCharacter);
+        }
 
         //if (player.currentCharacter == characterIdentity[0])
         //{

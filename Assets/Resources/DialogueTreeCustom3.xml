@@ -32,7 +32,7 @@
 <conversation>MissionControl
 <stage>0</stage>
 <dialogue>
-<text>Example1</text>
+<text>Pathfinder! Can you hear is this is MissionControl, do you copy? </text>
 <reply>Yes Mission Control I copy!</reply>
 <nextStage>1</nextStage>
 <reply>...</reply>
@@ -43,7 +43,7 @@
 <text>Copy that! Have you landed on the surface of *Planet*</text>
 <reply>Yes I am here now, I will return with anything I learn!</reply>
 <nextStage>3</nextStage>
-<reply>Reply</reply>
+<reply>No I have not...(lie) </reply>
 <nextStage>4</nextStage>
 </dialogue>
 <stage>2</stage>
@@ -53,9 +53,5 @@
 <stage>3</stage>
 <dialogue>
 <text>Very Well, best of luck in your exploration, Mission Control Out!</text>
-</dialogue>
-<stage>4</stage>
-<dialogue>
-<text>That is worrying, it is taking longer than expected... Contact us at once whenever you land your ship!</text>
 </dialogue>
 </conversation>

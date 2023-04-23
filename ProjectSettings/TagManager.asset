@@ -10,6 +10,7 @@ TagManager:
   - CharacterButton
   - DialogueNode
   - ReplyNode
+  - NameDisplay
   layers:
   - Default
   - TransparentFX
