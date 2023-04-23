@@ -34,12 +34,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        dialogueCanvas.SetActive(true);
         //if(other.tag == "Observer")
         //{
         //    //dialogueEditor.characterName.text = "The Observer";
         //    currentCharacter = "Observer";
         //    dialogueCanvas.SetActive(true);
-            
+
         //}
 
         //if (other.tag == "MissionControl")
@@ -64,17 +65,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Observer")
-        {
-            dialogueCanvas.SetActive(false);
-        }
-        if (other.tag == "MissionControl")
-        {
-            dialogueCanvas.SetActive(false);
-        }
-        if (other.tag == "GreetingBot")
-        {
-            dialogueCanvas.SetActive(false);
-        }
+        dialogueCanvas.SetActive(false);
+        //if (other.tag == "Observer")
+        //{
+        //    dialogueCanvas.SetActive(false);
+        //}
+        //if (other.tag == "MissionControl")
+        //{
+        //    dialogueCanvas.SetActive(false);
+        //}
+        //if (other.tag == "GreetingBot")
+        //{
+        //    dialogueCanvas.SetActive(false);
+        //}
     }
 }
