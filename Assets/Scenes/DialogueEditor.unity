@@ -645,7 +645,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use ''WASD'' to move
+  m_text: 'Use Arrow Keys to move
 
     Use ''Scroll Wheel'' to Zoom IN and OUT
 

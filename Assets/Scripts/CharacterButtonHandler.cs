@@ -78,16 +78,22 @@ public class CharacterButtonHandler : MonoBehaviour
                             if (nodeCount == 1)
                             {
                                 replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 600 + ((1200 * replyCount)), dialogueNode.transform.position.y - 100, 0);
+                                //Set DialogueNodes lines to Replies
                                 line.positionCount = 2;
                                 line.SetPosition(0, replyNode.transform.position);
                                 line.SetPosition(1, dialogueNode.transform.position);
+                                line.GetComponent<LineInformation>().startObject = replyNode.gameObject;
+                                line.GetComponent<LineInformation>().endObject = dialogueNode.gameObject;
                             }
                             else
                             {
                                 replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 300 + ((600 * replyCount)), dialogueNode.transform.position.y - 100, 0);
+                                //Set DialogueNodes lines to Replies
                                 line.positionCount = 2;
                                 line.SetPosition(0, replyNode.transform.position);
                                 line.SetPosition(1, dialogueNode.transform.position);
+                                line.GetComponent<LineInformation>().startObject = replyNode.gameObject;
+                                line.GetComponent<LineInformation>().endObject = dialogueNode.gameObject;
                             }
                             replyNode.GetComponentInChildren<TextMeshProUGUI>().text
                                 = "Next Stage: " + dialogueSystem.parsedDialogue[j].nextStage[replyCount].ToString();
