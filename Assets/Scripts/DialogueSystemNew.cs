@@ -75,21 +75,12 @@ public class DialogueSystemNew : MonoBehaviour
     {
         if (player != null)
         {
-            DialogueChoice(player.currentCharacter);
+            if (player.colliding)
+            {
+                DialogueChoice(player.currentCharacter);
+            }
         }
 
-        //if (player.currentCharacter == characterIdentity[0])
-        //{
-        //    characterName.text = player.currentCharacter;
-        //    displayText.text = observerDialogue[observerStage].dialogue;
-        //    displayText.text = parsedDialogue[parsedDialogue[0].stage].dialogue;
-        //    if (observerDialogue[observerStage].replies.Count > 0)
-        //    {
-
-        //        DialogueChoice(characterIdentity[0]);
-
-        //    }
-        //}
     }
 
     void DialogueChoice(string character)
@@ -98,65 +89,38 @@ public class DialogueSystemNew : MonoBehaviour
         {
             if (parsedDialogue[i].character == character)
             {
-                displayText.text = parsedDialogue[i].dialogue;
+                if (parsedDialogue[i].stage == currentStage)
+                {
+                    displayText.text = parsedDialogue[i].dialogue;
 
-                for (int j = 0; j < parsedDialogue[i].replies.Count; j++)
-                {
-                    choice1Text.text = parsedDialogue[i].replies[0];
-                    choice2Text.text = parsedDialogue[i].replies[1];
+
+                    for (int j = 0; j < parsedDialogue[i].replies.Count; j++)
+                    {
+
+                        choice1Text.text = parsedDialogue[i].replies[0];
+                        choice2Text.text = parsedDialogue[i].replies[1];
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.P))
+                    {
+                        currentStage = parsedDialogue[i].nextStage[0];
+                    }
+                    else if (Input.GetKeyDown(KeyCode.L))
+                    {
+                        currentStage = parsedDialogue[i].nextStage[1];
+                    }
                 }
 
-                if (Input.GetKeyDown(KeyCode.P))
-                {
-                    currentStage = parsedDialogue[i].nextStage[0];
-                }
-                else if (Input.GetKeyDown(KeyCode.L))
-                {
-                    currentStage = parsedDialogue[i].nextStage[1];
-                }
             }
         }
-
-        //else if (player.currentCharacter == character)
-        //{
-        //    //choice1Text.text = replyOptions[0];
-        //    //choice2Text.text = replyOptions[1];
-
-        //    //if (Input.GetKeyDown(KeyCode.P))
-        //    //{
-        //    //    greetingBotStage = characterDialogues[1][greetingBotStage].nextStage[0];
-        //    //}
-        //    //else if (Input.GetKeyDown(KeyCode.L))
-        //    //{
-        //    //    greetingBotStage = characterDialogues[1][greetingBotStage].nextStage[1];
-        //    //}
-        //}
-        //else if (player.currentCharacter == character)
-        //{
-        //    //displayText.text = characterDialogues[1][missionControlStage].dialogue;
-
-        //    ////choice1Text.text = replyOptions[0];
-        //    ////choice2Text.text = replyOptions[1];
-
-        //    //if (Input.GetKeyDown(KeyCode.P))
-        //    //{
-        //    //    missionControlStage = characterDialogues[1][missionControlStage].nextStage[0];
-        //    //}
-        //    //else if (Input.GetKeyDown(KeyCode.L))
-        //    //{
-        //    //    missionControlStage = characterDialogues[1][missionControlStage].nextStage[1];
-        //    //}
-        //}
     }
 
     public void loadNewDialogue()
     {
         parsedDialogue.Clear();
-        //characterDialogues.Clear();
 
         parser.loadData(loadedDialogueFile);
         parsedDialogue = parser.returnDialogue();
-
     }
 
     public List<string> readTextFile(string filePath)
@@ -182,7 +146,7 @@ public class DialogueSystemNew : MonoBehaviour
                 GameObject toCheck = GameObject.FindGameObjectWithTag(parsedDialogue[i].character);
                 if (toCheck != null)
                 {
-                    
+                    currentStage = toCheck.GetComponent<CurrentCharacterStage>().currentDialogueStage;
                 }
             }
         }

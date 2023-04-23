@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject dialogueCanvas;
     public TextMeshProUGUI textToDisplay;
-
+    public bool colliding = false;
     public String currentCharacter = "";
 
     // Start is called before the first frame update
@@ -35,37 +35,14 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         dialogueCanvas.SetActive(true);
-        //if(other.tag == "Observer")
-        //{
-        //    //dialogueEditor.characterName.text = "The Observer";
-        //    currentCharacter = "Observer";
-        //    dialogueCanvas.SetActive(true);
-
-        //}
-
-        //if (other.tag == "MissionControl")
-        //{
-        //    //dialogueEditor.characterName.text = "Mission Control";
-        //    currentCharacter = "MissionControl";
-        //    //DialogueSystemNew.instance.displayText.text = DialogueSystemNew.instance.missionControlDialogue[0].dialogue;
-        //    dialogueCanvas.SetActive(true);
-        //}
-
-        //if (other.tag == "GreetingBot")
-        //{
-        //    //dialogueEditor.characterName.text = "Greeting Bot";
-        //    currentCharacter = "GreetingBot";
-        //    //DialogueSystemNew.instance.displayText.text = DialogueSystemNew.instance.greetingBotDialogue[0].dialogue;
-        //   // textToDisplay.text = dialogueEditor.greetingBotText.text;
-        //    dialogueCanvas.SetActive(true);
-        //}
-
         currentCharacter = other.tag;
+        colliding = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         dialogueCanvas.SetActive(false);
+        colliding = false;
         //if (other.tag == "Observer")
         //{
         //    dialogueCanvas.SetActive(false);

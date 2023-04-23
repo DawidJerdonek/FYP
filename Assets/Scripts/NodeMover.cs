@@ -13,6 +13,7 @@ public class NodeMover : MonoBehaviour
 
     public GameObject deleteButton;
     public GameObject addButton;
+    private TextMeshProUGUI characterText;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class NodeMover : MonoBehaviour
         stage = GetComponentInParent<StageGrabber>().stageValue;
         deleteButton.SetActive(false);
         addButton.SetActive(false);
-
+        characterText  = GameObject.FindGameObjectWithTag("NameDisplay").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -33,12 +34,17 @@ public class NodeMover : MonoBehaviour
         {
             if (parsedDialogue[i].replies.Count == 0)
             {
-                deleteButton.SetActive(true);
-                addButton.SetActive(true);
+                if (parsedDialogue[i].character == characterText.text)
+                {
+                
+                    deleteButton.SetActive(true);
+                    addButton.SetActive(true);
+                }
             }
             else
             {
-
+                deleteButton.SetActive(false);
+                addButton.SetActive(false);
             }
         }
     }
@@ -53,9 +59,9 @@ public class NodeMover : MonoBehaviour
 
     public void DeleteNode()
     {
-        TextMeshProUGUI characterText = GameObject.FindGameObjectWithTag("NameDisplay").GetComponent<TextMeshProUGUI>();
-        
-        for(int i = 0; i< parsedDialogue.Count; i++)
+        characterText = GameObject.FindGameObjectWithTag("NameDisplay").GetComponent<TextMeshProUGUI>();
+
+        for (int i = 0; i< parsedDialogue.Count; i++)
         {
             if (parsedDialogue[i].character == characterText.text)
             {
