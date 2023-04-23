@@ -59,10 +59,25 @@ public class NodeMover : MonoBehaviour
         {
             if (parsedDialogue[i].character == characterText.text)
             {
-                if (parsedDialogue[i].stage == stage)
+                if (gameObject.tag == "DialogueNode")
                 {
-                    parsedDialogue.RemoveAt(i);
-                    Destroy(gameObject);
+                    if (parsedDialogue[i].stage == stage)
+                    {
+                        parsedDialogue.RemoveAt(i);
+                        Destroy(gameObject);
+                    }
+                }
+                else if (gameObject.tag == "ReplyNode")
+                {
+                    for(int j = 0; j < parsedDialogue[i].nextStage.Count; j++)
+                    {
+                        if (parsedDialogue[i].nextStage[j] == stage)
+                        {
+                            parsedDialogue[i].replies.RemoveAt(j);
+                            parsedDialogue[i].nextStage.RemoveAt(j);
+                            Destroy(gameObject);
+                        }
+                    }
                 }
             }
         }
