@@ -99,27 +99,27 @@ public class DialogueEditor : MonoBehaviour
 
             if (i < 6)
             {
-                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 500), buttonStartPosition.position.y, buttonStartPosition.position.z);
+                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 800), buttonStartPosition.position.y, buttonStartPosition.position.z);
             }
             else if(i >= 6 && i < 12)
             {
-                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 500), buttonStartPosition.position.y - 100, buttonStartPosition.position.z);
+                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 800), buttonStartPosition.position.y - 200, buttonStartPosition.position.z);
             }
             else if (i >= 12 && i < 18)
             {
-                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 500), buttonStartPosition.position.y - 200, buttonStartPosition.position.z);
+                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 800), buttonStartPosition.position.y - 400, buttonStartPosition.position.z);
             }
             else if (i >= 18 && i < 24)
             {
-                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 500), buttonStartPosition.position.y - 300, buttonStartPosition.position.z);
+                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 800), buttonStartPosition.position.y - 600, buttonStartPosition.position.z);
             }
             else if (i >= 24 && i < 30)
             {
-                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 500), buttonStartPosition.position.y - 400, buttonStartPosition.position.z);
+                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 800), buttonStartPosition.position.y - 800, buttonStartPosition.position.z);
             }
             else if (i >= 30 && i < 36)
             {
-                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 500), buttonStartPosition.position.y - 500, buttonStartPosition.position.z);
+                characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 800), buttonStartPosition.position.y - 1000, buttonStartPosition.position.z);
             }
 
             j++;

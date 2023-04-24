@@ -3145,7 +3145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018894053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1500, z: -1014}
+  m_LocalPosition: {x: 0, y: 1500, z: -3000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3356,6 +3356,26 @@ PrefabInstance:
       propertyPath: m_TagString
       value: NameDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 5683333848345139626, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683333848345139626, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -400
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683333848790911437, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683333848790911437, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -300
+      objectReference: {fileID: 0}
     - target: {fileID: 5683333848828579396, guid: 84d895b66ffb44a498d39c4b3960a5f5,
         type: 3}
       propertyPath: m_Name
@@ -3465,6 +3485,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683333849061400565, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683333849061400565, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683333849742623767, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683333849742623767, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683333850439188942, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683333850439188942, guid: 84d895b66ffb44a498d39c4b3960a5f5,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84d895b66ffb44a498d39c4b3960a5f5, type: 3}
