@@ -91,11 +91,6 @@ public class DialogueEditor : MonoBehaviour
             characterButton.gameObject.transform.parent = gameObject.transform;
             characterButton.GetComponentInChildren<TextMeshProUGUI>().text = characterIdentity[i];
 
-            //characterButton.GetComponent<Button>().onClick.AddListener(ShowCharacterTree);
-
-            // Button button = characterButton.gameObject.GetComponent<Button>();
-            // button.onClick.AddListener(showCharacterTree);
-
 
             if (i < 6)
             {

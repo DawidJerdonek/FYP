@@ -32,28 +32,17 @@ public class PlayerController : MonoBehaviour
         characterController.Move(speed * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up) - new Vector3(0,9.81f,0) * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         dialogueCanvas.SetActive(true);
         currentCharacter = other.tag;
         colliding = true;
+        //FindObjectOfType<DialogueSystemNew>().DialogueChoice(currentCharacter);
     }
 
     private void OnTriggerExit(Collider other)
     {
         dialogueCanvas.SetActive(false);
         colliding = false;
-        //if (other.tag == "Observer")
-        //{
-        //    dialogueCanvas.SetActive(false);
-        //}
-        //if (other.tag == "MissionControl")
-        //{
-        //    dialogueCanvas.SetActive(false);
-        //}
-        //if (other.tag == "GreetingBot")
-        //{
-        //    dialogueCanvas.SetActive(false);
-        //}
     }
 }

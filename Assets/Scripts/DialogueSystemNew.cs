@@ -32,6 +32,8 @@ public class DialogueSystemNew : MonoBehaviour
     public List<Dialogue> parsedDialogue;
     public List<Dialogue> previewedparsedDialogueFile;
 
+    private bool choiceMade = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,11 +82,12 @@ public class DialogueSystemNew : MonoBehaviour
                 DialogueChoice(player.currentCharacter);
             }
         }
-
+        choiceMade = false;
     }
 
-    void DialogueChoice(string character)
+    public void DialogueChoice(string character)
     {
+
         for (int i = 0; i < parsedDialogue.Count; i++)
         {
             if (parsedDialogue[i].character == character)
@@ -99,16 +102,24 @@ public class DialogueSystemNew : MonoBehaviour
 
                         choice1Text.text = parsedDialogue[i].replies[0];
                         choice2Text.text = parsedDialogue[i].replies[1];
-                    }
 
-                    if (Input.GetKeyDown(KeyCode.P))
-                    {
-                        currentStage = parsedDialogue[i].nextStage[0];
+                        if (choiceMade == false)
+                        {
+                            if (Input.GetKeyDown(KeyCode.P))
+                            {
+                                currentStage = parsedDialogue[i].nextStage[0];
+                                Debug.Log("True");
+                                choiceMade = true;
+                            }
+                            else if (Input.GetKeyDown(KeyCode.L))
+                            {
+                                currentStage = parsedDialogue[i].nextStage[1];
+                                Debug.Log("False");
+                                choiceMade = true;
+                            }
+                        }
                     }
-                    else if (Input.GetKeyDown(KeyCode.L))
-                    {
-                        currentStage = parsedDialogue[i].nextStage[1];
-                    }
+  
                 }
 
             }
@@ -135,20 +146,5 @@ public class DialogueSystemNew : MonoBehaviour
         }
 
         return lines;
-    }
-
-    public void AssignDialogue()
-    {
-        for(int i = 0; i < parsedDialogue.Count; i++)
-        {
-            for(int j = 0; j < characterIdentity.Count; j++)
-            {
-                GameObject toCheck = GameObject.FindGameObjectWithTag(parsedDialogue[i].character);
-                if (toCheck != null)
-                {
-                    currentStage = toCheck.GetComponent<CurrentCharacterStage>().currentDialogueStage;
-                }
-            }
-        }
     }
 }
