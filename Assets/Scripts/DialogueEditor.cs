@@ -156,9 +156,9 @@ public class DialogueEditor : MonoBehaviour
     public void ToSaveFileOne()
     {
         dialogueSystem.parser.ReformatIntoXML();
-        for (int i = 0; i < dialogueSystem.parser.temp.Count; i++)
+        for (int i = 0; i < dialogueSystem.parser.reformattingList.Count; i++)
         {
-            editable += dialogueSystem.parser.temp[i];
+            editable += dialogueSystem.parser.reformattingList[i];
             editable += "\n";
         }
         System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom1.xml", editable);
@@ -168,9 +168,9 @@ public class DialogueEditor : MonoBehaviour
     public void ToSaveFileTwo()
     {
         dialogueSystem.parser.ReformatIntoXML();
-        for (int i = 0; i < dialogueSystem.parser.temp.Count; i++)
+        for (int i = 0; i < dialogueSystem.parser.reformattingList.Count; i++)
         {
-            editable += dialogueSystem.parser.temp[i];
+            editable += dialogueSystem.parser.reformattingList[i];
             editable += "\n";
         }
         System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom2.xml", editable);
@@ -180,13 +180,14 @@ public class DialogueEditor : MonoBehaviour
     public void ToSaveFileThree()
     {
         dialogueSystem.parser.ReformatIntoXML();
-        for (int i = 0; i < dialogueSystem.parser.temp.Count; i++)
+        for (int i = 0; i < dialogueSystem.parser.reformattingList.Count; i++)
         {
-            editable += dialogueSystem.parser.temp[i];
+            editable += dialogueSystem.parser.reformattingList[i];
             editable += "\n";
         }
         System.IO.File.WriteAllText("Assets/Resources/DialogueTreeCustom3.xml", editable);
 
         FindObjectOfType<DialogueLoader>().LoadSaveThree();
     }
+
 }

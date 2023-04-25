@@ -5,12 +5,6 @@ using UnityEngine;
 
 public class HUDUIManager : MonoBehaviour
 {
-    public TextMeshProUGUI hideHUDPrompt;
-    public bool HUDEnabled;
-
-    public GameObject loadFileButton;
-    public GameObject toggleSavesButton;
-
     public GameObject saveFileOneButton;
     public GameObject saveFileTwoButton;
     public GameObject saveFileThreeButton;
@@ -22,9 +16,6 @@ public class HUDUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HUDEnabled = true;
-        loadFileButton.SetActive(true);
-        toggleSavesButton.SetActive(true);
 
         saveFileOneButton.SetActive(false);
         saveFileTwoButton.SetActive(false);
@@ -35,22 +26,6 @@ public class HUDUIManager : MonoBehaviour
         cancelButton.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
-        {
-            HUDEnabled ^= true;
-        }
-
-        loadFileButton.SetActive(HUDEnabled);
-        toggleSavesButton.SetActive(HUDEnabled);
-        hideHUDPrompt.enabled = HUDEnabled;
-        //SaveFileOneButton.SetActive(HUDEnabled);
-        //SaveFileTwoButton.SetActive(HUDEnabled);
-        //SaveFileThreeButton.SetActive(HUDEnabled);
-    }
-
     public void ShowSaves()
     {
         saveFileOneButton.SetActive(true);
@@ -59,7 +34,7 @@ public class HUDUIManager : MonoBehaviour
         cancelButton.SetActive(true);
     }
 
-    public void ShowLoadSaves()
+    public void ShowLoads()
     {
         loadFileOneButton.SetActive(true);
         loadFileTwoButton.SetActive(true);

@@ -22,7 +22,7 @@ public class Parser : MonoBehaviour
     private List<string> importedDialogueFile;
     public List<Dialogue> dialogueList;
 
-    public List<string> temp;
+    public List<string> reformattingList;
 
     // Start is called before the first frame update
     void Start()
@@ -139,39 +139,40 @@ public class Parser : MonoBehaviour
     {
         List<Dialogue> currentParsedDialogue = dialogueList;
         string previousCharacter = "";
-        temp.Clear();
-        temp.Add("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+        reformattingList.Clear();
+        reformattingList.Add("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
 
         for (int i = 0; i < currentParsedDialogue.Count; i++)
         {
+            //If first character
             if(i == 0)
             {
                 previousCharacter = currentParsedDialogue[i].character;
-                temp.Add("<conversation>" + currentParsedDialogue[i].character);
+                reformattingList.Add("<conversation>" + currentParsedDialogue[i].character);
             }
-            else if(previousCharacter != currentParsedDialogue[i].character)
+            else if(previousCharacter != currentParsedDialogue[i].character) //Check if next line is different character
             {
                 previousCharacter = currentParsedDialogue[i].character;
-                temp.Add("</conversation>");
-                temp.Add("<conversation>" + currentParsedDialogue[i].character);
+                reformattingList.Add("</conversation>"); //End last character 
+                reformattingList.Add("<conversation>" + currentParsedDialogue[i].character); //Start new next character
             }
 
-            temp.Add("<stage>" + currentParsedDialogue[i].stage + "</stage>");
-            temp.Add("<dialogue>");
-            temp.Add("<text>"+ currentParsedDialogue[i].dialogue + "</text>");
-            for(int j = 0; j < currentParsedDialogue[i].replies.Count; j++)
+            reformattingList.Add("<stage>" + currentParsedDialogue[i].stage + "</stage>"); //Add the dialogue stage
+            reformattingList.Add("<dialogue>");
+            reformattingList.Add("<text>"+ currentParsedDialogue[i].dialogue + "</text>"); //Add the dialogue for this stage
+            for(int j = 0; j < currentParsedDialogue[i].replies.Count; j++)//Add all replies
             {
-                temp.Add("<reply>" + currentParsedDialogue[i].replies[j] + "</reply>");
-                temp.Add("<nextStage>" + currentParsedDialogue[i].nextStage[j] + "</nextStage>");
+                reformattingList.Add("<reply>" + currentParsedDialogue[i].replies[j] + "</reply>");
+                reformattingList.Add("<nextStage>" + currentParsedDialogue[i].nextStage[j] + "</nextStage>");
             }
-            temp.Add("</dialogue>");
+            reformattingList.Add("</dialogue>"); //End character dialogue stage
 
             if(previousCharacter != currentParsedDialogue[i].character)
             {
 
             }
         }
-        temp.Add("</conversation>");
+        reformattingList.Add("</conversation>"); //End last character
     }
     public List<Dialogue> returnDialogue()
     {
