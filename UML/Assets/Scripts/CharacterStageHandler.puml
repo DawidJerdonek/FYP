@@ -1,0 +1,7 @@
+@startuml
+class CharacterStageHandler {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- CharacterStageHandler
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+class CharacterButtonHandler {
+    Start() : void
+    Update() : void
+    + ShowCharacterTree() : void
+}
+MonoBehaviour <|-- CharacterButtonHandler
+CharacterButtonHandler --> "dialogueNodePrefab" GameObject
+CharacterButtonHandler --> "replyNodePrefab" GameObject
+CharacterButtonHandler --> "editCancelButtonPrefab" GameObject
+CharacterButtonHandler --> "saveChangesButtonPrefab" GameObject
+CharacterButtonHandler --> "lineRendererPrefab" LineRenderer
+@enduml

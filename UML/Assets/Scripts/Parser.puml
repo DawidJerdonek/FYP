@@ -1,0 +1,23 @@
+@startuml
+class Dialogue <<struct>> {
+    + character : string
+    + stage : int
+    + dialogue : string
+}
+class Parser {
+    + isChecking : bool
+    Start() : void
+    Update() : void
+    + loadData(dataToLoad:List<string>) : void
+    + splitData() : void
+    + ReformatIntoXML() : void
+    + returnDialogue() : List<Dialogue>
+}
+class "List`1"<T> {
+}
+Dialogue --> "replies<string>" "List`1"
+Dialogue --> "nextStage<int>" "List`1"
+MonoBehaviour <|-- Parser
+Parser --> "dialogueList<Dialogue>" "List`1"
+Parser --> "reformattingList<string>" "List`1"
+@enduml

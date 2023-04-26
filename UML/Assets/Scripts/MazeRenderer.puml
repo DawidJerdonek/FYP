@@ -1,0 +1,7 @@
+@startuml
+class MazeRenderer {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- MazeRenderer
+@enduml

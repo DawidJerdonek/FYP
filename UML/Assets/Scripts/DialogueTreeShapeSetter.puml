@@ -1,0 +1,7 @@
+@startuml
+class DialogueTreeShapeSetter {
+    + SetShape() : void
+}
+MonoBehaviour <|-- DialogueTreeShapeSetter
+DialogueTreeShapeSetter --> "lineRendererPrefab" LineRenderer
+@enduml

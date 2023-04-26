@@ -1,0 +1,12 @@
+@startuml
+class PlayerController {
+    + colliding : bool = false
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- PlayerController
+PlayerController --> "input" SteamVR_Action_Vector2
+PlayerController --> "dialogueCanvas" GameObject
+PlayerController --> "textToDisplay" TextMeshProUGUI
+PlayerController o-> "currentCharacter" String
+@enduml

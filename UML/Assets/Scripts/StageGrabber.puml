@@ -1,0 +1,8 @@
+@startuml
+class StageGrabber {
+    + stageValue : int
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- StageGrabber
+@enduml

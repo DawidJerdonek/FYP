@@ -1,0 +1,14 @@
+@startuml
+class NodeMover {
+    Start() : void
+    Update() : void
+    + DeleteNode() : void
+    + AddNode() : void
+}
+MonoBehaviour <|-- NodeMover
+NodeMover --> "deleteButton" GameObject
+NodeMover --> "addButton" GameObject
+NodeMover --> "dialogueNodePrefab" GameObject
+NodeMover --> "replyNodePrefab" GameObject
+NodeMover --> "lineRendererPrefab" LineRenderer
+@enduml

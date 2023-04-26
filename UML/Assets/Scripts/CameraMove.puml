@@ -1,0 +1,9 @@
+@startuml
+class CameraMove {
+    + moveSpeed : int = 1000
+    + zoomSpeed : int = 10000
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- CameraMove
+@enduml

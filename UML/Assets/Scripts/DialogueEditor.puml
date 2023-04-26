@@ -1,0 +1,30 @@
+@startuml
+class DialogueEditor {
+    + editable : string
+    Start() : void
+    Update() : void
+    + CreateCharacterButton() : void
+    + AddCharacter() : void
+    + CancelNewCharacter() : void
+    + InstantiateCharacterButtons() : void
+    + DestroyCharacterButtons() : void
+    readTextFile(filePath:string) : List<string>
+    + ToSaveFileOne() : void
+    + ToSaveFileTwo() : void
+    + ToSaveFileThree() : void
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- DialogueEditor
+DialogueEditor --> "dialogueEditor" GameObject
+DialogueEditor --> "characterIdentity<string>" "List`1"
+DialogueEditor o-> "editableDialogues<int>" "List`1"
+DialogueEditor o-> "editableReplies<int>" "List`1"
+DialogueEditor --> "buttonStartPosition" Transform
+DialogueEditor --> "characterNameInput" TMP_InputField
+DialogueEditor --> "characterNameText" TextMeshProUGUI
+DialogueEditor --> "characterButtonPrefab" GameObject
+DialogueEditor --> "dialogueNodePrefab" GameObject
+DialogueEditor --> "addCharacterButton" GameObject
+DialogueEditor --> "abortButton" GameObject
+@enduml

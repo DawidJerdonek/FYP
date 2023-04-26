@@ -1,0 +1,7 @@
+@startuml
+class ChoiceDisplay {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- ChoiceDisplay
+@enduml

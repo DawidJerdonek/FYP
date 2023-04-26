@@ -1,0 +1,10 @@
+@startuml
+class DialogueLoader {
+    Start() : void
+    + LoadSaveDefault() : void
+    + LoadSaveOne() : void
+    + LoadSaveTwo() : void
+    + LoadSaveThree() : void
+}
+MonoBehaviour <|-- DialogueLoader
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class CancelEditHandler {
+    + DestroyDialogueNodes() : void
+}
+MonoBehaviour <|-- CancelEditHandler
+@enduml

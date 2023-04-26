@@ -1,0 +1,27 @@
+@startuml
+class DialogueSystemNew {
+    + currentStage : int
+    Start() : void
+    Update() : void
+    + DialogueChoice(character:string) : void
+    + loadNewDialogue() : void
+    + readTextFile(filePath:string) : List<string>
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- DialogueSystemNew
+DialogueSystemNew --> "player" PlayerController
+DialogueSystemNew --> "parser" Parser
+DialogueSystemNew --> "instance" DialogueSystemNew
+DialogueSystemNew --> "characterName" TextMeshProUGUI
+DialogueSystemNew --> "displayText" TextMeshProUGUI
+DialogueSystemNew --> "choice1Text" TextMeshProUGUI
+DialogueSystemNew --> "choice2Text" TextMeshProUGUI
+DialogueSystemNew --> "loadedDialogueFile<string>" "List`1"
+DialogueSystemNew --> "characterStage<int>" "List`1"
+DialogueSystemNew --> "replyOptions<string>" "List`1"
+DialogueSystemNew --> "replyStage<int>" "List`1"
+DialogueSystemNew --> "characterIdentity<string>" "List`1"
+DialogueSystemNew --> "parsedDialogue<Dialogue>" "List`1"
+DialogueSystemNew --> "previewedparsedDialogueFile<Dialogue>" "List`1"
+@enduml

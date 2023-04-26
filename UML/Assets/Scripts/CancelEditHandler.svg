@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="187px" preserveAspectRatio="none" style="width:215px;height:187px;" version="1.1" viewBox="0 0 215 187" width="215px" zoomAndPan="magnify"><defs><filter height="300%" id="f1j30lj6tlelnt" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[9c6f0cf7800d8c0d53a75cd5ba0c1aa3]
+class CancelEditHandler--><rect fill="#FEFECE" filter="url(#f1j30lj6tlelnt)" height="60.8047" id="CancelEditHandler" style="stroke: #A80036; stroke-width: 1.5;" width="198" x="6" y="116"/><ellipse cx="43.95" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M46.9188,137.6406 Q46.3406,137.9375 45.7,138.0781 Q45.0594,138.2344 44.3563,138.2344 Q41.8563,138.2344 40.5281,136.5938 Q39.2156,134.9375 39.2156,131.8125 Q39.2156,128.6875 40.5281,127.0313 Q41.8563,125.375 44.3563,125.375 Q45.0594,125.375 45.7,125.5313 Q46.3563,125.6875 46.9188,125.9844 L46.9188,128.7031 Q46.2938,128.125 45.7,127.8594 Q45.1063,127.5781 44.4813,127.5781 Q43.1375,127.5781 42.45,128.6563 Q41.7625,129.7188 41.7625,131.8125 Q41.7625,133.9063 42.45,134.9844 Q43.1375,136.0469 44.4813,136.0469 Q45.1063,136.0469 45.7,135.7813 Q46.2938,135.5 46.9188,134.9219 L46.9188,137.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="115" x="63.05" y="136.1543">CancelEditHandler</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="203" y1="148" y2="148"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="203" y1="156" y2="156"/><ellipse cx="17" cy="167" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="172" x="26" y="170.2104">DestroyDialogueNodes() : void</text><!--MD5=[83b3cf3d23d77c6f1e1b5291a241bc2a]
+class MonoBehaviour--><rect fill="#FEFECE" filter="url(#f1j30lj6tlelnt)" height="48" id="MonoBehaviour" style="stroke: #A80036; stroke-width: 1.5;" width="128" x="41" y="8"/><ellipse cx="56" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M58.9688,29.6406 Q58.3906,29.9375 57.75,30.0781 Q57.1094,30.2344 56.4063,30.2344 Q53.9063,30.2344 52.5781,28.5938 Q51.2656,26.9375 51.2656,23.8125 Q51.2656,20.6875 52.5781,19.0313 Q53.9063,17.375 56.4063,17.375 Q57.1094,17.375 57.75,17.5313 Q58.4063,17.6875 58.9688,17.9844 L58.9688,20.7031 Q58.3438,20.125 57.75,19.8594 Q57.1563,19.5781 56.5313,19.5781 Q55.1875,19.5781 54.5,20.6563 Q53.8125,21.7188 53.8125,23.8125 Q53.8125,25.9063 54.5,26.9844 Q55.1875,28.0469 56.5313,28.0469 Q57.1563,28.0469 57.75,27.7813 Q58.3438,27.5 58.9688,26.9219 L58.9688,29.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="96" x="70" y="28.1543">MonoBehaviour</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="42" x2="168" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="42" x2="168" y1="48" y2="48"/><!--MD5=[2268d738499e8467084ea41e0ac7a159]
+reverse link MonoBehaviour to CancelEditHandler--><path d="M105,76.11 C105,89.31 105,103.54 105,115.65 " fill="none" id="MonoBehaviour&lt;-CancelEditHandler" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="98,76.04,105,56.04,112,76.04,98,76.04" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8c9e40c50a3a089212a38564fd9864b5]
+@startuml
+class CancelEditHandler {
+    + DestroyDialogueNodes() : void
+}
+MonoBehaviour <|- - CancelEditHandler
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 GMT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.9+11-Ubuntu-0ubuntu1
+Operating System: Linux
+Default Encoding: ANSI_X3.4-1968
+Language: en
+Country: US
+--></g></svg>

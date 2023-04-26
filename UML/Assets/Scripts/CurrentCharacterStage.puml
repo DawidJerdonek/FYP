@@ -1,0 +1,6 @@
+@startuml
+class CurrentCharacterStage {
+    + currentDialogueStage : int = 0
+}
+MonoBehaviour <|-- CurrentCharacterStage
+@enduml

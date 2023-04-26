@@ -1,0 +1,6 @@
+@startuml
+class SaveEditHandler {
+    + SaveAndDestroyDialogueNodes() : void
+}
+MonoBehaviour <|-- SaveEditHandler
+@enduml

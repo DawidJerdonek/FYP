@@ -1,0 +1,7 @@
+@startuml
+class LineInformation {
+}
+MonoBehaviour <|-- LineInformation
+LineInformation --> "startObject" GameObject
+LineInformation --> "endObject" GameObject
+@enduml

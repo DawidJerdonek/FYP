@@ -1,0 +1,12 @@
+@startuml
+class DialoguePreviewer {
+    + PreviewSaveOne() : void
+    + PreviewSaveTwo() : void
+    + PreviewSaveThree() : void
+    + ExitPreview() : void
+}
+MonoBehaviour <|-- DialoguePreviewer
+DialoguePreviewer --> "previewBackground" GameObject
+DialoguePreviewer --> "returnButton" GameObject
+DialoguePreviewer --> "previewText" TextMeshProUGUI
+@enduml

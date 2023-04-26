@@ -1,0 +1,9 @@
+@startuml
+class DialogueDisplay {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- DialogueDisplay
+DialogueDisplay --> "characterName" GameObject
+DialogueDisplay --> "player" PlayerController
+@enduml

@@ -1,0 +1,253 @@
+@startuml
+class ChoiceDisplay {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- ChoiceDisplay
+class MazeRenderer {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- MazeRenderer
+class DialogueDisplay {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- DialogueDisplay
+DialogueDisplay --> "characterName" GameObject
+DialogueDisplay --> "player" PlayerController
+class StageGrabber {
+    + stageValue : int
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- StageGrabber
+class CancelEditHandler {
+    + DestroyDialogueNodes() : void
+}
+MonoBehaviour <|-- CancelEditHandler
+enum WallsState {
+    LEFT= 1,
+    RIGHT= 2,
+    TOP= 4,
+    BOTTOM= 8,
+    VISITED= 128,
+}
+class Position <<struct>> {
+    + X : int
+    + Y : int
+}
+class Neighbour <<struct>> {
+}
+class MazeGenerator {
+    Start() : void
+    Update() : void
+    + {static} GenerateMaze(mazeWidth:int, mazeHeight:int) : WallsState[,]
+}
+Neighbour --> "Position" Position
+Neighbour --> "SharedWall" WallsState
+MonoBehaviour <|-- MazeGenerator
+class Dialogue <<struct>> {
+    + character : string
+    + stage : int
+    + dialogue : string
+}
+class Parser {
+    + isChecking : bool
+    Start() : void
+    Update() : void
+    + loadData(dataToLoad:List<string>) : void
+    + splitData() : void
+    + ReformatIntoXML() : void
+    + returnDialogue() : List<Dialogue>
+}
+class "List`1"<T> {
+}
+Dialogue --> "replies<string>" "List`1"
+Dialogue --> "nextStage<int>" "List`1"
+MonoBehaviour <|-- Parser
+Parser --> "dialogueList<Dialogue>" "List`1"
+Parser --> "reformattingList<string>" "List`1"
+class DialogueEditor {
+    + editable : string
+    Start() : void
+    Update() : void
+    + CreateCharacterButton() : void
+    + AddCharacter() : void
+    + CancelNewCharacter() : void
+    + InstantiateCharacterButtons() : void
+    + DestroyCharacterButtons() : void
+    readTextFile(filePath:string) : List<string>
+    + ToSaveFileOne() : void
+    + ToSaveFileTwo() : void
+    + ToSaveFileThree() : void
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- DialogueEditor
+DialogueEditor --> "dialogueEditor" GameObject
+DialogueEditor --> "characterIdentity<string>" "List`1"
+DialogueEditor o-> "editableDialogues<int>" "List`1"
+DialogueEditor o-> "editableReplies<int>" "List`1"
+DialogueEditor --> "buttonStartPosition" Transform
+DialogueEditor --> "characterNameInput" TMP_InputField
+DialogueEditor --> "characterNameText" TextMeshProUGUI
+DialogueEditor --> "characterButtonPrefab" GameObject
+DialogueEditor --> "dialogueNodePrefab" GameObject
+DialogueEditor --> "addCharacterButton" GameObject
+DialogueEditor --> "abortButton" GameObject
+class CurrentCharacterStage {
+    + currentDialogueStage : int = 0
+}
+MonoBehaviour <|-- CurrentCharacterStage
+class NodeMover {
+    Start() : void
+    Update() : void
+    + DeleteNode() : void
+    + AddNode() : void
+}
+MonoBehaviour <|-- NodeMover
+NodeMover --> "deleteButton" GameObject
+NodeMover --> "addButton" GameObject
+NodeMover --> "dialogueNodePrefab" GameObject
+NodeMover --> "replyNodePrefab" GameObject
+NodeMover --> "lineRendererPrefab" LineRenderer
+class DialoguePreviewer {
+    + PreviewSaveOne() : void
+    + PreviewSaveTwo() : void
+    + PreviewSaveThree() : void
+    + ExitPreview() : void
+}
+MonoBehaviour <|-- DialoguePreviewer
+DialoguePreviewer --> "previewBackground" GameObject
+DialoguePreviewer --> "returnButton" GameObject
+DialoguePreviewer --> "previewText" TextMeshProUGUI
+class HUDUIManager {
+    Start() : void
+    + ShowSaves() : void
+    + ShowLoads() : void
+    + Hide() : void
+}
+MonoBehaviour <|-- HUDUIManager
+HUDUIManager --> "saveFileOneButton" GameObject
+HUDUIManager --> "saveFileTwoButton" GameObject
+HUDUIManager --> "saveFileThreeButton" GameObject
+HUDUIManager --> "loadFileOneButton" GameObject
+HUDUIManager --> "loadFileTwoButton" GameObject
+HUDUIManager --> "loadFileThreeButton" GameObject
+HUDUIManager --> "cancelButton" GameObject
+class CameraMove {
+    + moveSpeed : int = 1000
+    + zoomSpeed : int = 10000
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- CameraMove
+class DialogueTreeShapeSetter {
+    + SetShape() : void
+}
+MonoBehaviour <|-- DialogueTreeShapeSetter
+DialogueTreeShapeSetter --> "lineRendererPrefab" LineRenderer
+class DialogueLoader {
+    Start() : void
+    + LoadSaveDefault() : void
+    + LoadSaveOne() : void
+    + LoadSaveTwo() : void
+    + LoadSaveThree() : void
+}
+MonoBehaviour <|-- DialogueLoader
+class DialogueSystem {
+    + observerStage : int
+    + greetingBotStage : int
+    + missionControlStage : int
+    Start() : void
+    Update() : void
+    DialogueChoice(character:string) : void
+    + loadNewDialogue() : void
+    + readTextFile(filePath:string) : string[]
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- DialogueSystem
+DialogueSystem --> "player" PlayerController
+DialogueSystem --> "parser" Parser
+DialogueSystem --> "instance" DialogueSystem
+DialogueSystem --> "characterName" TextMeshProUGUI
+DialogueSystem --> "displayText" TextMeshProUGUI
+DialogueSystem --> "choice1Text" TextMeshProUGUI
+DialogueSystem --> "choice2Text" TextMeshProUGUI
+DialogueSystem --> "characterStage<int>" "List`1"
+DialogueSystem --> "replyOptions<string>" "List`1"
+DialogueSystem --> "replyStage<int>" "List`1"
+DialogueSystem --> "characterIdentity<string>" "List`1"
+DialogueSystem --> "observerDialogue<Dialogue>" "List`1"
+DialogueSystem --> "greetingBotDialogue<Dialogue>" "List`1"
+DialogueSystem --> "missionControlDialogue<Dialogue>" "List`1"
+DialogueSystem --> "parsedDialogue<Dialogue>" "List`1"
+DialogueSystem --> "previewedparsedDialogueFile<Dialogue>" "List`1"
+class DialogueSystemNew {
+    + currentStage : int
+    Start() : void
+    Update() : void
+    + DialogueChoice(character:string) : void
+    + loadNewDialogue() : void
+    + readTextFile(filePath:string) : List<string>
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- DialogueSystemNew
+DialogueSystemNew --> "player" PlayerController
+DialogueSystemNew --> "parser" Parser
+DialogueSystemNew --> "instance" DialogueSystemNew
+DialogueSystemNew --> "characterName" TextMeshProUGUI
+DialogueSystemNew --> "displayText" TextMeshProUGUI
+DialogueSystemNew --> "choice1Text" TextMeshProUGUI
+DialogueSystemNew --> "choice2Text" TextMeshProUGUI
+DialogueSystemNew --> "loadedDialogueFile<string>" "List`1"
+DialogueSystemNew --> "characterStage<int>" "List`1"
+DialogueSystemNew --> "replyOptions<string>" "List`1"
+DialogueSystemNew --> "replyStage<int>" "List`1"
+DialogueSystemNew --> "characterIdentity<string>" "List`1"
+DialogueSystemNew --> "parsedDialogue<Dialogue>" "List`1"
+DialogueSystemNew --> "previewedparsedDialogueFile<Dialogue>" "List`1"
+class SaveEditHandler {
+    + SaveAndDestroyDialogueNodes() : void
+}
+MonoBehaviour <|-- SaveEditHandler
+class PlayerController {
+    + colliding : bool = false
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- PlayerController
+PlayerController --> "input" SteamVR_Action_Vector2
+PlayerController --> "dialogueCanvas" GameObject
+PlayerController --> "textToDisplay" TextMeshProUGUI
+PlayerController o-> "currentCharacter" String
+class LineInformation {
+}
+MonoBehaviour <|-- LineInformation
+LineInformation --> "startObject" GameObject
+LineInformation --> "endObject" GameObject
+class CharacterStageHandler {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- CharacterStageHandler
+class ObjectGrabbing {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- ObjectGrabbing
+class CharacterButtonHandler {
+    Start() : void
+    Update() : void
+    + ShowCharacterTree() : void
+}
+MonoBehaviour <|-- CharacterButtonHandler
+CharacterButtonHandler --> "dialogueNodePrefab" GameObject
+CharacterButtonHandler --> "replyNodePrefab" GameObject
+CharacterButtonHandler --> "editCancelButtonPrefab" GameObject
+CharacterButtonHandler --> "saveChangesButtonPrefab" GameObject
+CharacterButtonHandler --> "lineRendererPrefab" LineRenderer
+@enduml

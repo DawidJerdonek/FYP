@@ -1,0 +1,16 @@
+@startuml
+class HUDUIManager {
+    Start() : void
+    + ShowSaves() : void
+    + ShowLoads() : void
+    + Hide() : void
+}
+MonoBehaviour <|-- HUDUIManager
+HUDUIManager --> "saveFileOneButton" GameObject
+HUDUIManager --> "saveFileTwoButton" GameObject
+HUDUIManager --> "saveFileThreeButton" GameObject
+HUDUIManager --> "loadFileOneButton" GameObject
+HUDUIManager --> "loadFileTwoButton" GameObject
+HUDUIManager --> "loadFileThreeButton" GameObject
+HUDUIManager --> "cancelButton" GameObject
+@enduml

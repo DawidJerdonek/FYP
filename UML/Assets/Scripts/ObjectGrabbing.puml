@@ -1,0 +1,7 @@
+@startuml
+class ObjectGrabbing {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- ObjectGrabbing
+@enduml
