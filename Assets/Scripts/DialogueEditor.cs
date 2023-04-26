@@ -69,14 +69,7 @@ public class DialogueEditor : MonoBehaviour
         dialogue.replies = new List<string>();
         dialogue.nextStage = new List<int>();
         FindObjectOfType<DialogueSystemNew>().parsedDialogue.Add(dialogue);
-        //dialogueSystem.loadedDialogueFile.Add("<conversation>" + characterNameInput.text);
-        //dialogueSystem.loadedDialogueFile.Add("<stage>" + 0 + "</stage>");
-        //dialogueSystem.loadedDialogueFile.Add("<dialogue>");
-        //dialogueSystem.loadedDialogueFile.Add("<text>" + " " + "</text>");
-        //dialogueSystem.loadedDialogueFile.Add("</dialogue>");
-        //dialogueSystem.loadedDialogueFile.Add("</conversation>");
-
-
+ 
         characterNameInput.text = "";
         characterNameInput.gameObject.SetActive(false);
         addCharacterButton.SetActive(false);

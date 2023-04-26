@@ -49,49 +49,164 @@
 <stage>2</stage>
 <dialogue>
 <text>*static*</text>
-<reply>n7</reply>
+<reply>N7</reply>
 <nextStage>7</nextStage>
 </dialogue>
 <stage>3</stage>
 <dialogue>
 <text>Very Well, best of luck in your exploration, Mission Control Out!</text>
-<reply>n6</reply>
+<reply>N5</reply>
+<nextStage>5</nextStage>
+<reply>N6</reply>
 <nextStage>6</nextStage>
 </dialogue>
 <stage>4</stage>
 <dialogue>
 <text>That is worrying, it is taking longer than expected... Contact us at once whenever you land your ship!</text>
-<reply>n5</reply>
-<nextStage>5</nextStage>
-<reply>n10</reply>
+<reply>N8</reply>
+<nextStage>8</nextStage>
+<reply>N9</reply>
+<nextStage>9</nextStage>
+<reply>N10</reply>
 <nextStage>10</nextStage>
-</dialogue>
-<stage>5</stage>
-<dialogue>
-<text>stage 5</text>
 </dialogue>
 <stage>6</stage>
 <dialogue>
-<text>stage 6</text>
-<reply>n8</reply>
-<nextStage>8</nextStage>
-<reply>n9</reply>
-<nextStage>9</nextStage>
+<text>Dialogue Node 6</text>
 </dialogue>
-<stage>8</stage>
+<stage>5</stage>
 <dialogue>
-<text>stage 8</text>
-</dialogue>
-<stage>9</stage>
-<dialogue>
-<text>stage 9</text>
-</dialogue>
-<stage>10</stage>
-<dialogue>
-<text>stage 10</text>
+<text>Dialogue Node 5</text>
 </dialogue>
 <stage>7</stage>
 <dialogue>
-<text>stage 7</text>
+<text>Okay Stage 7</text>
+</dialogue>
+<stage>8</stage>
+<dialogue>
+<text>Stage 8</text>
+</dialogue>
+<stage>9</stage>
+<dialogue>
+<text>Stage 9</text>
+</dialogue>
+<stage>10</stage>
+<dialogue>
+<text>Stage 10</text>
+</dialogue>
+</conversation>
+<?xml version="1.0" encoding="utf-8"?>
+<conversation>Observer
+<stage>0</stage>
+<dialogue>
+<text> Hello! Where are you from? </text>
+<reply>Why do you care?</reply>
+<nextStage>1</nextStage>
+<reply>Hello I am from Earth</reply>
+<nextStage>2</nextStage>
+</dialogue>
+<stage>1</stage>
+<dialogue>
+<text>I see, in that case goodbye...</text>
+</dialogue>
+<stage>2</stage>
+<dialogue>
+<text>In that case I welcome you, I observe you to learn</text>
+</dialogue>
+</conversation>
+<conversation>GreetingBot
+<stage>0</stage>
+<dialogue>
+<text> Hello! My name is Greeting Bot! I greet you here on this planet. I hope you enjoy your stay </text>
+<reply>Nice to meet you! Thanks!</reply>
+<nextStage>1</nextStage>
+</dialogue>
+<stage>1</stage>
+<dialogue>
+<text>If you need anything feel free to not do so! I only have a set amount of dialogue programmed!</text>
+</dialogue>
+</conversation>
+<conversation>MissionControl
+<stage>0</stage>
+<dialogue>
+<text>Pathfinder! Can you hear is this is MissionControl, do you copy? </text>
+<reply>Yes Mission Control I copy!</reply>
+<nextStage>1</nextStage>
+<reply>...</reply>
+<nextStage>2</nextStage>
+</dialogue>
+<stage>1</stage>
+<dialogue>
+<text>Copy that! Have you landed on the surface of *Planet*</text>
+<reply>Yes I am here now, I will return with anything I learn!</reply>
+<nextStage>3</nextStage>
+<reply>No I have not...(lie) </reply>
+<nextStage>4</nextStage>
+</dialogue>
+<stage>2</stage>
+<dialogue>
+<text>*static*</text>
+<reply>N7</reply>
+<nextStage>7</nextStage>
+</dialogue>
+<stage>3</stage>
+<dialogue>
+<text>Very Well, best of luck in your exploration, Mission Control Out!</text>
+<reply>N5</reply>
+<nextStage>5</nextStage>
+<reply>N6</reply>
+<nextStage>6</nextStage>
+</dialogue>
+<stage>4</stage>
+<dialogue>
+<text>That is worrying, it is taking longer than expected... Contact us at once whenever you land your ship!</text>
+<reply>N8</reply>
+<nextStage>8</nextStage>
+<reply>N9</reply>
+<nextStage>9</nextStage>
+<reply>N10</reply>
+<nextStage>10</nextStage>
+</dialogue>
+<stage>6</stage>
+<dialogue>
+<text>Dialogue Node 6</text>
+</dialogue>
+<stage>5</stage>
+<dialogue>
+<text>Dialogue Node 5</text>
+</dialogue>
+<stage>7</stage>
+<dialogue>
+<text>Okay Stage 7</text>
+</dialogue>
+<stage>8</stage>
+<dialogue>
+<text>Stage 8</text>
+</dialogue>
+<stage>9</stage>
+<dialogue>
+<text>Stage 9</text>
+</dialogue>
+<stage>10</stage>
+<dialogue>
+<text>Stage 10</text>
+</dialogue>
+</conversation>
+<conversation>New Guy
+<stage>0</stage>
+<dialogue>
+<text>Hello Im new</text>
+<reply>Hi</reply>
+<nextStage>11</nextStage>
+<reply>Bye</reply>
+<nextStage>12</nextStage>
+</dialogue>
+<stage>12</stage>
+<dialogue>
+<text>Okay bye</text>
+</dialogue>
+<stage>11</stage>
+<dialogue>
+<text>:)</text>
 </dialogue>
 </conversation>

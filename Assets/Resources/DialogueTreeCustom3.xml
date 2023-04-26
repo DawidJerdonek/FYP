@@ -49,31 +49,49 @@
 <stage>2</stage>
 <dialogue>
 <text>*static*</text>
+<reply>N7</reply>
+<nextStage>7</nextStage>
 </dialogue>
 <stage>3</stage>
 <dialogue>
 <text>Very Well, best of luck in your exploration, Mission Control Out!</text>
+<reply>N5</reply>
+<nextStage>5</nextStage>
+<reply>N6</reply>
+<nextStage>6</nextStage>
 </dialogue>
 <stage>4</stage>
 <dialogue>
 <text>That is worrying, it is taking longer than expected... Contact us at once whenever you land your ship!</text>
-</dialogue>
-</conversation>
-<conversation>New Guy
-<stage>0</stage>
-<dialogue>
-<text>Hey I am new guy</text>
-<reply>hello</reply>
-<nextStage>5</nextStage>
-<reply>why are you here?</reply>
-<nextStage>6</nextStage>
+<reply>N8</reply>
+<nextStage>8</nextStage>
+<reply>N9</reply>
+<nextStage>9</nextStage>
+<reply>N10</reply>
+<nextStage>10</nextStage>
 </dialogue>
 <stage>6</stage>
 <dialogue>
-<text>Sorry, I will not talk to you so...</text>
+<text>Dialogue Node 6</text>
 </dialogue>
 <stage>5</stage>
 <dialogue>
-<text>Nice to meet you stranger!</text>
+<text>Dialogue Node 5</text>
+</dialogue>
+<stage>7</stage>
+<dialogue>
+<text>Okay Stage 7</text>
+</dialogue>
+<stage>8</stage>
+<dialogue>
+<text>Stage 8</text>
+</dialogue>
+<stage>9</stage>
+<dialogue>
+<text>Stage 9</text>
+</dialogue>
+<stage>10</stage>
+<dialogue>
+<text>Stage 10</text>
 </dialogue>
 </conversation>
