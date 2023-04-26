@@ -1,14 +1,18 @@
 @startuml
-class ChoiceDisplay {
-    Start() : void
-    Update() : void
+class CurrentCharacterStage {
+    + currentDialogueStage : int = 0
 }
-MonoBehaviour <|-- ChoiceDisplay
-class MazeRenderer {
-    Start() : void
-    Update() : void
+MonoBehaviour <|-- CurrentCharacterStage
+class DialoguePreviewer {
+    + PreviewSaveOne() : void
+    + PreviewSaveTwo() : void
+    + PreviewSaveThree() : void
+    + ExitPreview() : void
 }
-MonoBehaviour <|-- MazeRenderer
+MonoBehaviour <|-- DialoguePreviewer
+DialoguePreviewer --> "previewBackground" GameObject
+DialoguePreviewer --> "returnButton" GameObject
+DialoguePreviewer --> "previewText" TextMeshProUGUI
 class DialogueDisplay {
     Start() : void
     Update() : void
@@ -16,37 +20,32 @@ class DialogueDisplay {
 MonoBehaviour <|-- DialogueDisplay
 DialogueDisplay --> "characterName" GameObject
 DialogueDisplay --> "player" PlayerController
-class StageGrabber {
-    + stageValue : int
+class PlayerController {
+    + colliding : bool = false
     Start() : void
     Update() : void
 }
-MonoBehaviour <|-- StageGrabber
-class CancelEditHandler {
-    + DestroyDialogueNodes() : void
-}
-MonoBehaviour <|-- CancelEditHandler
-enum WallsState {
-    LEFT= 1,
-    RIGHT= 2,
-    TOP= 4,
-    BOTTOM= 8,
-    VISITED= 128,
-}
-class Position <<struct>> {
-    + X : int
-    + Y : int
-}
-class Neighbour <<struct>> {
-}
-class MazeGenerator {
+MonoBehaviour <|-- PlayerController
+PlayerController --> "input" SteamVR_Action_Vector2
+PlayerController --> "dialogueCanvas" GameObject
+PlayerController --> "textToDisplay" TextMeshProUGUI
+PlayerController o-> "currentCharacter" String
+class CharacterButtonHandler {
     Start() : void
     Update() : void
-    + {static} GenerateMaze(mazeWidth:int, mazeHeight:int) : WallsState[,]
+    + ShowCharacterTree() : void
 }
-Neighbour --> "Position" Position
-Neighbour --> "SharedWall" WallsState
-MonoBehaviour <|-- MazeGenerator
+MonoBehaviour <|-- CharacterButtonHandler
+CharacterButtonHandler --> "dialogueNodePrefab" GameObject
+CharacterButtonHandler --> "replyNodePrefab" GameObject
+CharacterButtonHandler --> "editCancelButtonPrefab" GameObject
+CharacterButtonHandler --> "saveChangesButtonPrefab" GameObject
+CharacterButtonHandler --> "lineRendererPrefab" LineRenderer
+class DialogueTreeShapeSetter {
+    + SetShape() : void
+}
+MonoBehaviour <|-- DialogueTreeShapeSetter
+DialogueTreeShapeSetter --> "lineRendererPrefab" LineRenderer
 class Dialogue <<struct>> {
     + character : string
     + stage : int
@@ -96,10 +95,31 @@ DialogueEditor --> "characterButtonPrefab" GameObject
 DialogueEditor --> "dialogueNodePrefab" GameObject
 DialogueEditor --> "addCharacterButton" GameObject
 DialogueEditor --> "abortButton" GameObject
-class CurrentCharacterStage {
-    + currentDialogueStage : int = 0
+class StageGrabber {
+    + stageValue : int
 }
-MonoBehaviour <|-- CurrentCharacterStage
+MonoBehaviour <|-- StageGrabber
+enum WallsState {
+    LEFT= 1,
+    RIGHT= 2,
+    TOP= 4,
+    BOTTOM= 8,
+    VISITED= 128,
+}
+class Position <<struct>> {
+    + X : int
+    + Y : int
+}
+class Neighbour <<struct>> {
+}
+class MazeGenerator {
+    Start() : void
+    Update() : void
+    + {static} GenerateMaze(mazeWidth:int, mazeHeight:int) : WallsState[,]
+}
+Neighbour --> "Position" Position
+Neighbour --> "SharedWall" WallsState
+MonoBehaviour <|-- MazeGenerator
 class NodeMover {
     Start() : void
     Update() : void
@@ -112,30 +132,16 @@ NodeMover --> "addButton" GameObject
 NodeMover --> "dialogueNodePrefab" GameObject
 NodeMover --> "replyNodePrefab" GameObject
 NodeMover --> "lineRendererPrefab" LineRenderer
-class DialoguePreviewer {
-    + PreviewSaveOne() : void
-    + PreviewSaveTwo() : void
-    + PreviewSaveThree() : void
-    + ExitPreview() : void
-}
-MonoBehaviour <|-- DialoguePreviewer
-DialoguePreviewer --> "previewBackground" GameObject
-DialoguePreviewer --> "returnButton" GameObject
-DialoguePreviewer --> "previewText" TextMeshProUGUI
-class HUDUIManager {
+class MazeRenderer {
     Start() : void
-    + ShowSaves() : void
-    + ShowLoads() : void
-    + Hide() : void
+    Update() : void
 }
-MonoBehaviour <|-- HUDUIManager
-HUDUIManager --> "saveFileOneButton" GameObject
-HUDUIManager --> "saveFileTwoButton" GameObject
-HUDUIManager --> "saveFileThreeButton" GameObject
-HUDUIManager --> "loadFileOneButton" GameObject
-HUDUIManager --> "loadFileTwoButton" GameObject
-HUDUIManager --> "loadFileThreeButton" GameObject
-HUDUIManager --> "cancelButton" GameObject
+MonoBehaviour <|-- MazeRenderer
+class ObjectGrabbing {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- ObjectGrabbing
 class CameraMove {
     + moveSpeed : int = 1000
     + zoomSpeed : int = 10000
@@ -143,11 +149,14 @@ class CameraMove {
     Update() : void
 }
 MonoBehaviour <|-- CameraMove
-class DialogueTreeShapeSetter {
-    + SetShape() : void
+class SaveEditHandler {
+    + SaveAndDestroyDialogueNodes() : void
 }
-MonoBehaviour <|-- DialogueTreeShapeSetter
-DialogueTreeShapeSetter --> "lineRendererPrefab" LineRenderer
+MonoBehaviour <|-- SaveEditHandler
+class CancelEditHandler {
+    + DestroyDialogueNodes() : void
+}
+MonoBehaviour <|-- CancelEditHandler
 class DialogueLoader {
     Start() : void
     + LoadSaveDefault() : void
@@ -156,35 +165,11 @@ class DialogueLoader {
     + LoadSaveThree() : void
 }
 MonoBehaviour <|-- DialogueLoader
-class DialogueSystem {
-    + observerStage : int
-    + greetingBotStage : int
-    + missionControlStage : int
-    Start() : void
-    Update() : void
-    DialogueChoice(character:string) : void
-    + loadNewDialogue() : void
-    + readTextFile(filePath:string) : string[]
+class LineInformation {
 }
-class "List`1"<T> {
-}
-MonoBehaviour <|-- DialogueSystem
-DialogueSystem --> "player" PlayerController
-DialogueSystem --> "parser" Parser
-DialogueSystem --> "instance" DialogueSystem
-DialogueSystem --> "characterName" TextMeshProUGUI
-DialogueSystem --> "displayText" TextMeshProUGUI
-DialogueSystem --> "choice1Text" TextMeshProUGUI
-DialogueSystem --> "choice2Text" TextMeshProUGUI
-DialogueSystem --> "characterStage<int>" "List`1"
-DialogueSystem --> "replyOptions<string>" "List`1"
-DialogueSystem --> "replyStage<int>" "List`1"
-DialogueSystem --> "characterIdentity<string>" "List`1"
-DialogueSystem --> "observerDialogue<Dialogue>" "List`1"
-DialogueSystem --> "greetingBotDialogue<Dialogue>" "List`1"
-DialogueSystem --> "missionControlDialogue<Dialogue>" "List`1"
-DialogueSystem --> "parsedDialogue<Dialogue>" "List`1"
-DialogueSystem --> "previewedparsedDialogueFile<Dialogue>" "List`1"
+MonoBehaviour <|-- LineInformation
+LineInformation --> "startObject" GameObject
+LineInformation --> "endObject" GameObject
 class DialogueSystemNew {
     + currentStage : int
     Start() : void
@@ -210,44 +195,18 @@ DialogueSystemNew --> "replyStage<int>" "List`1"
 DialogueSystemNew --> "characterIdentity<string>" "List`1"
 DialogueSystemNew --> "parsedDialogue<Dialogue>" "List`1"
 DialogueSystemNew --> "previewedparsedDialogueFile<Dialogue>" "List`1"
-class SaveEditHandler {
-    + SaveAndDestroyDialogueNodes() : void
-}
-MonoBehaviour <|-- SaveEditHandler
-class PlayerController {
-    + colliding : bool = false
+class HUDUIManager {
     Start() : void
-    Update() : void
+    + ShowSaves() : void
+    + ShowLoads() : void
+    + Hide() : void
 }
-MonoBehaviour <|-- PlayerController
-PlayerController --> "input" SteamVR_Action_Vector2
-PlayerController --> "dialogueCanvas" GameObject
-PlayerController --> "textToDisplay" TextMeshProUGUI
-PlayerController o-> "currentCharacter" String
-class LineInformation {
-}
-MonoBehaviour <|-- LineInformation
-LineInformation --> "startObject" GameObject
-LineInformation --> "endObject" GameObject
-class CharacterStageHandler {
-    Start() : void
-    Update() : void
-}
-MonoBehaviour <|-- CharacterStageHandler
-class ObjectGrabbing {
-    Start() : void
-    Update() : void
-}
-MonoBehaviour <|-- ObjectGrabbing
-class CharacterButtonHandler {
-    Start() : void
-    Update() : void
-    + ShowCharacterTree() : void
-}
-MonoBehaviour <|-- CharacterButtonHandler
-CharacterButtonHandler --> "dialogueNodePrefab" GameObject
-CharacterButtonHandler --> "replyNodePrefab" GameObject
-CharacterButtonHandler --> "editCancelButtonPrefab" GameObject
-CharacterButtonHandler --> "saveChangesButtonPrefab" GameObject
-CharacterButtonHandler --> "lineRendererPrefab" LineRenderer
+MonoBehaviour <|-- HUDUIManager
+HUDUIManager --> "saveFileOneButton" GameObject
+HUDUIManager --> "saveFileTwoButton" GameObject
+HUDUIManager --> "saveFileThreeButton" GameObject
+HUDUIManager --> "loadFileOneButton" GameObject
+HUDUIManager --> "loadFileTwoButton" GameObject
+HUDUIManager --> "loadFileThreeButton" GameObject
+HUDUIManager --> "cancelButton" GameObject
 @enduml
