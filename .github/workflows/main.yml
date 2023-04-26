@@ -2,7 +2,7 @@ name: Generate UML
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
@@ -48,7 +48,7 @@ jobs:
         id: get_file_names
       - name: Generate SVG Diagrams
         if: ${{ steps.check_for_code.outputs.CODE_EXISTS == 'true' }}
-        uses: cloudbees/plantuml-github-action@master
+        uses: cloudbees/plantuml-github-action@main
         with:
           args: -v -tsvg ${{ steps.get_file_names.outputs.UML_FILES }}
 
@@ -56,5 +56,5 @@ jobs:
         with:
           commit_message: 'Generate UML'
           signoff: false
-          branch: master
-          github_token: ${{ secrets.FOR_UML }}
+          branch: main
+          github_token: ${{ secrets.UML_SECRET }}
