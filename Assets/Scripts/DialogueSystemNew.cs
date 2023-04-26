@@ -99,19 +99,19 @@ public class DialogueSystemNew : MonoBehaviour
 
                     for (int j = 0; j < parsedDialogue[i].replies.Count; j++)
                     {
-
+                        //Display the two choices as template
                         choice1Text.text = parsedDialogue[i].replies[0];
                         choice2Text.text = parsedDialogue[i].replies[1];
 
                         if (choiceMade == false)
                         {
-                            if (Input.GetKeyDown(KeyCode.P))
+                            if (Input.GetKeyDown(KeyCode.P))//Reply if P is pressed
                             {
                                 currentStage = parsedDialogue[i].nextStage[0];
                                 Debug.Log("True");
                                 choiceMade = true;
                             }
-                            else if (Input.GetKeyDown(KeyCode.L))
+                            else if (Input.GetKeyDown(KeyCode.L))//Different Reply if L is pressed
                             {
                                 currentStage = parsedDialogue[i].nextStage[1];
                                 Debug.Log("False");
@@ -126,6 +126,7 @@ public class DialogueSystemNew : MonoBehaviour
 
     public void loadNewDialogue()
     {
+        //Load new dialogue file into Unity and Parse
         parsedDialogue.Clear();
 
         parser.loadData(loadedDialogueFile);
@@ -134,6 +135,7 @@ public class DialogueSystemNew : MonoBehaviour
 
     public List<string> readTextFile(string filePath)
     {
+        //Load Text File
         int length = 0;
         List<string> lines = new List<string>();
 

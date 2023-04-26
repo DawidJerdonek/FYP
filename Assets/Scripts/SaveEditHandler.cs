@@ -13,6 +13,7 @@ public class SaveEditHandler : MonoBehaviour
     {
         Dialogue dialogue = new Dialogue();
 
+        //Collect all nodes and lines
         FindObjectOfType<DialogueEditor>().characterNameText.enabled = false;
         GameObject[] nodesOfDialogue = GameObject.FindGameObjectsWithTag("DialogueNode");
         GameObject[] nodesOfReplies = GameObject.FindGameObjectsWithTag("ReplyNode");
@@ -22,7 +23,7 @@ public class SaveEditHandler : MonoBehaviour
         {
             int index = FindObjectOfType<DialogueEditor>().editableDialogues[i];
             dialogue = FindObjectOfType<DialogueSystemNew>().parsedDialogue[index];
-            dialogue.dialogue = nodesOfDialogue[i].GetComponent<TMP_InputField>().text;
+            dialogue.dialogue = nodesOfDialogue[i].GetComponent<TMP_InputField>().text; //Update all dialogue nodes
 
             for (int j = 0; j < dialogue.replies.Count; j++)
             {
@@ -30,21 +31,20 @@ public class SaveEditHandler : MonoBehaviour
                 {
                     if (dialogue.nextStage[j] == nodesOfReplies[reply].GetComponent<StageGrabber>().stageValue)
                     {
-                        //int tempstage = nodesOfReplies[j].GetComponent<StageGrabber>().stageValue;
-                        dialogue.replies[j] = nodesOfReplies[reply].GetComponent<TMP_InputField>().text;
+                        dialogue.replies[j] = nodesOfReplies[reply].GetComponent<TMP_InputField>().text; //Update all reply nodes
                     }
-                    Destroy(nodesOfReplies[reply]);
+                    Destroy(nodesOfReplies[reply]); //Destroy all reply nodes
                 }
             }
 
             FindObjectOfType<DialogueSystemNew>().parsedDialogue[index] = dialogue;
-            Destroy(nodesOfDialogue[i]);
+            Destroy(nodesOfDialogue[i]); //Destroy all dialogue nodes
             
         }
 
         for (int i = 0; i < lineRenderers.Length; i++)
         {
-            Destroy(lineRenderers[i].gameObject);
+            Destroy(lineRenderers[i].gameObject); //Destroy all lines
         }
 
         FindObjectOfType<DialogueEditor>().editableDialogues.Clear();

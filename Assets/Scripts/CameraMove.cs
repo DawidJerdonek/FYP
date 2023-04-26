@@ -17,6 +17,7 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Move camera up down left and right
         if (Input.GetKey(KeyCode.UpArrow))
         {
             gameObject.transform.position += Vector3.up * moveSpeed * Time.deltaTime;

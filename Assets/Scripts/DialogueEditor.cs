@@ -94,7 +94,7 @@ public class DialogueEditor : MonoBehaviour
             characterButton.gameObject.transform.parent = gameObject.transform;
             characterButton.GetComponentInChildren<TextMeshProUGUI>().text = characterIdentity[i];
 
-
+            //Setup character buttons
             if (i < 6)
             {
                 characterButton.transform.position = new Vector3(buttonStartPosition.position.x + (j * 800), buttonStartPosition.position.y, buttonStartPosition.position.z);
@@ -139,7 +139,6 @@ public class DialogueEditor : MonoBehaviour
         {
             Destroy(toDestroy[i]);
         }
-        //characterNameText.enabled = false;
     }
 
     List<string> readTextFile(string filePath)

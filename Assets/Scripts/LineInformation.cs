@@ -16,6 +16,7 @@ public class LineInformation : MonoBehaviour
         }
         else
         {
+            //Update line positions when nodes are dragged
         GetComponentInParent<LineRenderer>().SetPosition(0, startObject.transform.position);
         GetComponentInParent<LineRenderer>().SetPosition(1, endObject.transform.position);
         }

@@ -133,8 +133,9 @@ public class NodeMover : MonoBehaviour
                 }
             }
 
-            if (pathExists == false)
+            if (pathExists == false) //If a dialogue node already exists from a reply node
             {
+                //Setup all new values for the new node
                 Dialogue dialogue = new Dialogue();
                 TMP_InputField dialogueNode = Instantiate(dialogueNodePrefab).GetComponent<TMP_InputField>();
                 dialogueNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
@@ -150,7 +151,7 @@ public class NodeMover : MonoBehaviour
 
                     if (parsedDialogue[i].character == dialogue.character)
                     {
-                        indexToInsert = i+1;
+                        indexToInsert = i+1; //increment by one to make the stage a new unique stage
                     }
                 }
                 parsedDialogue.Insert(indexToInsert, dialogue);
@@ -168,6 +169,7 @@ public class NodeMover : MonoBehaviour
                         = "Stage: " + dialogue.stage.ToString();
                 dialogueNode.GetComponent<StageGrabber>().stageValue = dialogue.stage;
 
+                //Setup all the new lines connecting nodes
                 LineRenderer line = Instantiate(lineRendererPrefab);
                 line.positionCount = 2;
                 line.SetPosition(0, gameObject.transform.position);

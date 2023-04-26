@@ -10,10 +10,9 @@ public class DialogueTreeShapeSetter : MonoBehaviour
 
     public void SetShape()
     {
-        DialogueSystemNew dialogueSystem = FindObjectOfType<DialogueSystemNew>();
+        //Collect all nodes
         GameObject[] nodesOfDialogue = GameObject.FindGameObjectsWithTag("DialogueNode");
         GameObject[] nodesOfReplies = GameObject.FindGameObjectsWithTag("ReplyNode");
-        LineRenderer[] lineRenderers = FindObjectsOfType<LineRenderer>();
 
         for (int i = 0; i < nodesOfDialogue.Length; i++)
         {

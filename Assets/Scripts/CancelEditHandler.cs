@@ -7,6 +7,7 @@ public class CancelEditHandler : MonoBehaviour
 
     public void DestroyDialogueNodes()
     {
+        //Simply destroy the whole dialogue tree without saving
         FindObjectOfType<DialogueEditor>().characterNameText.enabled = false;
         GameObject[] toDestroy = GameObject.FindGameObjectsWithTag("DialogueNode");
         GameObject[] nodesOfReplies = GameObject.FindGameObjectsWithTag("ReplyNode");
