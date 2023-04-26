@@ -580,6 +580,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deleteButton: {fileID: 7601535037833889366}
   addButton: {fileID: 3397398276580318314}
+  dialogueNodePrefab: {fileID: 6590469506592069610}
+  replyNodePrefab: {fileID: 9147203283737815297, guid: 9a8dc8f415ea1a0418840fe25c687e67,
+    type: 3}
+  lineRendererPrefab: {fileID: 7689715807363362161, guid: da3526527b75f534594794f6f1e9fb95,
+    type: 3}
 --- !u!1 &7370682871514101108
 GameObject:
   m_ObjectHideFlags: 0

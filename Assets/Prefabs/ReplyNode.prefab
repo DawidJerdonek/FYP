@@ -1057,3 +1057,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deleteButton: {fileID: 3425588687570773591}
   addButton: {fileID: 115580347688214913}
+  dialogueNodePrefab: {fileID: 6590469506592069610, guid: 4e052de3e5402474298407b3c61d154c,
+    type: 3}
+  replyNodePrefab: {fileID: 9147203283737815297}
+  lineRendererPrefab: {fileID: 7689715807363362161, guid: da3526527b75f534594794f6f1e9fb95,
+    type: 3}

@@ -46,16 +46,12 @@
 <reply>Reply 2</reply>
 <nextStage>4</nextStage>
 </dialogue>
-<stage>2</stage>
-<dialogue>
-<text>Example 2</text>
-</dialogue>
 <stage>3</stage>
 <dialogue>
-<text>Very Well, best of luck in your exploration, Mission Control Out!</text>
+<text>Stage 3</text>
 </dialogue>
 <stage>4</stage>
 <dialogue>
-<text>That is worrying, it is taking longer than expected... Contact us at once whenever you land your ship!</text>
+<text>Stage 4</text>
 </dialogue>
 </conversation>
