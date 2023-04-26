@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 //using UnityEngine.UIElements;
 
 public class DialogueEditor : MonoBehaviour
@@ -60,18 +62,26 @@ public class DialogueEditor : MonoBehaviour
     public void AddCharacter()
     {
         characterIdentity.Add(characterNameInput.text);
-
-        dialogueSystem.loadedDialogueFile.Add("<conversation>" + characterNameInput.text);
-        for (int i = 0; i < dialogueSystem.loadedDialogueFile.Count; i++)
-        {
-            Debug.Log(dialogueSystem.loadedDialogueFile[i]);
-        }
+        Dialogue dialogue = new Dialogue();
+        dialogue.character = characterNameInput.text;
+        dialogue.dialogue = "";
+        dialogue.stage = 0;
+        dialogue.replies = new List<string>();
+        dialogue.nextStage = new List<int>();
+        FindObjectOfType<DialogueSystemNew>().parsedDialogue.Add(dialogue);
+        //dialogueSystem.loadedDialogueFile.Add("<conversation>" + characterNameInput.text);
+        //dialogueSystem.loadedDialogueFile.Add("<stage>" + 0 + "</stage>");
+        //dialogueSystem.loadedDialogueFile.Add("<dialogue>");
+        //dialogueSystem.loadedDialogueFile.Add("<text>" + " " + "</text>");
+        //dialogueSystem.loadedDialogueFile.Add("</dialogue>");
+        //dialogueSystem.loadedDialogueFile.Add("</conversation>");
 
 
         characterNameInput.text = "";
         characterNameInput.gameObject.SetActive(false);
         addCharacterButton.SetActive(false);
         abortButton.SetActive(false);
+
     }
 
     public void CancelNewCharacter()

@@ -54,4 +54,26 @@
 <dialogue>
 <text>Very Well, best of luck in your exploration, Mission Control Out!</text>
 </dialogue>
+<stage>4</stage>
+<dialogue>
+<text>That is worrying, it is taking longer than expected... Contact us at once whenever you land your ship!</text>
+</dialogue>
+</conversation>
+<conversation>New Guy
+<stage>0</stage>
+<dialogue>
+<text>Hey I am new guy</text>
+<reply>hello</reply>
+<nextStage>5</nextStage>
+<reply>why are you here?</reply>
+<nextStage>6</nextStage>
+</dialogue>
+<stage>6</stage>
+<dialogue>
+<text>Sorry, I will not talk to you so...</text>
+</dialogue>
+<stage>5</stage>
+<dialogue>
+<text>Nice to meet you stranger!</text>
+</dialogue>
 </conversation>

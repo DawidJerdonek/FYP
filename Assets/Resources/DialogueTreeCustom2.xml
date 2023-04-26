@@ -32,8 +32,8 @@
 <conversation>MissionControl
 <stage>0</stage>
 <dialogue>
-<text>Example 1</text>
-<reply>Reply 1</reply>
+<text>Pathfinder! Can you hear is this is MissionControl, do you copy? </text>
+<reply>Yes Mission Control I copy!</reply>
 <nextStage>1</nextStage>
 <reply>...</reply>
 <nextStage>2</nextStage>
@@ -43,15 +43,55 @@
 <text>Copy that! Have you landed on the surface of *Planet*</text>
 <reply>Yes I am here now, I will return with anything I learn!</reply>
 <nextStage>3</nextStage>
-<reply>Reply 2</reply>
+<reply>No I have not...(lie) </reply>
 <nextStage>4</nextStage>
+</dialogue>
+<stage>2</stage>
+<dialogue>
+<text>*static*</text>
+<reply>n7</reply>
+<nextStage>7</nextStage>
 </dialogue>
 <stage>3</stage>
 <dialogue>
-<text>Stage 3</text>
+<text>Very Well, best of luck in your exploration, Mission Control Out!</text>
+<reply>n6</reply>
+<nextStage>6</nextStage>
 </dialogue>
 <stage>4</stage>
 <dialogue>
-<text>Stage 4</text>
+<text>That is worrying, it is taking longer than expected... Contact us at once whenever you land your ship!</text>
+<reply>n5</reply>
+<nextStage>5</nextStage>
+<reply>n10</reply>
+<nextStage>10</nextStage>
+</dialogue>
+<stage>5</stage>
+<dialogue>
+<text>stage 5</text>
+</dialogue>
+<stage>6</stage>
+<dialogue>
+<text>stage 6</text>
+<reply>n8</reply>
+<nextStage>8</nextStage>
+<reply>n9</reply>
+<nextStage>9</nextStage>
+</dialogue>
+<stage>8</stage>
+<dialogue>
+<text>stage 8</text>
+</dialogue>
+<stage>9</stage>
+<dialogue>
+<text>stage 9</text>
+</dialogue>
+<stage>10</stage>
+<dialogue>
+<text>stage 10</text>
+</dialogue>
+<stage>7</stage>
+<dialogue>
+<text>stage 7</text>
 </dialogue>
 </conversation>

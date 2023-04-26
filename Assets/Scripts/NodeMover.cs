@@ -24,8 +24,6 @@ public class NodeMover : MonoBehaviour
         camera = Camera.main;
         cameraDistanceZ = camera.WorldToScreenPoint(transform.position).z;
         stage = GetComponentInParent<StageGrabber>().stageValue;
-        //deleteButton.SetActive(false);
-        //addButton.SetActive(false);
         characterText  = GameObject.FindGameObjectWithTag("NameDisplay").GetComponent<TextMeshProUGUI>();
     }
 
@@ -34,23 +32,6 @@ public class NodeMover : MonoBehaviour
     {
         parsedDialogue = FindObjectOfType<DialogueSystemNew>().parsedDialogue;
         cameraDistanceZ = camera.WorldToScreenPoint(transform.position).z;
-        //for (int i = 0; i < parsedDialogue.Count; i++)
-        //{
-        //    if (parsedDialogue[i].replies.Count == 0)
-        //    {
-        //        if (parsedDialogue[i].character == characterText.text)
-        //        {
-                
-        //            deleteButton.SetActive(true);
-        //            addButton.SetActive(true);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        deleteButton.SetActive(false);
-        //        addButton.SetActive(false);
-        //    }
-        //}
     }
 
     private void OnMouseDrag()
@@ -139,58 +120,6 @@ public class NodeMover : MonoBehaviour
             line.SetPosition(1, gameObject.transform.position);
             line.GetComponent<LineInformation>().startObject = replyNode.gameObject;
             line.GetComponent<LineInformation>().endObject = gameObject;
-
-            //if (identities[i] == dialogueSystem.parsedDialogue[j].character)
-            //{
-            //    //Spawn in all dialogue nodes
-            //    TMP_InputField dialogueNode = Instantiate(dialogueNodePrefab).GetComponent<TMP_InputField>();
-            //    dialogueNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
-            //    dialogueNode.text = dialogueSystem.parsedDialogue[j].dialogue;
-            //    FindObjectOfType<DialogueEditor>().editableDialogues.Add(j);
-            //    dialogueNode.transform.position = new Vector3(0, 1500 - (nodeCount * 300), 0);
-            //    dialogueNode.GetComponentInChildren<TextMeshProUGUI>().text
-            //        = "Stage: " + dialogueSystem.parsedDialogue[j].stage.ToString();
-
-            //    dialogueNode.GetComponent<StageGrabber>().stageValue = dialogueSystem.parsedDialogue[j].stage;
-            //    FindObjectOfType<DialogueTreeShapeSetter>().SetShape();
-            //    nodeCount++;
-
-            //    //Spawn in all reply nodes
-            //    for (int replyCount = 0; replyCount < dialogueSystem.parsedDialogue[j].replies.Count; replyCount++)
-            //    {
-            //        LineRenderer line = Instantiate(lineRendererPrefab);
-            //        TMP_InputField replyNode = Instantiate(replyNodePrefab).GetComponent<TMP_InputField>();
-            //        replyNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
-            //        replyNode.text = dialogueSystem.parsedDialogue[j].replies[replyCount];
-            //        FindObjectOfType<DialogueEditor>().editableReplies.Add(j);
-            //        if (nodeCount == 1)
-            //        {
-            //            replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 600 + ((1200 * replyCount)), dialogueNode.transform.position.y - 100, 0);
-            //            //Set DialogueNodes lines to Replies
-            //            line.positionCount = 2;
-            //            line.SetPosition(0, replyNode.transform.position);
-            //            line.SetPosition(1, dialogueNode.transform.position);
-            //            line.GetComponent<LineInformation>().startObject = replyNode.gameObject;
-            //            line.GetComponent<LineInformation>().endObject = dialogueNode.gameObject;
-            //        }
-            //        else
-            //        {
-            //            replyNode.transform.position = new Vector3(dialogueNode.transform.position.x - 300 + ((600 * replyCount)), dialogueNode.transform.position.y - 100, 0);
-            //            //Set DialogueNodes lines to Replies
-            //            line.positionCount = 2;
-            //            line.SetPosition(0, replyNode.transform.position);
-            //            line.SetPosition(1, dialogueNode.transform.position);
-            //            line.GetComponent<LineInformation>().startObject = replyNode.gameObject;
-            //            line.GetComponent<LineInformation>().endObject = dialogueNode.gameObject;
-            //        }
-            //        replyNode.GetComponentInChildren<TextMeshProUGUI>().text
-            //            = "Next Stage: " + dialogueSystem.parsedDialogue[j].nextStage[replyCount].ToString();
-
-            //        replyNode.GetComponent<StageGrabber>().stageValue = dialogueSystem.parsedDialogue[j].nextStage[replyCount];
-
-            //    }
-            //}
-
         }
         else if (gameObject.tag == "ReplyNode") //If on reply node create dialogue node
         {
@@ -209,7 +138,6 @@ public class NodeMover : MonoBehaviour
                 Dialogue dialogue = new Dialogue();
                 TMP_InputField dialogueNode = Instantiate(dialogueNodePrefab).GetComponent<TMP_InputField>();
                 dialogueNode.gameObject.transform.parent = FindObjectOfType<DialogueEditor>().gameObject.transform;
-                //    dialogueNode.text = dialogueSystem.parsedDialogue[j].dialogue;
                 dialogue.character = characterText.text;
                 dialogue.dialogue = dialogueNode.text;
                 dialogue.stage = gameObject.GetComponent<StageGrabber>().stageValue;
@@ -222,14 +150,6 @@ public class NodeMover : MonoBehaviour
 
                     if (parsedDialogue[i].character == dialogue.character)
                     {
-                        //if (dialogue.stage < parsedDialogue[j].stage)
-                        //{
-                        //    indexToInsert = j;
-                        //}
-                        //else if(dialogue.stage > parsedDialogue[j].stage)
-                        //{
-                        //    indexToInsert = j+1;
-                        //}
                         indexToInsert = i+1;
                     }
                 }

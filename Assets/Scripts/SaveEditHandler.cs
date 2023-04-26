@@ -18,9 +18,6 @@ public class SaveEditHandler : MonoBehaviour
         GameObject[] nodesOfReplies = GameObject.FindGameObjectsWithTag("ReplyNode");
         LineRenderer[] lineRenderers = FindObjectsOfType<LineRenderer>();
 
-        
-        int reply = 0;
-
         for (int i = 0; i < nodesOfDialogue.Length; i++)
         {
             int index = FindObjectOfType<DialogueEditor>().editableDialogues[i];
@@ -29,9 +26,15 @@ public class SaveEditHandler : MonoBehaviour
 
             for (int j = 0; j < dialogue.replies.Count; j++)
             {
-                dialogue.replies[j] = nodesOfReplies[reply].GetComponent<TMP_InputField>().text;
-                Destroy(nodesOfReplies[reply]);
-                reply++;
+                for(int reply = 0; reply < nodesOfReplies.Length; reply++)
+                {
+                    if (dialogue.nextStage[j] == nodesOfReplies[reply].GetComponent<StageGrabber>().stageValue)
+                    {
+                        //int tempstage = nodesOfReplies[j].GetComponent<StageGrabber>().stageValue;
+                        dialogue.replies[j] = nodesOfReplies[reply].GetComponent<TMP_InputField>().text;
+                    }
+                    Destroy(nodesOfReplies[reply]);
+                }
             }
 
             FindObjectOfType<DialogueSystemNew>().parsedDialogue[index] = dialogue;

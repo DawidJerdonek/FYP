@@ -15,11 +15,6 @@ public class DialogueTreeShapeSetter : MonoBehaviour
         GameObject[] nodesOfReplies = GameObject.FindGameObjectsWithTag("ReplyNode");
         LineRenderer[] lineRenderers = FindObjectsOfType<LineRenderer>();
 
-        //for (int i = 0; i < lineRenderers.Length; i++)
-        //{
-        //    Destroy(lineRenderers[i]);
-        //}
-
         for (int i = 0; i < nodesOfDialogue.Length; i++)
         {
             for(int j = 0; j < nodesOfReplies.Length; j++)
